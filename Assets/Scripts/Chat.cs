@@ -15,7 +15,7 @@ public class Chat : MonoBehaviour
 
     
 {
-        
+    public string result;
 
     private string input;
 
@@ -35,12 +35,13 @@ public class Chat : MonoBehaviour
         if(input !=null)
         {
             var api = new OpenAIClient();
-            var result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: 200, temperature: 0.5, presencePenalty: 0.1, frequencyPenalty: 0.1, model: Model.Davinci);
+             result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: 200, temperature: 0.5, presencePenalty: 0.1, frequencyPenalty: 0.1, model: Model.Davinci);
             Debug.Log(result);
 
             //It sets the text of the scroll view
             Text.SetText(result.ToString());
             Debug.Log(input);
+            Debug.Log(result);
         }
        
     }
