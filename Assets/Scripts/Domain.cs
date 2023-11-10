@@ -4,16 +4,18 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using System.Runtime.CompilerServices;
+using TMPro;
 using UnityEngine;
 
-namespace RoslynCSharp.Example
-{
-    /// <summary>
+
+    /// 
     /// An example script that shows how to use the compiler service to compile and load a C# source code string and then call an instance method on a proxy object.
-    /// </summary>
-    public class Ex14_InstanceMethodsomain : MonoBehaviour
+    /// 
+    public class Domain : MonoBehaviour
     {
         private ScriptDomain domain = null;
+       // private TMP_Text Text = Chat.Text;
+        
         private const string sourceCode = @"
         using UnityEngine;
         class Example
@@ -38,15 +40,7 @@ namespace RoslynCSharp.Example
 
             // Create an instance of 'Example'
             ScriptProxy proxy = type.CreateInstance();
-
-            // Create an instance of 'Example' using the overload constructor
-           // proxy = type.CreateInstance();
-
-
-            // Call the method called 'ExampleMethod' and pass the string argument 'World'
-            // Note that any exceptions thrown by the target method will not be caught
-            proxy.Call("ExampleMethod", "World");
-
+   
 
             // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
             // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
@@ -55,7 +49,7 @@ namespace RoslynCSharp.Example
     }
 
  
-}
+
 
 
 

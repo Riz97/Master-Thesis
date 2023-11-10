@@ -20,7 +20,7 @@ public class Chat : MonoBehaviour
     private string input;
 
     [SerializeField]
-    public TMP_Text Text;
+    public static TMP_Text Text;
 
     [SerializeField]
     public TMP_InputField InputField;
