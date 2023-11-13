@@ -14,7 +14,7 @@ using UnityEngine;
     public class Domain : MonoBehaviour
     {
         private ScriptDomain domain = null;
-       // private TMP_Text Text = Chat.Text;
+    TMP_Text Text = null;
         
         private const string sourceCode = @"
         using UnityEngine;
@@ -31,10 +31,12 @@ using UnityEngine;
         /// </summary>
         public void Start()
         {
+        Text = GameObject.Find("Ai_Manager").GetComponent<Chat>().Text;
             // Create domain
             domain = ScriptDomain.CreateDomain("Example Domain");
 
 
+        StartCoroutine(PrintOutputIA());
             // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
             ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
 
@@ -46,7 +48,13 @@ using UnityEngine;
             // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
             proxy.SafeCall("ExampleMethod", "Safe World");
         }
+
+    public IEnumerator PrintOutputIA()
+    {
+        yield return new WaitForSeconds(1);
+        Debug.Log(Text.text.ToString());
     }
+}
 
  
 
