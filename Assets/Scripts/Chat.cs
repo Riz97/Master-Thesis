@@ -19,6 +19,7 @@ public class Chat : MonoBehaviour
   private string result;
 
     private string input;
+    private string Reminders;
 
     [SerializeField]
     public  TMP_Text Text;
@@ -27,19 +28,19 @@ public class Chat : MonoBehaviour
     public TMP_InputField InputField;
 
     [SerializeField]
-    public List<string> Reminders = new List<string>();
+    public List<string> Reminders_List = new List<string>();
 
  
 
     // Update is called once per frame
     async void Start()
     {
-        for(int i = 0; i < Reminders.Count; i++)
-        InputField.text = string.Join(',', Reminders[i]);
+        for(int i = 0; i < Reminders_List.Count; i++)
+        Reminders = string.Join(',', Reminders[i]);
 
 
 
-        if (input !=null)
+        if (input !=null && input != Reminders )
         {
             var api = new OpenAIClient();
              result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: 200, temperature: 0.5, presencePenalty: 0.1, frequencyPenalty: 0.1, model: Model.Davinci);
@@ -47,7 +48,7 @@ public class Chat : MonoBehaviour
 
             //It sets the text of the scroll view
             Text.SetText(result.ToString());
-
+            Debug.Log(input);
 
             
           
