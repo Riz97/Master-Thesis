@@ -52,12 +52,8 @@ using UnityEngine;
         if(Text.text.ToString() != "static void Main()")
         {
             PrintAI_Thoughts();
-
         }
-
-
-
-        }
+    }
 
     //---------------------------------------------- Waiter for the Text displayed whenever the AI write something-----------------------------
 
