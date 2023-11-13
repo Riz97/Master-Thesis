@@ -14,7 +14,7 @@ using UnityEngine;
     public class Domain : MonoBehaviour
     {
         private ScriptDomain domain = null;
-    TMP_Text Text = null;
+        TMP_Text Text = null;
         
         private const string sourceCode = @"
         using UnityEngine;
@@ -35,8 +35,8 @@ using UnityEngine;
             // Create domain
             domain = ScriptDomain.CreateDomain("Example Domain");
 
-
-        StartCoroutine(PrintOutputIA());
+      
+       
             // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
             ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
 
@@ -47,13 +47,32 @@ using UnityEngine;
             // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
             // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
             proxy.SafeCall("ExampleMethod", "Safe World");
+
+        //Waiter
+        if(Text.text.ToString() != "static void Main()")
+        {
+            PrintAI_Thoughts();
+
         }
 
-    public IEnumerator PrintOutputIA()
+
+
+        }
+
+    //---------------------------------------------- Waiter for the Text displayed whenever the AI write something-----------------------------
+
+    public void PrintAI_Thoughts()
+    {
+        {StartCoroutine(WaitIA()); }
+    }
+
+     IEnumerator WaitIA()
     {
         yield return new WaitForSeconds(1);
         Debug.Log(Text.text.ToString());
     }
+
+    //----------------------------------------------
 }
 
  
