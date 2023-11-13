@@ -10,6 +10,7 @@ using System;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.UIElements;
+using System.Linq;
 
 public class Chat : MonoBehaviour
 
@@ -25,14 +26,20 @@ public class Chat : MonoBehaviour
     [SerializeField]
     public TMP_InputField InputField;
 
+    [SerializeField]
+    public List<string> Reminders = new List<string>();
+
  
 
     // Update is called once per frame
     async void Start()
     {
+        for(int i = 0; i < Reminders.Count; i++)
+        InputField.text = string.Join(',', Reminders[i]);
 
-       
-        if(input !=null)
+
+
+        if (input !=null)
         {
             var api = new OpenAIClient();
              result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: 200, temperature: 0.5, presencePenalty: 0.1, frequencyPenalty: 0.1, model: Model.Davinci);
@@ -40,6 +47,9 @@ public class Chat : MonoBehaviour
 
             //It sets the text of the scroll view
             Text.SetText(result.ToString());
+
+
+            
           
         }
        

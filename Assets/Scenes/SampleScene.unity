@@ -487,6 +487,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
+  Reminders:
+  - do not include any explanations
 --- !u!4 &331239456
 Transform:
   m_ObjectHideFlags: 0
@@ -1847,7 +1849,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1121958102}
         m_TargetAssemblyTypeName: Domain, Assembly-CSharp
-        m_MethodName: boh
+        m_MethodName: PrintAI_Thoughts
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
