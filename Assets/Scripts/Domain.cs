@@ -13,10 +13,15 @@ using UnityEngine;
     /// 
     public class Domain : MonoBehaviour
     {
-        private ScriptDomain domain = null;
-        TMP_Text Text = null;
 
-    private  string sourceCode = null;
+    [SerializeField]
+    TMP_Text Output_Text;
+
+        private TMP_Text Text= null;
+        private ScriptDomain domain = null;
+        private string sourceCode;
+
+    
 
         /// <summary>
         /// Called by Unity.
@@ -24,21 +29,20 @@ using UnityEngine;
         public void Start()
         {
         Text = GameObject.Find("Ai_Manager").GetComponent<Chat>().Text;
-            // Create domain
-            //domain = ScriptDomain.CreateDomain("Example Domain");
+            
+            
 
       
        
             // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
-            //ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
+           
 
-        // Create an instance of 'Example'
+       
        // ScriptProxy proxy = type.CreateInstance();
     
 
 
-    // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
-    // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
+
    // proxy.SafeCall("ExampleMethod", "Safe World");
 
         //Waiter
@@ -50,14 +54,30 @@ using UnityEngine;
 
 
     public void DoScript()
+
     {
+        
+     
+        if (Text.text.ToString() != "static void Main()")
+        {
+        sourceCode = Output_Text.text.ToString();
+
+        // Create domain
         domain = ScriptDomain.CreateDomain("Example Domain");
+
+        // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
         ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
+
+         // Create an instance of 'Example'
         ScriptProxy proxy = type.CreateInstance();
-
-        sourceCode = Text.text.ToString();
-
+            
+        // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
+        // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
         proxy.SafeCall(sourceCode);
+        }
+         
+      
+        //
     }
 
 
@@ -71,8 +91,8 @@ using UnityEngine;
 
      IEnumerator WaitIA()
     {
-        yield return new WaitForSeconds(1);
-        Debug.Log(Text.text.ToString());
+        yield return new WaitForSeconds(10);
+        //Debug.Log(Text.text.ToString());
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------------

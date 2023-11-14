@@ -16,7 +16,7 @@ public class Chat : MonoBehaviour
 
     
 {
-  private string result;
+  public static string result;
 
     private string input;
     private string Reminders;
@@ -48,7 +48,7 @@ public class Chat : MonoBehaviour
 
             //It sets the text of the scroll view
             Text.SetText(result.ToString());
-            Debug.Log(input);
+            Debug.Log(result);
 
             
           
