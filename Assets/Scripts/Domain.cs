@@ -15,16 +15,8 @@ using UnityEngine;
     {
         private ScriptDomain domain = null;
         TMP_Text Text = null;
-        
-        private const string sourceCode = @"
-        using UnityEngine;
-        class Example
-        {
-            void ExampleMethod(string input)
-            {
-                Debug.Log(""Hello "" + input);
-            }
-        }";
+
+    private  string sourceCode = null;
 
         /// <summary>
         /// Called by Unity.
@@ -33,20 +25,21 @@ using UnityEngine;
         {
         Text = GameObject.Find("Ai_Manager").GetComponent<Chat>().Text;
             // Create domain
-            domain = ScriptDomain.CreateDomain("Example Domain");
+            //domain = ScriptDomain.CreateDomain("Example Domain");
 
       
        
             // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
-            ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
+            //ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
 
-            // Create an instance of 'Example'
-            ScriptProxy proxy = type.CreateInstance();
-   
+        // Create an instance of 'Example'
+       // ScriptProxy proxy = type.CreateInstance();
+    
 
-            // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
-            // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
-            proxy.SafeCall("ExampleMethod", "Safe World");
+
+    // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
+    // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
+   // proxy.SafeCall("ExampleMethod", "Safe World");
 
         //Waiter
         if(Text.text.ToString() != "static void Main()")
@@ -54,6 +47,20 @@ using UnityEngine;
             PrintAI_Thoughts();
         }
     }
+
+
+    public void DoScript()
+    {
+        domain = ScriptDomain.CreateDomain("Example Domain");
+        ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
+        ScriptProxy proxy = type.CreateInstance();
+
+        sourceCode = Text.text.ToString();
+
+        proxy.SafeCall(sourceCode);
+    }
+
+
 
     //---------------------------------------------- Waiter for the Text displayed whenever the AI write something-----------------------------
 

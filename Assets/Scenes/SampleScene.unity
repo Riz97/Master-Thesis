@@ -370,10 +370,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Chat, Assembly-CSharp
-        m_MethodName: ReadStringInput
-        m_Mode: 5
+      - m_Target: {fileID: 1121958102}
+        m_TargetAssemblyTypeName: Domain, Assembly-CSharp
+        m_MethodName: DoScript
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -487,8 +487,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
-  Reminders:
-  - do not include any explanations
+  Reminders_List: []
 --- !u!4 &331239456
 Transform:
   m_ObjectHideFlags: 0
@@ -1850,6 +1849,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1121958102}
         m_TargetAssemblyTypeName: Domain, Assembly-CSharp
         m_MethodName: PrintAI_Thoughts
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1121958102}
+        m_TargetAssemblyTypeName: Domain, Assembly-CSharp
+        m_MethodName: DoScript
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
