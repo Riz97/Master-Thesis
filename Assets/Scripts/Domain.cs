@@ -28,25 +28,11 @@ using UnityEngine;
         /// </summary>
         public void Start()
         {
-        Text = GameObject.Find("Ai_Manager").GetComponent<Chat>().Text;
-            
-            
+        
 
-      
-       
-            // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
-           
-
-       
-       // ScriptProxy proxy = type.CreateInstance();
-    
-
-
-
-   // proxy.SafeCall("ExampleMethod", "Safe World");
 
         //Waiter
-        if(Text.text.ToString() != "static void Main()")
+        if(Output_Text.text.ToString() != "static void Main()")
         {
             PrintAI_Thoughts();
         }
@@ -57,25 +43,8 @@ using UnityEngine;
 
     {
         
-     
-        if (Text.text.ToString() != "static void Main()")
-        {
-        sourceCode = Output_Text.text.ToString();
-
-        // Create domain
-        domain = ScriptDomain.CreateDomain("Example Domain");
-
-        // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
-        ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
-
-         // Create an instance of 'Example'
-        ScriptProxy proxy = type.CreateInstance();
-            
-        // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
-        // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
-        proxy.SafeCall(sourceCode);
-        }
-         
+     PrintAI_Thoughts();
+          
       
         //
     }
@@ -91,8 +60,27 @@ using UnityEngine;
 
      IEnumerator WaitIA()
     {
-        yield return new WaitForSeconds(10);
-        //Debug.Log(Text.text.ToString());
+        
+        sourceCode = Output_Text.text.ToString();
+        Debug.Log(sourceCode);
+        yield return new WaitForSeconds(5);
+         
+        // Create domain
+        domain = ScriptDomain.CreateDomain("Example Domain");
+Debug.Log("Domain creato");
+        // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
+        ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
+        Debug.Log("Type fattp");
+        // Create an instance of 'Example'
+        ScriptProxy proxy = type.CreateInstance(gameObject);
+        Debug.Log("Proxy creato");
+
+
+        // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
+        // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
+
+        
+        proxy.SafeCall(sourceCode);
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------------

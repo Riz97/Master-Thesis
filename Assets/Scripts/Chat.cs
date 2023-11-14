@@ -36,7 +36,7 @@ public class Chat : MonoBehaviour
     async void Start()
     {
         for(int i = 0; i < Reminders_List.Count; i++)
-        Reminders = string.Join(',', Reminders[i]);
+        input = string.Join(',', Reminders_List[i]);
 
 
 
@@ -48,7 +48,7 @@ public class Chat : MonoBehaviour
 
             //It sets the text of the scroll view
             Text.SetText(result.ToString());
-            Debug.Log(result);
+            //Debug.Log(result);
 
             
           
