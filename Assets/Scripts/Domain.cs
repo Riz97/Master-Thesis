@@ -50,10 +50,14 @@ using UnityEngine;
     //Wait for 5 seconds for the creation of the CHATGPT script
      IEnumerator WaitIA()
     {
+        //In this way we wait 3 seconds , in these 3 seconds the ai should be able to 
+        //provide a correct script that Roslyin will compile at runtime
+        yield return new WaitForSeconds(3);
+
         if (Output_Text.text.ToString() != Welcome_Message)
         {
         sourceCode = Output_Text.text.ToString();
-        Debug.Log(sourceCode);
+        //Debug.Log(sourceCode);
         yield return new WaitForSeconds(5);
          
         // Create domain

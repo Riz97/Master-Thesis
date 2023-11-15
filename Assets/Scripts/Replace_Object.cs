@@ -6,17 +6,15 @@ public class Replace_Object : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField]
-    private MeshFilter modelToChange;
 
-    [SerializeField]
-    private Mesh modelToUse;
+    public Mesh cylinderMesh;
 
-   void Update()
+    private void Start()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(this.gameObject.name == "Sphere")
         {
-            modelToChange.mesh = modelToUse;
+            this.gameObject.GetComponent<MeshFilter>().mesh = cylinderMesh;
         }
     }
-      }
+
+}

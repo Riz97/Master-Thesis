@@ -18,7 +18,8 @@ public class Chat : MonoBehaviour
 {
   public static string result;
 
-    private string input;
+    private string input = null;
+    private string input_aux;
     private string Reminders;
 
     [SerializeField]
@@ -30,18 +31,34 @@ public class Chat : MonoBehaviour
     [SerializeField]
     public List<string> Reminders_List = new List<string>();
 
+    [SerializeField]
+    public string First_Reminder;
+
  
 
     // Update is called once per frame
     async void Start()
     {
-        for(int i = 0; i < Reminders_List.Count; i++)
-        input = string.Join(',', Reminders_List[i]);
 
+        input = string.Concat(First_Reminder, input);
+        input_aux = string.Concat(First_Reminder, input_aux);
 
-
-        if (input !=null && input != Reminders )
+        for (int i = 0; i < Reminders_List.Count; i++)
         {
+
+            input = input + "," + Reminders_List[i];
+
+            input_aux = input_aux + "," + Reminders_List[i];
+        }
+
+       
+    
+//        Debug.Log(input);
+       
+
+        if (input !=null  && input != input_aux)
+        {
+        //    Debug.Log(input);
             var api = new OpenAIClient();
              result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: 200, temperature: 0.5, presencePenalty: 0.1, frequencyPenalty: 0.1, model: Model.Davinci);
             
