@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using UnityEngine;
 
 public class Replace_Object : MonoBehaviour
@@ -7,13 +8,17 @@ public class Replace_Object : MonoBehaviour
     // Start is called before the first frame update
 
 
-    public Mesh cylinderMesh;
+    
 
     private void Start()
     {
-        if(this.gameObject.name == "Sphere")
+ GameObject Sphere = GameObject.Find("Sphere");
+
+      if(Sphere != null)
         {
-            this.gameObject.GetComponent<MeshFilter>().mesh = cylinderMesh;
+            Debug.Log("beccato");
+            Mesh cubeMesh = (Mesh)Resources.Load("Capsule", typeof(Mesh));
+            Sphere.GetComponent<MeshFilter>().mesh = cubeMesh;
         }
     }
 
