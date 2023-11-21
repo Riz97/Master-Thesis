@@ -15,4 +15,9 @@ public class Change_Scene : MonoBehaviour
     {
         SceneManager.LoadScene("User_Scene");
     }
+
+    public void Useful_Info_Scene()
+    {
+
+    }
 }
