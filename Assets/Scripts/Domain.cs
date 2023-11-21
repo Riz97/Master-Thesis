@@ -2,6 +2,7 @@ using RoslynCSharp;
 using RoslynCSharp.Compiler;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using TMPro;
@@ -50,6 +51,9 @@ using UnityEngine;
     //Wait for 5 seconds for the creation of the CHATGPT script
      IEnumerator WaitIA()
     {
+
+       
+
         //In this way we wait 3 seconds , in these 3 seconds the ai should be able to 
         //provide a correct script that Roslyin will compile at runtime
         yield return new WaitForSeconds(3);
@@ -71,13 +75,14 @@ using UnityEngine;
         //Debug.Log("Type fattp");
         // Create an instance of 'Example'
         ScriptProxy proxy = type.CreateInstance(gameObject);
-        
-        //Debug.Log("Proxy creato");
+
+            //Debug.Log("Proxy creato");
 
 
-        // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
-        // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
+            // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
+            // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
 
+            CreateLogFile(sourceCode);
         
         proxy.SafeCall(sourceCode);
         }
@@ -85,6 +90,24 @@ using UnityEngine;
     }
 
     //-------------------------------------------------------------------------------------------------------------------------------------------
+
+    void CreateLogFile(string sourcecode)
+    {
+
+        //TODO mettere anche la domanda fatta a chatgpt prima della risposta
+
+        string s_time = System.DateTime.Now.ToString("dd-MM-yy-hh-mm-ss");
+        string path = Application.dataPath + "/Logs/" + s_time + ".txt";
+
+        if(!File.Exists(path))
+        {
+            Debug.Log("File creato");
+            File.WriteAllText(path,"Log \n\n");
+        }
+    
+        File.AppendAllText(path,sourcecode+ "\n");
+    }
+
 }
 
  

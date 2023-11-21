@@ -34,12 +34,29 @@ public class Chat : MonoBehaviour
     [SerializeField]
     public string First_Reminder;
 
- 
+
+    [SerializeField]
+    TMP_Text Output_Text;
+
+
+    
+
+    //-------------------- OPEN AI CLIENT INFO ------------------------
+
+    int maxTokens = 200;
+    double temperature = 0.5;
+    double presencePenalty = 0.1;
+    double frequencyPenalty = 0.1;
+    Model model = Model.Davinci;
+
+    //--------------------------------------------------------------------
 
     // Update is called once per frame
     async void Start()
     {
 
+        float time = Time.time;
+        
         input = string.Concat(First_Reminder, input);
         input_aux = string.Concat(First_Reminder, input_aux);
 
@@ -60,7 +77,7 @@ public class Chat : MonoBehaviour
         {
         //    Debug.Log(input);
             var api = new OpenAIClient();
-             result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: 200, temperature: 0.5, presencePenalty: 0.1, frequencyPenalty: 0.1, model: Model.Davinci);
+             result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
             
 
             //It sets the text of the scroll view
@@ -72,6 +89,8 @@ public class Chat : MonoBehaviour
         }
        
     }
+
+   
 
     //It handles the InputField string written by the user
 

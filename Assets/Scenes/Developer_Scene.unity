@@ -136,6 +136,7 @@ GameObject:
   - component: {fileID: 33634639}
   - component: {fileID: 33634638}
   - component: {fileID: 33634637}
+  - component: {fileID: 33634640}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -287,6 +288,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33634634}
   m_CullTransparentMesh: 1
+--- !u!114 &33634640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33634634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ef3c1b25fab53c4584092bdfd991d15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Output_Text: {fileID: 33634638}
 --- !u!1 &55758268
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +505,7 @@ MonoBehaviour:
   - without explanations
   - thank you
   First_Reminder: 'Write a C# unity  script that '
+  Output_Text: {fileID: 33634638}
 --- !u!4 &331239456
 Transform:
   m_ObjectHideFlags: 0
