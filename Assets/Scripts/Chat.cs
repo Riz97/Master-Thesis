@@ -44,7 +44,7 @@ public class Chat : MonoBehaviour
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
     public static int  maxTokens = 200;
-    double temperature = 0.5;
+    public static double temperature = 0.5;
     double presencePenalty = 0.1;
     double frequencyPenalty = 0.1;
     Model model = Model.Davinci;
