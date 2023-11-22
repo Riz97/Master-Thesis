@@ -82,11 +82,13 @@ public class Domain : MonoBehaviour
             //Debug.Log("Proxy creato");
 
 
-            // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
-            // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
+            
 
-            CreateLogFile(sourceCode,Input_Text);
+        CreateLogFile(sourceCode,Input_Text);
         
+
+        // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
+       // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
         proxy.SafeCall(sourceCode);
         }
 
@@ -97,7 +99,6 @@ public class Domain : MonoBehaviour
     void CreateLogFile(string sourcecode , TMP_Text Input_Text)
     {
 
-        //TODO mettere anche la domanda fatta a chatgpt prima della risposta
 
         string s_time = System.DateTime.Now.ToString("dd-MM-yy-hh-mm-ss");
         string path = Application.dataPath + "/Logs/" + s_time + ".txt";
