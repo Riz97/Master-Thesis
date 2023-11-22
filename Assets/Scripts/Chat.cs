@@ -45,9 +45,9 @@ public class Chat : MonoBehaviour
 
     public static int  maxTokens = 200;
     public static double temperature = 0.5;
-    double presencePenalty = 0.1;
-    double frequencyPenalty = 0.1;
-    Model model = Model.Davinci;
+    public static double presencePenalty = 0.1;
+    public static double frequencyPenalty = 0.1;
+    public static Model model = Model.Davinci;
 
     //--------------------------------------------------------------------
 

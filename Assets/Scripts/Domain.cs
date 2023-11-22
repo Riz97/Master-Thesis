@@ -3,6 +3,7 @@ using RoslynCSharp.Compiler;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq.Expressions;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using TMPro;
@@ -24,10 +25,13 @@ public class Domain : MonoBehaviour
     private const string Welcome_Message = "static void Main()";
         private ScriptDomain domain = null;
         private string sourceCode;
+    private bool flag = true ;
+
+   
        
         public void Start()
         {
-        
+       
         //Waiter
         if(Output_Text.text.ToString() != Welcome_Message)
         {
@@ -82,9 +86,11 @@ public class Domain : MonoBehaviour
             //Debug.Log("Proxy creato");
 
 
-            
+        
+                CreateLogFile(sourceCode, Input_Text);
+                    
 
-        CreateLogFile(sourceCode,Input_Text);
+        ;
         
 
         // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
@@ -100,15 +106,19 @@ public class Domain : MonoBehaviour
     {
 
 
-        string s_time = System.DateTime.Now.ToString("dd-MM-yy-hh-mm-ss");
-        string path = Application.dataPath + "/Logs/" + s_time + ".txt";
+       string  s_time = System.DateTime.Now.ToString("dd-MM-yy-hh-mm-ss");
+       string path = Application.dataPath + "/Logs/" + s_time + ".txt";
 
-        if(!File.Exists(path))
+        if(!File.Exists(path) && flag == true)
         {
             Debug.Log("File creato");
-            File.WriteAllText(path,"LOG GENERATED FOR THE SESSION " +
-                "\n\n " + "Max Tokens : " + Chat.maxTokens + "\n" + 
-                "Temperature " + Chat.temperature);
+            File.WriteAllText(path,"LOG GENERATED FOR THE SESSION" +
+                "\n\n" + "Max Tokens : " + Chat.maxTokens + "\n" + 
+                "Temperature: " + Chat.temperature + "\n" +
+                "Presence Penalty: " + Chat.presencePenalty + "\n" + 
+                "Frequency Penalty: " + Chat.frequencyPenalty + "\n" + 
+                "Model: " + Chat.model + "\n\n");
+            flag = false;
         }
     
         File.AppendAllText(path,"You wrote the following  sentence : " +
