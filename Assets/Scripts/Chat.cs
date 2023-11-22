@@ -43,7 +43,7 @@ public class Chat : MonoBehaviour
 
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
-    int maxTokens = 200;
+    public static int  maxTokens = 200;
     double temperature = 0.5;
     double presencePenalty = 0.1;
     double frequencyPenalty = 0.1;
@@ -55,7 +55,7 @@ public class Chat : MonoBehaviour
     async void Start()
     {
 
-        float time = Time.time;
+        
         
         input = string.Concat(First_Reminder, input);
         input_aux = string.Concat(First_Reminder, input_aux);

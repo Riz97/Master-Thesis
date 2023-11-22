@@ -300,7 +300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ef3c1b25fab53c4584092bdfd991d15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Output_Text: {fileID: 33634638}
 --- !u!1 &55758268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +1012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Output_Text: {fileID: 33634638}
+  Input_Text: {fileID: 426530254}
 --- !u!1 &1182225935
 GameObject:
   m_ObjectHideFlags: 0
