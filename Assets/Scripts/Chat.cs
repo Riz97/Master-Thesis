@@ -38,7 +38,7 @@ public class Chat : MonoBehaviour
     [SerializeField]
     TMP_Text Output_Text;
 
-
+    
     
 
     //-------------------- OPEN AI CLIENT INFO ------------------------
@@ -75,10 +75,13 @@ public class Chat : MonoBehaviour
 
         if (input !=null  && input != input_aux)
         {
-        //    Debug.Log(input);
+            
+            float start_time = Time.time;
+        
             var api = new OpenAIClient();
              result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
-            
+
+            Debug.Log("Elapsed time = " + (Time.time - start_time));
 
             //It sets the text of the scroll view
             Text.SetText(result.ToString());
