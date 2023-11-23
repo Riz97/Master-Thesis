@@ -27,7 +27,7 @@ public class Domain : MonoBehaviour
     private string sourceCode;
  
 
-    static string s_time = System.DateTime.Now.ToString("dd-MM-yy-hh-mm-ss");
+    static string s_time = System.DateTime.Now.ToString("dd-MM-hh-mm-ss");
     string path = Application.dataPath + "/Logs/" + s_time + ".txt";
 
     public void Start()
@@ -69,29 +69,23 @@ public class Domain : MonoBehaviour
         if (Output_Text.text.ToString() != Welcome_Message)
         {
         sourceCode = Output_Text.text.ToString();
-        //Debug.Log(sourceCode);
+
         yield return new WaitForSeconds(5);
          
         // Create domain
         domain = ScriptDomain.CreateDomain("Example Domain");
         
-        //Debug.Log("Domain creato");
+        
         
         // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
         ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
-        
-        //Debug.Log("Type fattp");
+
         // Create an instance of 'Example'
         ScriptProxy proxy = type.CreateInstance(gameObject);
 
-            //Debug.Log("Proxy creato");
-
-
-        
-                CreateLogFile(sourceCode, Input_Text);
+        CreateLogFile(sourceCode, Input_Text);
                     
 
-        ;
         
 
         // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
@@ -108,7 +102,7 @@ public class Domain : MonoBehaviour
 
 
 
-        if(!File.Exists(path) && flag == true)
+        if(!File.Exists(path))
         {
             Debug.Log("File creato");
             File.WriteAllText(path,"LOG GENERATED FOR THE SESSION" +
@@ -117,7 +111,7 @@ public class Domain : MonoBehaviour
                 "Presence Penalty: " + Chat.presencePenalty + "\n" + 
                 "Frequency Penalty: " + Chat.frequencyPenalty + "\n" + 
                 "Model: " + Chat.model + "\n\n");
-            flag = false;
+            
         }
     
         File.AppendAllText(path,"\nYou wrote the following  sentence : " +
