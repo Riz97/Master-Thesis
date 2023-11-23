@@ -20,7 +20,10 @@ public class Chat : MonoBehaviour
 
     private string input = null;
     private string input_aux;
-    private string Reminders;
+
+    public static float elapsed_time;
+
+   
 
     [SerializeField]
     public  TMP_Text Text;
@@ -56,6 +59,7 @@ public class Chat : MonoBehaviour
     {
 
         
+        //-----------------------INVISIBLE STRINGS HANDLER-----------------------
         
         input = string.Concat(First_Reminder, input);
         input_aux = string.Concat(First_Reminder, input_aux);
@@ -67,6 +71,7 @@ public class Chat : MonoBehaviour
 
             input_aux = input_aux + "," + Reminders_List[i];
         }
+        //--------------------------------------------------------------------------
 
        
     
@@ -81,7 +86,9 @@ public class Chat : MonoBehaviour
             var api = new OpenAIClient();
              result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
 
-            Debug.Log("Elapsed time = " + (Time.time - start_time));
+
+            //Elapsed time for the generation of the script
+             elapsed_time = Time.time - start_time;
 
             //It sets the text of the scroll view
             Text.SetText(result.ToString());
