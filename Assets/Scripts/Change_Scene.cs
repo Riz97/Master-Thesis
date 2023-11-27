@@ -18,6 +18,11 @@ public class Change_Scene : MonoBehaviour
 
     public void Useful_Info_Scene()
     {
+        SceneManager.LoadScene("Useful_Scene");
+    }
 
+    public void Opening_Scene()
+    {
+        SceneManager.LoadScene("Opening_Scene");
     }
 }
