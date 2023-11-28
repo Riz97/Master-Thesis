@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 33634639}
   - component: {fileID: 33634638}
   - component: {fileID: 33634637}
-  - component: {fileID: 33634640}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -238,8 +237,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 45
-  m_fontSizeBase: 45
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -288,18 +287,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 33634634}
   m_CullTransparentMesh: 1
---- !u!114 &33634640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33634634}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef3c1b25fab53c4584092bdfd991d15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &55758268
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,8 +792,9 @@ MonoBehaviour:
   InputField: {fileID: 1921083187}
   Reminders_List:
   - without explanations
+  - using a method called Start
   - thank you
-  First_Reminder: 'Write a C# unity  script that '
+  First_Reminder: 'Write a C# unity script that '
   Output_Text: {fileID: 33634638}
 --- !u!4 &331239456
 Transform:
@@ -1532,7 +1520,7 @@ Transform:
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 25.180008}
+  m_LocalPosition: {x: 0, y: 1, z: 24.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1873,7 +1861,7 @@ Transform:
   m_GameObject: {fileID: 1291648064}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.4181, y: 0, z: 67.3965}
+  m_LocalPosition: {x: -15.4181, y: -0.5, z: 67.3965}
   m_LocalScale: {x: 15.38463, y: 1, z: 19.746992}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2577,7 +2565,7 @@ GameObject:
   - component: {fileID: 1852762411}
   - component: {fileID: 1852762410}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Model_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2663,7 +2651,7 @@ Transform:
   m_GameObject: {fileID: 1852762408}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.526, z: 29.1}
+  m_LocalPosition: {x: 0, y: 0, z: 29.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2913,7 +2901,7 @@ GameObject:
   - component: {fileID: 1964875421}
   - component: {fileID: 1964875420}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Model_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2999,7 +2987,7 @@ Transform:
   m_GameObject: {fileID: 1964875419}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.83, y: 0.78, z: 28.030014}
+  m_LocalPosition: {x: -2.08, y: 0, z: 28.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3281,7 +3269,7 @@ GameObject:
   - component: {fileID: 2132644926}
   - component: {fileID: 2132644925}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: Model_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3369,7 +3357,7 @@ Transform:
   m_GameObject: {fileID: 2132644924}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4078, y: 0.7085, z: 28.680008}
+  m_LocalPosition: {x: 2.4078, y: 0.24, z: 28.680008}
   m_LocalScale: {x: 0.9955, y: 0.6585, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3382,10 +3370,10 @@ SceneRoots:
   - {fileID: 1121958101}
   - {fileID: 963194228}
   - {fileID: 705507995}
-  - {fileID: 1852762413}
   - {fileID: 1291648068}
   - {fileID: 2023639684}
   - {fileID: 1182225938}
   - {fileID: 2132644928}
+  - {fileID: 1852762413}
   - {fileID: 1964875423}
   - {fileID: 331239456}
