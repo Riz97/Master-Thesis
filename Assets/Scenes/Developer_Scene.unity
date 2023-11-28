@@ -791,9 +791,8 @@ MonoBehaviour:
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
   Reminders_List:
-  - without explanations
-  - using a method called Start
-  - thank you
+  - using a method called Start,
+  - the name of the objects in the hierarchy must be Model_1 , Model_2 and Model_3
   First_Reminder: 'Write a C# unity script that '
   Output_Text: {fileID: 33634638}
 --- !u!4 &331239456
