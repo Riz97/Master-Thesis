@@ -104,7 +104,7 @@ public class Domain : MonoBehaviour
 
         if(!File.Exists(path))
         {
-            Debug.Log("File creato");
+           
             File.WriteAllText(path,"LOG GENERATED FOR THE SESSION" +
                 "\n\n" + "Max Tokens : " + Chat.maxTokens + "\n" + 
                 "Temperature: " + Chat.temperature + "\n" +
