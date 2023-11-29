@@ -18,7 +18,7 @@ public class Chat : MonoBehaviour
 {
   public static string result;
 
-    private string input = null;
+    private string input;
     private string input_aux;
 
     public static float elapsed_time;
@@ -46,7 +46,7 @@ public class Chat : MonoBehaviour
 
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
-    public static int  maxTokens = 500;
+    public static int  maxTokens = 700;
     public static double temperature = 0.5;
     public static double presencePenalty = 0.1;
     public static double frequencyPenalty = 0.1;
@@ -75,7 +75,7 @@ public class Chat : MonoBehaviour
 
        
     
-//        Debug.Log(input);
+       Debug.Log(input);
        
 
         if (input !=null  && input != input_aux)
@@ -105,10 +105,10 @@ public class Chat : MonoBehaviour
     //It handles the InputField string written by the user
 
     //Method called with On End Edit (writing ended)
-    public void ReadStringInput (string s)
+    public void ReadStringInput (TMP_InputField InputField)
 
     {
-        input = s;
+        input = InputField.text.ToString();
         Start();
     }
 }

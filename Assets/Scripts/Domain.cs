@@ -66,13 +66,13 @@ public class Domain : MonoBehaviour
         //In this way we wait 10 seconds only the first time the app is launched
         //, in these  seconds the ai should be able to 
         //provide a correct script that Roslyin will compile at runtime
-        if (Output_Text.text.ToString() == Welcome_Message)
-        {
+        
+        
             yield return new WaitForSeconds(10);
-        }
+        
             
 
-        if (Output_Text.text.ToString() != Welcome_Message)
+       if (Output_Text.text.ToString() != Welcome_Message)
         {
         sourceCode = Output_Text.text.ToString();
 

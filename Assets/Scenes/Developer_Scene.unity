@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3351, y: -0.000091552734}
+  m_AnchoredPosition: {x: 5.3351, y: 0.00021362305}
   m_SizeDelta: {x: -10.0387, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &33634636
@@ -370,6 +370,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 331239455}
+        m_TargetAssemblyTypeName: Chat, Assembly-CSharp
+        m_MethodName: ReadStringInput
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1921083187}
+          m_ObjectArgumentAssemblyTypeName: TMPro.TMP_InputField, Unity.TextMeshPro
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1121958102}
         m_TargetAssemblyTypeName: Domain, Assembly-CSharp
         m_MethodName: DoScript
@@ -791,8 +803,8 @@ MonoBehaviour:
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
   Reminders_List:
-  - using a method called Start,
-  - the name of the objects in the hierarchy must be Model_1 , Model_2 and Model_3
+  - using a method called Start
+  - the name of the gameobjects in the hierarchy must be Model_1 , Model_2 and Model_3
   First_Reminder: 'Write a C# unity script that '
   Output_Text: {fileID: 33634638}
 --- !u!4 &331239456
@@ -1821,7 +1833,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7fcfac62b5d07884ca0987363723305b, type: 2}
+  - {fileID: 2100000, guid: 474cec7ca78b90b42a765a8e28b13c14, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2342,7 +2354,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 387142862}
   m_HandleRect: {fileID: 387142861}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -2758,31 +2770,7 @@ MonoBehaviour:
   m_CharacterLimit: 0
   m_OnEndEdit:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 331239455}
-        m_TargetAssemblyTypeName: Chat, Assembly-CSharp
-        m_MethodName: ReadStringInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1121958102}
-        m_TargetAssemblyTypeName: Domain, Assembly-CSharp
-        m_MethodName: DoScript
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_OnSubmit:
     m_PersistentCalls:
       m_Calls: []
