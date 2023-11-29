@@ -1,3 +1,4 @@
+using Microsoft.CodeAnalysis;
 using RoslynCSharp;
 using RoslynCSharp.Compiler;
 using System.Collections;
@@ -60,11 +61,16 @@ public class Domain : MonoBehaviour
      IEnumerator WaitIA()
     {
 
-       
 
-        //In this way we wait 3 seconds , in these 3 seconds the ai should be able to 
+
+        //In this way we wait 10 seconds only the first time the app is launched
+        //, in these  seconds the ai should be able to 
         //provide a correct script that Roslyin will compile at runtime
-        yield return new WaitForSeconds(3);
+        if (Output_Text.text.ToString() == Welcome_Message)
+        {
+            yield return new WaitForSeconds(10);
+        }
+            
 
         if (Output_Text.text.ToString() != Welcome_Message)
         {
