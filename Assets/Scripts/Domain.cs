@@ -68,7 +68,7 @@ public class Domain : MonoBehaviour
         //provide a correct script that Roslyin will compile at runtime
         
         
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(12);
         
             
 

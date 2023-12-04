@@ -803,8 +803,8 @@ MonoBehaviour:
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
   Reminders_List:
-  - using a method called Start
-  - the name of the gameobjects in the hierarchy must be Model_1 , Model_2 and Model_3
+  - the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3
+  - Name of the class can't be Start
   First_Reminder: 'Write a C# unity script that '
   Output_Text: {fileID: 33634638}
 --- !u!4 &331239456
