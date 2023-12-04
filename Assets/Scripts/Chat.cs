@@ -82,7 +82,7 @@ public class Chat : MonoBehaviour
         {
             Debug.Log(input);
             
-            float start_time = Time.time;
+            float  start_time = Time.time;
         
             var api = new OpenAIClient();
              result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
