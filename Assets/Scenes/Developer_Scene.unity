@@ -803,7 +803,8 @@ MonoBehaviour:
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
   Reminders_List:
-  - the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3
+  - after every operation remember that the name of the new objects in the unity
+    hierarchy must be Model_1 Model_2 Model_3
   - Name of the class can't be Start
   - Remember all the libraries inclusion
   - No comments in the firsts lines of the script

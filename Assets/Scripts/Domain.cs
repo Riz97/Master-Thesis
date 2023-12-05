@@ -66,6 +66,7 @@ public class Domain : MonoBehaviour
         //In this way we wait 10 seconds only the first time the app is launched
         //, in these  seconds the ai should be able to 
         //provide a correct script that Roslyin will compile at runtime
+
         
         
             yield return new WaitForSeconds(12);
@@ -76,7 +77,7 @@ public class Domain : MonoBehaviour
         {
         sourceCode = Output_Text.text.ToString();
 
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(10);
          
         // Create domain
         domain = ScriptDomain.CreateDomain("Example Domain");
