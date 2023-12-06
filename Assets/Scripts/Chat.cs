@@ -29,7 +29,7 @@ public class Chat : MonoBehaviour
 
     List<string> Car_Strings = new List<string>() {"Cars" , "Machines" ,"Asphalt" , "Sports Cars" , "Sport Car" , "Circuit" , "Starting Grid" };
 
-    List<string> Nature_Strings = new List<string>() { };
+    List<string> Nature_Strings = new List<string>() {"Tree" , "Nature" , "Rock" , "Rocks" , "Bush", "Garden" , "Grass" };
 
     [SerializeField]
     public  TMP_Text Text;
@@ -86,8 +86,7 @@ public class Chat : MonoBehaviour
 
         if (input !=null  && input != input_aux)
         {
-            if (ContainsAny(input, Furniture_Strings))
-             {
+            
 
 
                 Debug.Log(input);
@@ -106,7 +105,7 @@ public class Chat : MonoBehaviour
 
 
 
-            } 
+            
         }
        
     }
@@ -129,15 +128,15 @@ public class Chat : MonoBehaviour
                     " material with the material called Material inside the Furniture folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
         }
 
-        if (ContainsAny(input,Car_Strings))
+        else if (ContainsAny(input,Car_Strings))
         {
 
             input = "gameobject called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Cars inside Resources " +
-                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 and Model_3 at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
+                    ",at Y position equals to -0.4, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 Y 0.4 and Model_3 at X 3 and Y 0.4, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material called Material inside the Cars folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
 
         }
-        if (ContainsAny(input, Nature_Strings)) 
+        else if (ContainsAny(input, Nature_Strings)) 
         
         { 
             
