@@ -97,6 +97,9 @@ public class Chat : MonoBehaviour
                 result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
 
 
+                //TODO WORK ON OUTPUT
+
+
                 //Elapsed time for the generation of the script
                 elapsed_time = Time.time - start_time;
 
@@ -126,6 +129,9 @@ public class Chat : MonoBehaviour
             input = " the first thing to do must be  finding the  gameobject called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Furniture inside Resources " +
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 and Model_3 at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material called Material inside the Furniture folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
+
+            Start();
+
         }
 
         else if (ContainsAny(input,Car_Strings))
@@ -134,6 +140,7 @@ public class Chat : MonoBehaviour
             input = " the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Cars inside Resources " +
                     ",at Y position equals to -0.4, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 Y 0.4 and Model_3 at X 3 and Y 0.4, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material called Material inside the Cars folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
+            Start();
 
         }
         else if (ContainsAny(input, Nature_Strings)) 
@@ -143,17 +150,17 @@ public class Chat : MonoBehaviour
             input = "the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Nature inside Resources " +
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 and Model_3 at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material called Material inside the Nature folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
-
+Start();
         }
 
         else
         {
-            
-            Text.SetText("The model you asked is not implemented, sorry");
+            Text.color = new Color(255,0,0);
+            Text.SetText("The model you asked is not implemented yet, sorry");
         }
 
 
-            Start();
+            
     }
 
 
