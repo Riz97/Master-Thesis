@@ -27,6 +27,10 @@ public class Chat : MonoBehaviour
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
 
+    List<string> Car_Strings = new List<string>() {  };
+
+    List<string> Nature_Strings = new List<string>() { };
+
     [SerializeField]
     public  TMP_Text Text;
 
@@ -124,6 +128,9 @@ public class Chat : MonoBehaviour
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 and Model_3 at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material called Material inside the Furniture folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
         }
+
+        if (ContainsAny(input,Car_Strings)) { }
+        if (ContainsAny(input, Nature_Strings)) { }
 
         else
         {
