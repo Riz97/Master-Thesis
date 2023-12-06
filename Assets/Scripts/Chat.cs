@@ -97,7 +97,7 @@ public class Chat : MonoBehaviour
                 result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
 
 
-                //TODO WORK ON OUTPUT
+                //TODO WORK ON OUTPUT , ae non é presente find ecc , ignora e modifica il testo della scroll view , riavvia una nuova stampa del risultato, ricordarsi di modiifcare pure lo script Domain
 
 
                 //Elapsed time for the generation of the script
