@@ -24,6 +24,8 @@ public class Domain : MonoBehaviour
     TMP_Text Input_Text;
 
     private const string Welcome_Message = "static void Main()";
+    private const string Error_Message = "The model you asked is not implemented yet, sorry";
+    private const string Wait_Message = "Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)";
     private ScriptDomain domain = null;
     private string sourceCode;
  
@@ -73,7 +75,7 @@ public class Domain : MonoBehaviour
         
             
 
-       if (Output_Text.text.ToString() != Welcome_Message)
+       if (Output_Text.text.ToString() != Welcome_Message && Output_Text != && Output_Text !=)
         {
         sourceCode = Output_Text.text.ToString();
 
