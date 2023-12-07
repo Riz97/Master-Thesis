@@ -11,6 +11,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.UIElements;
 using System.Linq;
+using System.Data.SqlTypes;
 
 public class Chat : MonoBehaviour
 
@@ -23,7 +24,8 @@ public class Chat : MonoBehaviour
 
     public static float elapsed_time;
 
-    List<string> Mandatory_Words = new List<string>() {"Find"};
+    List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")"};
+       
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
 
@@ -64,6 +66,7 @@ public class Chat : MonoBehaviour
     async void Start()
     {
 
+      
 
         //-----------------------INVISIBLE STRINGS HANDLER-----------------------
 
@@ -99,24 +102,25 @@ public class Chat : MonoBehaviour
 
                 //TODO WORK ON OUTPUT , ae non é presente find ecc , ignora e modifica il testo della scroll view , riavvia una nuova stampa del risultato, ricordarsi di modiifcare pure lo script Domain
 
-                if(ContainsAny(result,Mandatory_Words)) 
+                if(ContainsAll(result,Mandatory_Words)) 
                 {  
                 
                 //Elapsed time for the generation of the script
                 elapsed_time = Time.time - start_time;
 
                 //It sets the text of the scroll view
-                Text.color = new Color(27, 255, 0,255);
+                Text.color = new Color32(27, 255, 0,255);
                 Text.SetText(result.ToString());
 
             
-                } else
-            {
+                }
+            else
+                {
 
                 Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
                 Start();
 
-            } 
+                } 
 
                
 
@@ -184,5 +188,13 @@ public class Chat : MonoBehaviour
             return false;
 
         return substrings.Any(substring => s.Contains(substring, StringComparison.CurrentCultureIgnoreCase));
+    }
+
+    public static bool ContainsAll(string s, List<string> substrings)
+    {
+        if (string.IsNullOrEmpty(s) || substrings == null)
+            return false;
+
+        return substrings.All(substring => s.Contains(substring, StringComparison.CurrentCultureIgnoreCase));
     }
 }
