@@ -100,7 +100,6 @@ public class Chat : MonoBehaviour
                 result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
 
 
-                //TODO WORK ON OUTPUT , ae non é presente find ecc , ignora e modifica il testo della scroll view , riavvia una nuova stampa del risultato, ricordarsi di modiifcare pure lo script Domain
 
                 if(ContainsAll(result,Mandatory_Words)) 
                 {  
@@ -146,7 +145,7 @@ public class Chat : MonoBehaviour
         {
             input = " the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Furniture inside Resources " +
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 and Model_3 at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
-                    " material with the material called Material inside the Furniture folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
+                    " material with the material called Material inside the Furniture folder which is inside the folder Resources, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
 
             Start();
 
@@ -157,7 +156,7 @@ public class Chat : MonoBehaviour
 
             input = "  called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Cars inside Resources " +
                     ",at Y position equals to -0.4, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 Y 0.4 and Model_3 at X 3 and Y 0.4, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
-                    " material with the material called Material inside the Cars folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
+                    " material with the material called Material inside the Cars folder which is inside the folder Resources, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
             Start();
 
         }
@@ -167,7 +166,7 @@ public class Chat : MonoBehaviour
             
             input = "the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Nature inside Resources " +
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 and Model_3 at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
-                    " material with the material called Material inside the Nature folder, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
+                    " material with the material called Material inside the Nature folder which is inside the folder Resources, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
             Start();
         }
 
@@ -181,6 +180,9 @@ public class Chat : MonoBehaviour
             
     }
 
+    //----------------------------AUXILIARIES FUNCTIONS-------------------------------------------------------
+
+    //Meta language
 
     public static bool ContainsAny(string s, List<string> substrings)
     {
@@ -197,4 +199,7 @@ public class Chat : MonoBehaviour
 
         return substrings.All(substring => s.Contains(substring, StringComparison.CurrentCultureIgnoreCase));
     }
+
+
+   //---------------------------------------------------------------------------------------------------------
 }

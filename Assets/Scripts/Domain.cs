@@ -1,4 +1,5 @@
 using Microsoft.CodeAnalysis;
+using OpenAI.Chat;
 using RoslynCSharp;
 using RoslynCSharp.Compiler;
 using System.Collections;
@@ -36,11 +37,14 @@ public class Domain : MonoBehaviour
     public void Start()
         {
        
+
         //Waiter
         if(Output_Text.text.ToString() != Welcome_Message && Output_Text.ToString() != Error_Message && Output_Text.ToString() != Wait_Message)
         {
             PrintAI_Thoughts();
         }
+
+       
     }
 
     //Method attached to the Button "ok" and "enter" , whenever they are clicked the script created is executed
@@ -69,37 +73,46 @@ public class Domain : MonoBehaviour
         //, in these  seconds the ai should be able to 
         //provide a correct script that Roslyin will compile at runtime
 
+
+       
         
         
-            yield return new WaitForSeconds(12);
+                 yield return new WaitForSeconds(12);
         
+
+        Debug.Log(Chat.elapsed_time);
+
+        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.ToString() != Error_Message && Output_Text.ToString() != Wait_Message)
+        {
+            sourceCode = Output_Text.text.ToString();
             
 
-       if (Output_Text.text.ToString() != Welcome_Message && Output_Text.ToString() != Error_Message && Output_Text.ToString() !=Wait_Message)
-        {
-        sourceCode = Output_Text.text.ToString();
+            yield return new WaitForSeconds(10);
 
-        yield return new WaitForSeconds(10);
-         
-        // Create domain
-        domain = ScriptDomain.CreateDomain("Example Domain");
-        
-        
-        
-        // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
-        ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
+       
 
-        // Create an instance of 'Example'
-        ScriptProxy proxy = type.CreateInstance(gameObject);
 
-        CreateLogFile(sourceCode, Input_Text);
-                    
 
-        
+                // Create domain
+                domain = ScriptDomain.CreateDomain("Example Domain");
 
-        // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
-       // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
-        proxy.SafeCall(sourceCode);
+
+
+                // Compile and load code - Note that we use 'CompileAndLoadMainSource' which is the same as 'CompileAndLoadSource' but returns the main type in the compiled assembly
+                ScriptType type = domain.CompileAndLoadMainSource(sourceCode, ScriptSecurityMode.UseSettings);
+
+                // Create an instance of 'Example'
+                ScriptProxy proxy = type.CreateInstance(gameObject);
+
+                CreateLogFile(sourceCode, Input_Text);
+
+
+
+
+                // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
+                // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
+                proxy.SafeCall(sourceCode);
+            
         }
 
     }
