@@ -82,7 +82,9 @@ public class Domain : MonoBehaviour
 
         Debug.Log(Chat.elapsed_time);
 
-        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.ToString() != Error_Message && Output_Text.ToString() != Wait_Message)
+        
+
+        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message)
         {
             sourceCode = Output_Text.text.ToString();
             

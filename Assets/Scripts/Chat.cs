@@ -24,7 +24,7 @@ public class Chat : MonoBehaviour
 
     public static float elapsed_time;
 
-    List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")"};
+    List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",};
        
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
@@ -92,7 +92,7 @@ public class Chat : MonoBehaviour
             
 
 
-                Debug.Log(input);
+            
 
                 float start_time = Time.time;
                 
