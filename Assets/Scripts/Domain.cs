@@ -93,17 +93,8 @@ public class Domain : MonoBehaviour
         if (Output_Text.text.ToString() == Wait_Message)
         {
             Debug.Log("sono qua");
-            yield return new WaitForSeconds(20);
+            yield return new WaitForSeconds(25);
         }
-
-
-
-
-
-        Debug.Log(Chat.elapsed_time);
-
-        Debug.Log(Output_Text.text.ToString());
-        
          
 
         if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message )
