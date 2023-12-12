@@ -22,6 +22,8 @@ public class Chat : MonoBehaviour
     private string input ;
     private string input_aux;
 
+    private string Computing_Message = "Computing the script , just wait!!!!";
+
     public static float elapsed_time;
 
     List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",  };
@@ -144,6 +146,8 @@ public class Chat : MonoBehaviour
 
     {
         input = InputField.text.ToString();
+
+        Text.SetText(Computing_Message);
 
 
         if (ContainsAny(input, Furniture_Strings))

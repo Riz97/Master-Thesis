@@ -24,9 +24,15 @@ public class Domain : MonoBehaviour
     [SerializeField]
     TMP_Text Input_Text;
 
+    //-------------------- SYSTEM MESSAGES----------------------------------------------------------
+
     private const string Welcome_Message = "static void Main()";
     private const string Error_Message = "The model you asked is not implemented yet, sorry";
     private const string Wait_Message = "Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)";
+    private string Computing_Message = "Computing the script , just wait!!!!";
+
+    //------------------------------------------------------------------------------------------------
+
     private ScriptDomain domain = null;
     private string sourceCode;
  
