@@ -27,9 +27,9 @@ public class Chat : MonoBehaviour
     List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",  };
 
     List<string> Material_Words = new List<string>() {"Resources.Load"+
-        "(" +  "\"" + "Furniture/Material "+ "\"" + ")", "Resources.Load"+
-        "(" +  "\"" + "Cars/Material "+ "\"" + ")", "Resources.Load"+
-        "(" +  "\"" + "Nature/Material "+ "\"" + ")" };
+        "(" +  "\"" + "Furniture/Material"+ "\"" + ")", "Resources.Load"+
+        "(" +  "\"" + "Cars/Material"+ "\"" + ")", "Resources.Load"+
+        "(" +  "\"" + "Nature/Material"+ "\"" + ")" };
        
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
