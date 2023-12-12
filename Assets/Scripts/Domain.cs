@@ -39,7 +39,7 @@ public class Domain : MonoBehaviour
        
 
         //Waiter
-        if(Output_Text.text.ToString() != Welcome_Message && Output_Text.ToString() != Error_Message && Output_Text.ToString() != Wait_Message)
+        if(Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message)
         {
             PrintAI_Thoughts();
         }
