@@ -22,16 +22,18 @@ public class Chat : MonoBehaviour
     private string input ;
     private string input_aux;
 
-    private string Computing_Message = "Computing the script , just wait!!!!";
+    private bool check = false;
+
+    private const string Computing_Message = "Computing the script , just wait!!!!";
 
     public static float elapsed_time;
 
     List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",  };
 
     List<string> Material_Words = new List<string>() {"Resources.Load"+
-        "(" +  "\"" + "Furniture/Material"+ "\"" + ")", "Resources.Load"+
-        "(" +  "\"" + "Cars/Material"+ "\"" + ")", "Resources.Load"+
-        "(" +  "\"" + "Nature/Material"+ "\"" + ")" };
+        "(" +  "\"" + "Furniture/Material"+ "\"" , "Resources.Load"+
+        "(" +  "\"" + "Cars/Material"+ "\"" , "Resources.Load"+
+        "(" +  "\"" + "Nature/Material"+ "\"" };
        
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
@@ -73,24 +75,31 @@ public class Chat : MonoBehaviour
     async void Start()
     {
 
-      
 
         //-----------------------INVISIBLE STRINGS HANDLER-----------------------
 
-        input = First_Reminder + input;
-        input_aux = First_Reminder + input_aux;
-        for (int i = 0; i < Reminders_List.Count; i++)
+        if (check)
         {
 
-            input = input + "," + Reminders_List[i];
+            
+        
+        input = First_Reminder + input;
+        input_aux = First_Reminder + input_aux;
+            for (int i = 0; i < Reminders_List.Count; i++)
+            {
 
-            input_aux = input_aux + "," + Reminders_List[i];
+                input = input + "," + Reminders_List[i];
+
+                input_aux = input_aux + "," + Reminders_List[i];
+                
+            }
+            check = false;
         }
         //--------------------------------------------------------------------------
 
        
     
-       //Debug.Log(input);
+       
         //Debug.Log(input_aux);
        
 
@@ -98,7 +107,7 @@ public class Chat : MonoBehaviour
         {
             
 
-
+Debug.Log(input);
             
 
                 float start_time = Time.time;
@@ -108,7 +117,7 @@ public class Chat : MonoBehaviour
 
 
 
-                if(ContainsAll(result,Mandatory_Words) && ContainsAny(result,Material_Words)) 
+                if(ContainsAll(result,Mandatory_Words) && ContainsAny(result,Material_Words )) 
                 {  
                 
                 //Elapsed time for the generation of the script
@@ -149,6 +158,8 @@ public class Chat : MonoBehaviour
 
         Text.SetText(Computing_Message);
 
+        check = true;
+
 
         if (ContainsAny(input, Furniture_Strings))
         {
@@ -163,7 +174,7 @@ public class Chat : MonoBehaviour
         else if (ContainsAny(input,Car_Strings))
         {
 
-            input = "  called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Cars inside Resources " +
+            input = " the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Model_1   , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Cars inside Resources " +
                     ",at Y position equals to -0.4, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 Y 0.4 and Model_3 at X 3 and Y 0.4, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material called Material inside the Cars folder which is inside the folder Resources, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
             Start();
