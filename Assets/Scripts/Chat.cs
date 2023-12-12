@@ -24,7 +24,12 @@ public class Chat : MonoBehaviour
 
     public static float elapsed_time;
 
-    List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",};
+    List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",  };
+
+    List<string> Material_Words = new List<string>() {"Resources.Load"+
+        "(" +  "\"" + "Furniture/Material "+ "\"" + ")", "Resources.Load"+
+        "(" +  "\"" + "Cars/Material "+ "\"" + ")", "Resources.Load"+
+        "(" +  "\"" + "Nature/Material "+ "\"" + ")" };
        
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
@@ -101,7 +106,7 @@ public class Chat : MonoBehaviour
 
 
 
-                if(ContainsAll(result,Mandatory_Words)) 
+                if(ContainsAll(result,Mandatory_Words) && ContainsAny(result,Material_Words)) 
                 {  
                 
                 //Elapsed time for the generation of the script
