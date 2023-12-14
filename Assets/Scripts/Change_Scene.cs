@@ -30,4 +30,8 @@ public class Change_Scene : MonoBehaviour
     {
         Application.Quit();
     }
+    public void VR_Developer_Scene()
+    {
+        SceneManager.LoadScene("/VR Scenes/Developer_Scene");
+    }
 }
