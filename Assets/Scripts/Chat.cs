@@ -132,6 +132,7 @@ Debug.Log(input);
             else
                 {
 
+                Text.color = new Color32(27, 255, 0, 255);
                 Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
                 Start();
 
