@@ -40,7 +40,7 @@ public class Change_Scene : MonoBehaviour
         SceneManager.LoadScene(6);
     }
 
-    public void OnBecameVisible()
+    public void VR_Useful_Info_Scene()
     {
         SceneManager.LoadScene(7);
     }
