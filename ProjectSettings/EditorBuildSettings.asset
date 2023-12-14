@@ -23,6 +23,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/VR Scenes/Developer_Scene.unity
     guid: 1bf509d578bb29242996cffaca63182c
+  - enabled: 1
+    path: Assets/Scenes/VR Scenes/User_Scene.unity
+    guid: 59036bf65158016449b9129084b24496
+  - enabled: 1
+    path: Assets/Scenes/VR Scenes/Useful_Scene.unity
+    guid: 493c30f61d63c924c82ae0c5bb84ef8f
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 64b2bf7bbbb6efe4a9fe4402792e9e0f, type: 2}
     com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: 6d0f78f9c5d73f34e845e825f313e95c, type: 2}
