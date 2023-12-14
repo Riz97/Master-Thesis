@@ -34,4 +34,14 @@ public class Change_Scene : MonoBehaviour
     {
         SceneManager.LoadScene(5);
     }
+
+    public void VR_User_Scene()
+    {
+        SceneManager.LoadScene(6);
+    }
+
+    public void OnBecameVisible()
+    {
+        SceneManager.LoadScene(7);
+    }
 }
