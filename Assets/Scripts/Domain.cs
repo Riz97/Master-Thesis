@@ -9,7 +9,10 @@ using System.Linq.Expressions;
 using System.Numerics;
 using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.PlasticSCM.Editor.WebApi;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /// 
@@ -37,18 +40,21 @@ public class Domain : MonoBehaviour
     private string sourceCode;
  
 
+   
+
     static string s_time = System.DateTime.Now.ToString("dd-MM-hh-mm-ss");
     string path = Application.dataPath + "/Logs/" + s_time + ".txt";
 
     public void Start()
     {
+        
 
-      
+        
 
        
 
         //Waiter
-        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message)
+        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......")
         {
             PrintAI_Thoughts();
         }
@@ -97,7 +103,7 @@ public class Domain : MonoBehaviour
         }
          
 
-        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message )
+        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......")
         {
             sourceCode = Output_Text.text.ToString();
             

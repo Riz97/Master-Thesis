@@ -12,6 +12,8 @@ using TMPro;
 using UnityEngine.UIElements;
 using System.Linq;
 using System.Data.SqlTypes;
+using UnityEngine.SceneManagement;
+using UnityEngine.XR;
 
 public class Chat : MonoBehaviour
 
@@ -27,6 +29,9 @@ public class Chat : MonoBehaviour
     private const string Computing_Message = "Computing the script , just wait!!!!";
 
     public static float elapsed_time;
+
+   
+
 
     List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",  };
 
@@ -58,8 +63,12 @@ public class Chat : MonoBehaviour
     [SerializeField]
     TMP_Text Output_Text;
 
+    [SerializeField]
+    TMP_Text Info_Text;
+
     
-    
+    string sceneName;
+
 
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
@@ -74,7 +83,8 @@ public class Chat : MonoBehaviour
     // Update is called once per frame
     async void Start()
     {
-
+         
+         sceneName = SceneManager.GetActiveScene().name;
 
         //-----------------------INVISIBLE STRINGS HANDLER-----------------------
 
@@ -97,42 +107,56 @@ public class Chat : MonoBehaviour
         }
         //--------------------------------------------------------------------------
 
-       
-    
-       
+
+
+
         //Debug.Log(input_aux);
-       
 
-        if (input !=null  && input != input_aux)
+
+        if (input != null && input != input_aux)
         {
-            
-
-Debug.Log(input);
-            
-
-                float start_time = Time.time;
-                
-                var api = new OpenAIClient();
-                result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
 
 
+            Debug.Log(input);
 
-                if(ContainsAll(result,Mandatory_Words) && ContainsAny(result,Material_Words )) 
-                {  
-                
+
+            float start_time = Time.time;
+
+            var api = new OpenAIClient();
+            result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
+
+
+
+            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words))
+            {
+
                 //Elapsed time for the generation of the script
                 elapsed_time = Time.time - start_time;
 
                 //It sets the text of the scroll view
-                Text.color = new Color32(27, 255, 0,255);
+                Text.color = new Color32(27, 255, 0, 255);
                 Text.SetText(result.ToString());
+                
+                if(sceneName == "VR_User_Scene" || sceneName == "User_Scene")
+                {
+                    Info_Text.text = ("Executing......");
 
-            
                 }
+
+
+
+            }
             else
                 {
 
                 Text.color = new Color32(27, 255, 0, 255);
+
+                if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
+                {
+                    Info_Text.text = ("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
+
+                }
+
                 Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
                 Start();
 
@@ -157,7 +181,15 @@ Debug.Log(input);
     {
         input = InputField.text.ToString();
 
+
         Text.SetText(Computing_Message);
+        if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
+        {
+            Info_Text.text = (Computing_Message);
+
+        }
+
+
 
         check = true;
 
@@ -195,6 +227,13 @@ Debug.Log(input);
         {
             Text.color = new Color(255,0,0);
             Text.SetText("The model you asked is not implemented yet, sorry");
+
+           if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
+                {
+                Info_Text.text = ("The model you asked is not implemented yet, sorry");
+
+            }
+
         }
 
 
