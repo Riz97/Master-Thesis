@@ -64,7 +64,7 @@ public class Chat : MonoBehaviour
     TMP_Text Output_Text;
 
     [SerializeField]
-    TMP_Text Info_Text;
+    TMP_Text Info_Text; //User Mode Text
 
     
     string sceneName;
@@ -110,7 +110,7 @@ public class Chat : MonoBehaviour
 
 
 
-        //Debug.Log(input_aux);
+      
 
 
         if (input != null && input != input_aux)
@@ -137,12 +137,15 @@ public class Chat : MonoBehaviour
                 Text.color = new Color32(27, 255, 0, 255);
                 Text.SetText(result.ToString());
                 
+                //--------------------------------------- User Mode Information ---------------------------------------
+
                 if(sceneName == "VR_User_Scene" || sceneName == "User_Scene")
                 {
                     Info_Text.text = ("Executing......");
 
                 }
 
+                //-----------------------------------------------------------------------------------------------------
 
 
             }
@@ -151,11 +154,15 @@ public class Chat : MonoBehaviour
 
                 Text.color = new Color32(27, 255, 0, 255);
 
+                //--------------------------- User Mode Information -----------------------------------------
+
                 if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
                 {
                     Info_Text.text = ("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
 
                 }
+
+                //-------------------------------------------------------------------------------------
 
                 Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
                 Start();
@@ -183,11 +190,16 @@ public class Chat : MonoBehaviour
 
 
         Text.SetText(Computing_Message);
+
+        //---------------------User Mode Information --------------------------------------
+
         if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
         {
             Info_Text.text = (Computing_Message);
 
         }
+
+        //--------------------------------------------------------------------------------
 
 
 
@@ -228,12 +240,14 @@ public class Chat : MonoBehaviour
             Text.color = new Color(255,0,0);
             Text.SetText("The model you asked is not implemented yet, sorry");
 
+            //----------------------------------User Mode Information----------------------------------------------------------------------
+
            if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
-                {
+           {
                 Info_Text.text = ("The model you asked is not implemented yet, sorry");
 
             }
-
+           //------------------------------------------------------------------------------------------------------------------
         }
 
 
