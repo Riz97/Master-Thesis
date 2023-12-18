@@ -1185,7 +1185,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1381077121}
         m_TargetAssemblyTypeName: Change_Scene, Assembly-CSharp
-        m_MethodName: VR_Developer_Scene
+        m_MethodName: VR_Opening_Scene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
