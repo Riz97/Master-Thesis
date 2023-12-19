@@ -33,7 +33,8 @@ public class Chat : MonoBehaviour
    
 
 
-    List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",  };
+    List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",
+                                                        "Find"+ "(" + "\"" + "Model_4"+ "\"" + ")"};
 
     List<string> Material_Words = new List<string>() {"Resources.Load"+
         "(" +  "\"" + "Furniture/Material"+ "\"" , "Resources.Load"+
