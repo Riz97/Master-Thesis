@@ -218,12 +218,19 @@ public class Chat : MonoBehaviour
 
         if (ContainsAny(input, Furniture_Strings))
         {
-            input = " the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Model_1 , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Furniture inside Resources " +
-                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 and Model_3 at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
+            input = " the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Table , Bed and Chair respectively , remember that they are  positioned inside the folder named Furniture inside Resources " +
+                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Bed at X 0 and Chair at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material called Material inside the Furniture folder which is inside the folder Resources, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
 
             Start();
 
+        }
+
+        if(words.Count() == 3)
+        {
+            //input = ;
+
+            Start();
         }
 
         else if (ContainsAny(input,Car_Strings))
@@ -306,7 +313,7 @@ public class Chat : MonoBehaviour
 
         }
             
-        Debug.Log(subSet[1]);
+        
         return subSet; 
     }
 
