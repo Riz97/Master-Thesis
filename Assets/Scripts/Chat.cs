@@ -195,6 +195,9 @@ public class Chat : MonoBehaviour
     {
         input = InputField.text.ToString();
 
+        List<string> words = isIn(input, Furniture_Vocab);
+
+        
 
         Text.SetText(Computing_Message);
 
@@ -280,6 +283,33 @@ public class Chat : MonoBehaviour
 
         return substrings.All(substring => s.Contains(substring, StringComparison.CurrentCultureIgnoreCase));
     }
+
+
+    //It returns a subset of string of the input that are inside the vocabulary of accepted words
+    public static List<string> isIn(string s,List<string> Furniture_Vocab)
+    {
+        List <string> subSet = new List<string>();
+
+        //Subdivide the string in a List of substrings 
+        List<string> aux = s.Split(' ').ToList();
+
+        
+        //For every string inside the list
+        foreach (string str in aux)
+        {
+
+            //If it is accetable, add it to the final subset
+        if(ContainsAny(str, Furniture_Vocab))
+            {
+                subSet.Add(str);
+            }
+
+        }
+            
+        Debug.Log(subSet[1]);
+        return subSet; 
+    }
+
 
 
    //---------------------------------------------------------------------------------------------------------
