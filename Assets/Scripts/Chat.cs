@@ -44,9 +44,15 @@ public class Chat : MonoBehaviour
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
 
+    List<string> Furniture_Vocab = new List<string>() {"Desk", "Chair" , "Bed" , "Table" , "Chest"};
+
     List<string> Car_Strings = new List<string>() {"Cars" , "Machines" ,"Asphalt" , "Sports Cars" , "Sport Car" , "Circuit" , "Starting Grid" };
 
+    List<string> Car_Vocab = new List<string>() { "Red Car", "Blu Car", "Green Car" , "White Car", "Silver Car" };
+
     List<string> Nature_Strings = new List<string>() {"Tree" , "Nature" , "Rock" , "Rocks" , "Bush", "Garden" , "Grass" };
+
+    List<string> Nature_Vocab = new List<string>() { "Tree", "Bush", "Mushroom", "Wood", "Stone" };
 
     [SerializeField]
     public  TMP_Text Text;
