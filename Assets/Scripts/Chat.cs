@@ -15,6 +15,10 @@ using System.Data.SqlTypes;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR;
 
+
+
+//TODO : Aggiungere un massimo di tentativi per la ricerca dello script da parte della IA
+
 public class Chat : MonoBehaviour
 
     
@@ -226,12 +230,16 @@ public class Chat : MonoBehaviour
 
         }
 
+        /*
+
         if(words.Count() == 3)
         {
             //input = ;
 
             Start();
         }
+
+        */
 
         else if (ContainsAny(input,Car_Strings))
         {
