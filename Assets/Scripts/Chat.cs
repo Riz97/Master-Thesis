@@ -234,6 +234,9 @@ public class Chat : MonoBehaviour
 
         if(words.Count() == 3)
         {
+
+        se tre parole vengono trovate saranno gli oggetti scelti da inserire nella scena
+
             //input = ;
 
             Start();
