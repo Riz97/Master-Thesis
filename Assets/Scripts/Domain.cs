@@ -93,7 +93,7 @@ public class Domain : MonoBehaviour
         //provide a correct script that Roslyin will compile at runtime
 
 
-        yield return new WaitForSeconds(12);
+        yield return new WaitForSeconds(15);
 
 
         if (Output_Text.text.ToString() == Wait_Message)
@@ -109,7 +109,7 @@ public class Domain : MonoBehaviour
             
 
 
-            yield return new WaitForSeconds(10);
+            yield return new WaitForSeconds(15);
 
             
 
@@ -153,15 +153,10 @@ public class Domain : MonoBehaviour
 
 
 
-        if(!File.Exists(path))
+        if (!File.Exists(path))
         {
-           
-            File.WriteAllText(path,"LOG GENERATED FOR THE SESSION" +
-                "\n\n" + "Max Tokens : " + Chat.maxTokens + "\n" + 
-                "Temperature: " + Chat.temperature + "\n" +
-                "Presence Penalty: " + Chat.presencePenalty + "\n" + 
-                "Frequency Penalty: " + Chat.frequencyPenalty + "\n" + 
-                "Model: " + Chat.model + "\n\n");
+
+            File.WriteAllText(path, "LOG GENERATED FOR THE SESSION" + "\n" + "Model : " + Chat.model.ToString());
             
         }
     

@@ -816,7 +816,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3351, y: 1.5368073}
+  m_AnchoredPosition: {x: 5.3351, y: -0.62829506}
   m_SizeDelta: {x: -10.0387, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &207989659
@@ -5956,8 +5956,9 @@ MonoBehaviour:
   InputField: {fileID: 266598569}
   Reminders_List:
   - Remember all the libraries inclusion
-  - No comments in the firsts lines of the script
-  First_Reminder: 'Write a C# unity script with libraries inclusion that '
+  First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
+    NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING  Write a C# unity script with
+    libraries inclusion that '
   Output_Text: {fileID: 207989662}
   Info_Text: {fileID: 984823615}
 --- !u!4 &1848734665

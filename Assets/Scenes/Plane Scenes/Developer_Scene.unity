@@ -273,7 +273,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -6.274536, w: -182.65149}
+  m_margin: {x: 0, y: 0, z: -6.274536, w: -320.10486}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -804,9 +804,11 @@ MonoBehaviour:
   InputField: {fileID: 1921083187}
   Reminders_List:
   - Remember all the libraries inclusion
-  - No comments in the firsts lines of the script
-  First_Reminder: 'Write a C# unity script with libraries inclusion that '
+  First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
+    NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING ,  Write a C# unity script with
+    libraries inclusion that '
   Output_Text: {fileID: 33634638}
+  Info_Text: {fileID: 0}
 --- !u!4 &331239456
 Transform:
   m_ObjectHideFlags: 0

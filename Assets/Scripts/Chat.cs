@@ -40,10 +40,10 @@ public class Chat : MonoBehaviour
     List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",
                                                         "Find"+ "(" + "\"" + "Model_4"+ "\"" + ")"};
 
-    List<string> Material_Words = new List<string>() {"Resources.Load"+
-        "(" +  "\"" + "Furniture/Material"+ "\"" , "Resources.Load"+
-        "(" +  "\"" + "Cars/Material"+ "\"" , "Resources.Load"+
-        "(" +  "\"" + "Nature/Material"+ "\"" };
+    List<string> Material_Words = new List<string>() {
+           "\"" + "Furniture/Material"+ "\"" , 
+          "\"" + "Cars/Material"+ "\"" , 
+           "\"" + "Nature/Material"+ "\"" };
        
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
@@ -59,7 +59,7 @@ public class Chat : MonoBehaviour
     List<string> Nature_Vocab = new List<string>() { "Tree", "Bush", "Mushroom", "Wood", "Stone" };
 
     [SerializeField]
-    public  TMP_Text Text;
+    public TMP_Text Text;
 
     [SerializeField]
     public TMP_InputField InputField;
@@ -81,20 +81,25 @@ public class Chat : MonoBehaviour
     string sceneName;
 
 
+
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
     public static int  maxTokens = 1000;
     public static double temperature = 0.5;
     public static double presencePenalty = 0.1;
     public static double frequencyPenalty = 0.1;
-    public static Model model = Model.Davinci;
+    public static Model model = Model.GPT3_5_Turbo;
 
     //--------------------------------------------------------------------
 
     // Update is called once per frame
     async void Start()
+
     {
-         
+
+       
+
+            // model = new Model("gpt-3.5-turbo");
          sceneName = SceneManager.GetActiveScene().name;
 
         //-----------------------INVISIBLE STRINGS HANDLER-----------------------
@@ -133,24 +138,35 @@ public class Chat : MonoBehaviour
 
             float start_time = Time.time;
 
-            var api = new OpenAIClient();
-            result = await api.CompletionsEndpoint.CreateCompletionAsync(input, maxTokens: maxTokens, temperature: temperature, presencePenalty: presencePenalty, frequencyPenalty: frequencyPenalty, model: model);
-
-
-
-            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words))
+            var messages = new List<Message>
             {
+                new Message(Role.User, input)
+            };
 
+            var api = new OpenAIClient();
+            var chatRequest = new ChatRequest(messages, Model.GPT3_5_Turbo);
+            result = await api.ChatEndpoint.GetCompletionAsync(chatRequest);
+            
+
+        
+            Debug.Log(result);
+
+
+            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) && result[0] == 'u')
+            {
+             
+                
                 //Elapsed time for the generation of the script
                 elapsed_time = Time.time - start_time;
 
                 //It sets the text of the scroll view
                 Text.color = new Color32(27, 255, 0, 255);
                 Text.SetText(result.ToString());
-                
+
+          
                 //--------------------------------------- User Mode Information ---------------------------------------
 
-                if(sceneName == "VR_User_Scene" || sceneName == "User_Scene")
+                if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
                 {
                     Info_Text.text = ("Executing......");
 
@@ -161,7 +177,7 @@ public class Chat : MonoBehaviour
 
             }
             else
-                {
+            {
 
                 Text.color = new Color32(27, 255, 0, 255);
 
@@ -178,14 +194,14 @@ public class Chat : MonoBehaviour
                 Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
                 Start();
 
-                } 
+            }
 
                
 
 
 
             
-        }
+       }
        
     }
 
@@ -222,9 +238,9 @@ public class Chat : MonoBehaviour
 
         if (ContainsAny(input, Furniture_Strings))
         {
-            input = " the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Table , Bed and Chair respectively , remember that they are  positioned inside the folder named Furniture inside Resources " +
+            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' , 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Bed at X 0 and Chair at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
-                    " material with the material called Material inside the Furniture folder which is inside the folder Resources, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
 
             Start();
 
@@ -244,16 +260,16 @@ public class Chat : MonoBehaviour
 
         */
 
-        else if (ContainsAny(input,Car_Strings))
+        else if (ContainsAny(input,Nature_Strings))
         {
 
-            input = " the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Model_1   , Model_2 and Model_3 respectively , remember that they are  positioned inside the folder named Cars inside Resources " +
-                    ",at Y position equals to -0.4, at X position -2.38 and Z position 29.46 and do the same for Model_2 at X 0 Y 0.4 and Model_3 at X 3 and Y 0.4, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
-                    " material with the material called Material inside the Cars folder which is inside the folder Resources, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
+            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Tree' , 'Mushroom' and 'Stone' , You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
+                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Tree at X 0 and Mushroom at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Nature' folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
             Start();
 
         }
-        else if (ContainsAny(input, Nature_Strings)) 
+        else if (ContainsAny(input, Car_Strings)) 
         
         { 
             

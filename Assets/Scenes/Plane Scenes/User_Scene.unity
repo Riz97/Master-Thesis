@@ -940,8 +940,9 @@ MonoBehaviour:
   InputField: {fileID: 1705133087}
   Reminders_List:
   - Remember all the libraries inclusion
-  - No comments in the firsts lines of the script
-  First_Reminder: 'Write a C# unity script with libraries inclusion that '
+  First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
+    NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING  Write a C# unity script with
+    libraries inclusion that '
   Output_Text: {fileID: 387264732}
   Info_Text: {fileID: 955833111}
 --- !u!4 &478013928
