@@ -13,6 +13,7 @@ using UnityEngine.UIElements;
 using System.Linq;
 using System.Data.SqlTypes;
 using UnityEngine.SceneManagement;
+using System.Text;
 using UnityEngine.XR;
 
 
@@ -46,17 +47,17 @@ public class Chat : MonoBehaviour
            "\"" + "Nature/Material"+ "\"" };
        
 
-    List<string> Furniture_Strings = new List<string>() {"Furniture", "Desk" , "Table" , "Chair" , "Office" };
+    List<string> Furniture_Strings = new List<string>() {"Furniture", "Office" };
 
-    List<string> Furniture_Vocab = new List<string>() {"Desk", "Chair" , "Bed" , "Table" , "Chest"};
+    List<string> Furniture_Models = new List<string>() {"Desk", "Chair" , "Bed" , "Table" , "Chest"};
 
     List<string> Car_Strings = new List<string>() {"Cars" , "Machines" ,"Asphalt" , "Sports Cars" , "Sport Car" , "Circuit" , "Starting Grid" };
 
-    List<string> Car_Vocab = new List<string>() { "Red Car", "Blu Car", "Green Car" , "White Car", "Silver Car" };
+    List<string> Car_Models = new List<string>() { "Red Car", "Blu Car", "Green Car" , "White Car", "Silver Car" };
 
     List<string> Nature_Strings = new List<string>() {"Tree" , "Nature" , "Rock" , "Rocks" , "Bush", "Garden" , "Grass" };
 
-    List<string> Nature_Vocab = new List<string>() { "Tree", "Bush", "Mushroom", "Wood", "Stone" };
+    List<string> Nature_Models = new List<string>() { "Tree", "Bush", "Mushroom", "Wood", "Stone" };
 
     [SerializeField]
     public TMP_Text Text;
@@ -192,7 +193,7 @@ public class Chat : MonoBehaviour
                 //-------------------------------------------------------------------------------------
 
                 Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
-                //Start();
+                Start();
 
             }
 
@@ -215,9 +216,9 @@ public class Chat : MonoBehaviour
     {
         input = InputField.text.ToString();
 
-        List<string> words = isIn(input, Furniture_Vocab);
+        List<string> words = isIn(input, Furniture_Models);
 
-        
+        Debug.Log(words[0].ToString());
 
         Text.SetText(Computing_Message);
 
@@ -246,19 +247,21 @@ public class Chat : MonoBehaviour
 
         }
 
-        /*
+        
 
         if(words.Count() == 3)
         {
 
-        se tre parole vengono trovate saranno gli oggetti scelti da inserire nella scena
 
-            //input = ;
+                    input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called " + words[0] + " " + words[1] + " " + words [2] +  " " +
+                   " You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
+                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for the second game object at X 0 and the third game object  at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
 
             Start();
         }
 
-        */
+       
 
         else if (ContainsAny(input,Nature_Strings))
         {
@@ -335,7 +338,7 @@ public class Chat : MonoBehaviour
             //If it is accetable, add it to the final subset
         if(ContainsAny(str, Furniture_Vocab))
             {
-                subSet.Add(str);
+                subSet.Add(str.Substring(0, 1).ToUpper() + str.Substring(1).ToLower());
             }
 
         }
