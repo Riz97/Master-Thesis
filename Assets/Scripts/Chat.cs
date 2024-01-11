@@ -192,7 +192,7 @@ public class Chat : MonoBehaviour
                 //-------------------------------------------------------------------------------------
 
                 Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
-                Start();
+                //Start();
 
             }
 
