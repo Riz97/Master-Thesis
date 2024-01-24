@@ -59,6 +59,14 @@ public class Chat : MonoBehaviour
 
     List<string> Nature_Models = new List<string>() { "Tree", "Bush", "Mushroom", "Wood", "Stone" };
 
+    List<string> Industrial_Strings = new List<string>() { };
+
+    List<string> Industrial_Models = new List<string>() {};
+
+    List<string> City_Strings = new List<string>() {  };
+
+    List<string> City_Models = new List<string>() {  };
+
     [SerializeField]
     public TMP_Text Text;
 
@@ -217,8 +225,8 @@ public class Chat : MonoBehaviour
         input = InputField.text.ToString();
 
         List<string> words_Furniture = isIn(input, Furniture_Models);
-        List<string> words_Nature = isIn(input, Furniture_Models);
-        List<string> words_Cars = isIn(input, Furniture_Models);
+        List<string> words_Nature = isIn(input, Nature_Models);
+        List<string> words_Cars = isIn(input, Car_Models);
 
 
 
