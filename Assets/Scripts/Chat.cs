@@ -249,7 +249,8 @@ public class Chat : MonoBehaviour
         //------------------------------------------------------------------------------------ BASE CASES ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         if (ContainsAny(input, Furniture_Strings))
         {
-            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' , 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
+            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
+                " 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Bed at X 0 and Chair at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
 
@@ -263,7 +264,8 @@ public class Chat : MonoBehaviour
         else if (ContainsAny(input, Nature_Strings))
         {
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Tree' , 'Mushroom' and 'Stone' , You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
+            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Tree' , " +
+                "'Mushroom' and 'Stone' , You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Tree at X 0 and Mushroom at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
                     " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Nature' folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
             Start();
@@ -283,7 +285,8 @@ public class Chat : MonoBehaviour
 
         if (words_Furniture.Count() == 3)
         {
-            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called " + words_Furniture[0] + " " + words_Furniture[1] + " " + words_Furniture[2] + " " +
+            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called "
+                + words_Furniture[0] + " " + words_Furniture[1] + " " + words_Furniture[2] + " " +
              " You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
               ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for the second game object at X 0 and the third game object  at X 3, and add just one collider per gameobject, find the gameobject named Model_4 and change its" +
               " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
