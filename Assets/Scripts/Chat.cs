@@ -15,6 +15,7 @@ using System.Data.SqlTypes;
 using UnityEngine.SceneManagement;
 using System.Text;
 using UnityEngine.XR;
+using UnityEngine.InputSystem.Android;
 
 
 
@@ -30,6 +31,8 @@ public class Chat : MonoBehaviour
     private string input_aux;
 
     private bool check = false;
+
+    private int cc= 0;
 
     private const string Computing_Message = "Computing the script , just wait!!!!";
 
@@ -92,6 +95,8 @@ public class Chat : MonoBehaviour
     
     string sceneName;
 
+    public GameObject Models;
+
 
 
     //-------------------- OPEN AI CLIENT INFO ------------------------
@@ -106,10 +111,27 @@ public class Chat : MonoBehaviour
 
     // Update is called once per frame
     async void Start()
-
+        
     {
 
-       
+        
+
+        //-----------------------------------Creation of the requested number of objects (executed only once) -------------------------------
+
+        if(cc == 0)
+
+        {
+            for(int i = 0 ; i < Number_of_Objects; i++)
+            {
+            GameObject obj = Instantiate(Models,transform.position, Quaternion.identity);
+            obj.name = "Model_" + i.ToString();
+            }
+        }
+             
+        //-----------------------------------------------------------------------------------------------------------------------------------
+
+
+        cc++;
 
             // model = new Model("gpt-3.5-turbo");
          sceneName = SceneManager.GetActiveScene().name;
@@ -119,7 +141,7 @@ public class Chat : MonoBehaviour
         if (check)
         {
 
-            
+     
         
         input = First_Reminder + input;
         input_aux = First_Reminder + input_aux;
@@ -256,7 +278,7 @@ public class Chat : MonoBehaviour
         //------------------------------------------------------------------------------------ BASE CASES ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
         if (ContainsAny(input, Furniture_Strings))
         {
-            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
                 " 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
                     ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Bed at X 0 and Chair at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
                     " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
