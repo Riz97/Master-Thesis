@@ -807,6 +807,7 @@ MonoBehaviour:
   First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
     NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING ,  Write a C# unity script with
     libraries inclusion that '
+  Number_of_Objects: 0
   Output_Text: {fileID: 33634638}
   Info_Text: {fileID: 0}
 --- !u!4 &331239456
@@ -1705,7 +1706,7 @@ GameObject:
   - component: {fileID: 1291648066}
   - component: {fileID: 1291648065}
   m_Layer: 0
-  m_Name: Model_4
+  m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
