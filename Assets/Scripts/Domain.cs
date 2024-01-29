@@ -54,7 +54,7 @@ public class Domain : MonoBehaviour
        
 
         //Waiter
-        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......" &&  Output_Text.text.ToString() != Computing_Message)
+        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......")
         {
             PrintAI_Thoughts();
         }
@@ -95,7 +95,7 @@ public class Domain : MonoBehaviour
 
         yield return new WaitForSeconds(17);
 
-
+        
         if (Output_Text.text.ToString() == Wait_Message)
         {
             Debug.Log("sono qua");
@@ -103,7 +103,7 @@ public class Domain : MonoBehaviour
         }
          
 
-        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......" && Output_Text.text.ToString() != Computing_Message)
+        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......")
         {
             sourceCode = Output_Text.text.ToString();
             
