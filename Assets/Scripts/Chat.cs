@@ -352,10 +352,14 @@ public class Chat : MonoBehaviour
         
         }
 
+
+
+        // Error Handler : if the user does not ask for the correct amount of models , which is set in the hierarchy
+
         else if (words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_City.Count() != Number_of_Objects  || words_Cars.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects ) 
         {
             Text.color = new Color(255, 0, 0);
-            Text.SetText("Error : you have to ask for the exactly amount of models used for this simulation");
+            Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
         }
 
         else
@@ -379,9 +383,25 @@ public class Chat : MonoBehaviour
 
     //----------------------------AUXILIARIES FUNCTIONS-------------------------------------------------------
 
-    
+
+    public float Random_PositionZ()
+    {
+        float randomCoordinate = UnityEngine.Random.Range(2f, 50f);
+
+        return randomCoordinate;
+    }
+
+    public float Random_PositionX()
+    {
+        float randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+
+        return randomCoordinate;
+    }
+
+
     public string Input_Request(string input, int Number_of_Objects, List<string> list)
     {
+        
 
         input = " the first thing to do must be find the  gameobjects  called ";
 
@@ -389,9 +409,10 @@ public class Chat : MonoBehaviour
 
         input = Enum_Objects(list, Number_of_Objects, input) + "You MUST RENAME THEM AS ";
 
-        input = Define_Models(Number_of_Objects, input) + " in the unity hierarchy MANDATORY, at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for the second game object at X 0 and the third game object  at X 3, " +
+        input = Define_Models(Number_of_Objects, input) + " in the unity hierarchy MANDATORY";
+        
 
-        "and add just one collider per gameobject, find the gameobject named Plane and change its" +
+        input = Define_Models_Coordinates(Number_of_Objects,input) + "and add just one collider per gameobject, find the gameobject named Plane and change its" +
 
         " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources," +
 
@@ -400,11 +421,6 @@ public class Chat : MonoBehaviour
 
         return input;
     }
-
-
-
-
-
 
     public  string Enum_Objects(List<string> objects, int Number_of_Objects, string input){
         
@@ -431,8 +447,23 @@ public class Chat : MonoBehaviour
 
         return input;
     }
+    public string Define_Models_Coordinates(int Number_of_Objects, string input)
+    {
 
-//Meta language
+
+
+        for (int ii = 0; ii < Number_of_Objects; ii++)
+        {
+            input += " Model_" + ii.ToString() + "at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX().ToString() + " and Z position equals to " + Random_PositionZ().ToString();
+
+        }
+
+        return input;
+    }
+
+
+
+    //Meta language
 
     public static bool ContainsAny(string s, List<string> substrings)
     {
