@@ -53,23 +53,23 @@ public class Chat : MonoBehaviour
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Office" };
 
-    List<string> Furniture_Models = new List<string>() {"Desk", "Chair" , "Bed" , "Table" , "Chest"};
+    List<string> Furniture_Models = new List<string>() {"Desk", "Chair" , "Bed" , "Table" , "Chest","Drawer","Shower", "Sink"};
 
-    List<string> Car_Strings = new List<string>() {"Cars" , "Machines" ,"Asphalt" , "Sports Cars" , "Sport Car" , "Circuit" , "Starting Grid" };
+    List<string> Car_Strings = new List<string>() {"Cars" , "Machines"  , "Starting Grid" };
 
-    List<string> Car_Models = new List<string>() { "Red Car", "Blu Car", "Green Car" , "White Car", "Silver Car" };
+    List<string> Car_Models = new List<string>() { "Red", "Blue", "Green" , "White", "Silver" , "Sport" , "Formula","Suv" };
 
-    List<string> Nature_Strings = new List<string>() {"Tree" , "Nature" , "Rock" , "Rocks" , "Bush", "Garden" , "Grass" };
+    List<string> Nature_Strings = new List<string>() {"Nature"  , "Garden" , "Forest"};
 
-    List<string> Nature_Models = new List<string>() { "Tree", "Bush", "Mushroom", "Wood", "Stone" };
+    List<string> Nature_Models = new List<string>() { "Oak", "Bush", "Mushroom", "Wood", "Stone" , "Pine", "Flower"};
 
     List<string> Industrial_Strings = new List<string>() { };
 
-    List<string> Industrial_Models = new List<string>() {};
+    List<string> Industrial_Models = new List<string>() {"Cable","Garbage","Pallet", "PalletCar" , "Plank", "Tank" , "Tube"};
 
     List<string> City_Strings = new List<string>() {  };
 
-    List<string> City_Models = new List<string>() {  };
+    List<string> City_Models = new List<string>() {"Barrel" , "Bench" , "Bin" , "Dumpster" , "Hydrant", "Mailbox" , "Stoplight"};
 
     [SerializeField]
     public TMP_Text Text;
