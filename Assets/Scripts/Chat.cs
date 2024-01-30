@@ -362,7 +362,7 @@ public class Chat : MonoBehaviour
 
     //----------------------------AUXILIARIES FUNCTIONS-------------------------------------------------------
 
-    //Meta language
+    
 
 
     public  string Enum_Objects(List<string> objects, int Number_of_Objects, string input){
@@ -371,7 +371,7 @@ public class Chat : MonoBehaviour
 
         for(int i = 0; i < Number_of_Objects; i++)
         {
-            input += objects[i];
+            input += objects[i] + " ";
         }
 
         return input;
@@ -384,12 +384,14 @@ public class Chat : MonoBehaviour
 
         for (int ii = 0; ii < Number_of_Objects; ii++)
         {
-            input += "Model_" + ii.ToString();
+            input += " Model_" + ii.ToString();
+            
         }
 
         return input;
     }
 
+//Meta language
 
     public static bool ContainsAny(string s, List<string> substrings)
     {

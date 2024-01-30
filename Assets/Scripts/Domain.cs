@@ -93,7 +93,7 @@ public class Domain : MonoBehaviour
         //provide a correct script that Roslyin will compile at runtime
 
 
-        yield return new WaitForSeconds(17);
+        yield return new WaitForSeconds(20);
 
         
         if (Output_Text.text.ToString() == Wait_Message)
