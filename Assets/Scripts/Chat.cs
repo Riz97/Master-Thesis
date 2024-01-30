@@ -318,7 +318,7 @@ public class Chat : MonoBehaviour
         else if (words_Furniture.Count() == Number_of_Objects)
         {
 
-            input = Input_Request(input, Number_of_Objects, words_Furniture);
+            input = Input_Request(input, Number_of_Objects, words_Furniture , "Furniture");
 
             Start();
         }
@@ -328,7 +328,7 @@ public class Chat : MonoBehaviour
         {
 
 
-            input = Input_Request(input, Number_of_Objects, words_Cars);
+            input = Input_Request(input, Number_of_Objects, words_Cars , "Cars");
 
 
             Start();
@@ -337,21 +337,21 @@ public class Chat : MonoBehaviour
         else if (words_Nature.Count() == Number_of_Objects)
         {
 
-            input = Input_Request(input, Number_of_Objects, words_Nature);
+            input = Input_Request(input, Number_of_Objects, words_Nature, "Nature");
 
             Start();
         }
 
         else if (words_City.Count() == Number_of_Objects) 
         {
-            input = Input_Request(input, Number_of_Objects, words_City);
+            input = Input_Request(input, Number_of_Objects, words_City, "City");
 
             Start();
         }
 
         else if (words_Industrial.Count() == Number_of_Objects) 
         {
-            input = Input_Request(input, Number_of_Objects, words_Industrial);
+            input = Input_Request(input, Number_of_Objects, words_Industrial,"Industrial");
 
             Start();
 
@@ -361,7 +361,7 @@ public class Chat : MonoBehaviour
 
         // Error Handler : if the user does not ask for the correct amount of models , which is set in the hierarchy
 
-        else if (words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_City.Count() != Number_of_Objects  || words_Cars.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects ) 
+        else if (words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects ) 
         {
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
@@ -404,13 +404,13 @@ public class Chat : MonoBehaviour
     }
 
 
-    public string Input_Request(string input, int Number_of_Objects, List<string> list)
+    public string Input_Request(string input, int Number_of_Objects, List<string> list, string Material)
     {
         
 
         input = " the first thing to do must be find the  gameobjects  called ";
 
-        input = Define_Models(Number_of_Objects, input) + " and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called ";
+        input = Define_Models(Number_of_Objects, input) + " and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named " + Material +  " inside the folder  'Resources' called ";
 
         input = Enum_Objects(list, Number_of_Objects, input) + "You MUST RENAME THEM AS ";
 
@@ -419,7 +419,7 @@ public class Chat : MonoBehaviour
 
         input = Define_Models_Coordinates(Number_of_Objects,input) + "and add just one collider per gameobject, find the gameobject named Plane and change its" +
 
-        " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources," +
+        " material with the material   called 'Material'THAT MUST BE LOADED inside the " +  Material + " folder which is inside the folder Resources," +
 
         " using a method called Start , avoid any type of comments , you must write only code";
 
