@@ -16,6 +16,7 @@ using UnityEngine.SceneManagement;
 using System.Text;
 using UnityEngine.XR;
 using UnityEngine.InputSystem.Android;
+using static System.Net.Mime.MediaTypeNames;
 
 
 
@@ -50,6 +51,8 @@ public class Chat : MonoBehaviour
           "\"" + "Cars/Material"+ "\"" , 
            "\"" + "Nature/Material"+ "\"" };
        
+    List<string> Directions = new List<string>() { "Right", "Left" , "Middle","right", "left" , "center"};
+
 
     List<string> Furniture_Strings = new List<string>() {"Furniture", "Office" };
 
@@ -260,8 +263,33 @@ public class Chat : MonoBehaviour
         List<string> words_Industrial = isIn(input, Industrial_Models);
         List<string> words_City = isIn(input, City_Models);
 
+        List<string> allWords = words_Cars.Concat(words_City).Concat(words_Industrial).Concat(words_Cars).Concat(words_Nature).Concat(words_Furniture).ToList();
 
 
+        List<string> list_Directions_aux = isIn_Direction(input,Directions,allWords);
+     
+
+        for (int i =0; i < list_Directions_aux.Count; i++)
+        {
+            if (ContainsAny(list_Directions_aux[i], Directions))
+            {
+                list_Directions_aux.Remove(list_Directions_aux[i+1]);
+            }
+
+            else
+            {
+                list_Directions_aux[i] = " ";
+            }
+
+        }
+
+        List<string> list_Directions = list_Directions_aux;
+
+
+        Debug.Log(list_Directions_aux[0].ToString());
+
+
+        Text.color = new Color32(27, 255, 0, 255);
         Text.SetText(Computing_Message);
 
         //---------------------User Mode Information --------------------------------------
@@ -318,7 +346,7 @@ public class Chat : MonoBehaviour
         else if (words_Furniture.Count() == Number_of_Objects)
         {
 
-            input = Input_Request(input, Number_of_Objects, words_Furniture , "Furniture");
+            input = Input_Request(input, Number_of_Objects, words_Furniture , "Furniture",list_Directions);
 
             Start();
         }
@@ -328,7 +356,7 @@ public class Chat : MonoBehaviour
         {
 
 
-            input = Input_Request(input, Number_of_Objects, words_Cars , "Cars");
+            input = Input_Request(input, Number_of_Objects, words_Cars , "Cars", list_Directions);
 
 
             Start();
@@ -337,21 +365,21 @@ public class Chat : MonoBehaviour
         else if (words_Nature.Count() == Number_of_Objects)
         {
 
-            input = Input_Request(input, Number_of_Objects, words_Nature, "Nature");
+            input = Input_Request(input, Number_of_Objects, words_Nature, "Nature", list_Directions);
 
             Start();
         }
 
         else if (words_City.Count() == Number_of_Objects) 
         {
-            input = Input_Request(input, Number_of_Objects, words_City, "City");
+            input = Input_Request(input, Number_of_Objects, words_City, "City",list_Directions);
 
             Start();
         }
 
         else if (words_Industrial.Count() == Number_of_Objects) 
         {
-            input = Input_Request(input, Number_of_Objects, words_Industrial,"Industrial");
+            input = Input_Request(input, Number_of_Objects, words_Industrial,"Industrial", list_Directions);
 
             Start();
 
@@ -389,9 +417,34 @@ public class Chat : MonoBehaviour
     //----------------------------AUXILIARIES FUNCTIONS-------------------------------------------------------
 
 
-    public float Random_PositionZ()
+    public float Random_PositionZ(List<string> list,int i)
     {
-        float randomCoordinate = UnityEngine.Random.Range(2f, 50f);
+        float randomCoordinate = 0;
+
+        //Switch for positioning
+
+      
+
+            Debug.Log(list[i]);
+
+            if (list[i] == "Right" || list[i] == "right")
+            {
+                randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+
+
+            }
+
+
+
+            else
+            {
+
+                randomCoordinate = 1;
+                //Debug.Log("Base");
+            }
+
+
+        
 
         return randomCoordinate;
     }
@@ -404,7 +457,7 @@ public class Chat : MonoBehaviour
     }
 
 
-    public string Input_Request(string input, int Number_of_Objects, List<string> list, string Material)
+    public string Input_Request(string input, int Number_of_Objects, List<string> list, string Material, List<string> list_Directions)
     {
         
 
@@ -417,7 +470,7 @@ public class Chat : MonoBehaviour
         input = Define_Models(Number_of_Objects, input) + " in the unity hierarchy MANDATORY";
         
 
-        input = Define_Models_Coordinates(Number_of_Objects,input) + "and add just one collider per gameobject, find the gameobject named Plane and change its" +
+        input = Define_Models_Coordinates(Number_of_Objects,input,list_Directions) + " and add just one collider per gameobject, find the gameobject named Plane and change its" +
 
         " material with the material   called 'Material'THAT MUST BE LOADED inside the " +  Material + " folder which is inside the folder Resources," +
 
@@ -452,14 +505,14 @@ public class Chat : MonoBehaviour
 
         return input;
     }
-    public string Define_Models_Coordinates(int Number_of_Objects, string input)
+    public string Define_Models_Coordinates(int Number_of_Objects, string input, List<string> list)
     {
 
 
 
         for (int ii = 0; ii < Number_of_Objects; ii++)
         {
-            input += " Model_" + ii.ToString() + "at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX().ToString() + " and Z position equals to " + Random_PositionZ().ToString();
+            input += " Model_" + ii.ToString() + " at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX().ToString() + " and Z position equals to " + Random_PositionZ(list,ii).ToString();
 
         }
 
@@ -488,7 +541,7 @@ public class Chat : MonoBehaviour
 
 
     //It returns a subset of string of the input that are inside the vocabulary of accepted words
-    public static List<string> isIn(string s,List<string> Furniture_Vocab)
+    public static List<string> isIn(string s,List<string> Vocab)
     {
         List <string> subSet = new List<string>();
 
@@ -501,10 +554,13 @@ public class Chat : MonoBehaviour
         {
 
             //If it is accetable, add it to the final subset
-        if(ContainsAny(str, Furniture_Vocab))
+        if(ContainsAny(str,Vocab))
             {
+                
                 subSet.Add(str.Substring(0, 1).ToUpper() + str.Substring(1).ToLower());
             }
+
+            
 
         }
             
@@ -512,7 +568,35 @@ public class Chat : MonoBehaviour
         return subSet; 
     }
 
+    public static List<string> isIn_Direction(string s, List<string> Direction, List<string> allwords)
+    {
+        List<string> subSet = new List<string>();
+
+        //Subdivide the string in a List of substrings 
+        List<string> aux = s.Split(' ').ToList();
 
 
-   //---------------------------------------------------------------------------------------------------------
+        //For every string inside the list
+        foreach (string str in aux)
+        {
+
+            //If it is accetable, add it to the final subset
+            if (ContainsAny(str, Direction) || ContainsAny(str,allwords))
+            {
+
+                subSet.Add(str.Substring(0, 1).ToUpper() + str.Substring(1).ToLower());
+            }
+
+ 
+
+
+        }
+
+
+        return subSet;
+    }
+
+
+
+    //---------------------------------------------------------------------------------------------------------
 }
