@@ -63,11 +63,11 @@ public class Chat : MonoBehaviour
 
     List<string> Nature_Models = new List<string>() { "Oak", "Bush", "Mushroom", "Wood", "Stone" , "Pine", "Flower"};
 
-    List<string> Industrial_Strings = new List<string>() { };
+    List<string> Industrial_Strings = new List<string>() {"Industry","Industrial"};
 
     List<string> Industrial_Models = new List<string>() {"Cable","Garbage","Pallet", "PalletCar" , "Plank", "Tank" , "Tube"};
 
-    List<string> City_Strings = new List<string>() {  };
+    List<string> City_Strings = new List<string>() {"City"};
 
     List<string> City_Models = new List<string>() {"Barrel" , "Bench" , "Bin" , "Dumpster" , "Hydrant", "Mailbox" , "Stoplight"};
 
@@ -343,13 +343,18 @@ public class Chat : MonoBehaviour
         }
 
         else if (words_City.Count() == Number_of_Objects) 
-        { 
-        
+        {
+            input = Input_Request(input, Number_of_Objects, words_City);
+
+            Start();
         }
 
         else if (words_Industrial.Count() == Number_of_Objects) 
         {
-        
+            input = Input_Request(input, Number_of_Objects, words_Industrial);
+
+            Start();
+
         }
 
 
