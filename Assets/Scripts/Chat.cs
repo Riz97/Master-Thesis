@@ -29,6 +29,7 @@ public class Chat : MonoBehaviour
 
     private string input ;
     private string input_aux;
+    
 
     private bool check = false;
 
@@ -312,13 +313,19 @@ public class Chat : MonoBehaviour
 
         //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-        else if (words_Furniture.Count() == 3)
+        else if (words_Furniture.Count() == Number_of_Objects)
         {
-            input = " the first thing to do must be find the  gameobjects  called 'Model_1', 'Model_2' and 'Model_3' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called "
-                + words_Furniture[0] + " " + words_Furniture[1] + " " + words_Furniture[2] + " " +
-             " You MUST RENAME THEM AS 'Model_1' 'Model_2' and 'Model_3' in the unity hierarchy MANDATORY" +
-              ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for the second game object at X 0 and the third game object  at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
-              " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
+            input = " the first thing to do must be find the  gameobjects  called ";   
+
+            input = Define_Models(Number_of_Objects, input) + " and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called " ;
+
+            input = Enum_Objects(words_Furniture, Number_of_Objects, input) + "You MUST RENAME THEM AS " ;
+
+            input = Define_Models(Number_of_Objects, input) + " sin the unity hierarchy MANDATORY, at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for the second game object at X 0 and the third game object  at X 3, " +
+              
+              "and add just one collider per gameobject, find the gameobject named Plane and change its" +
+              " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources," +
+              " using a method called Start , avoid any type of comments , you must write only code"; 
 
             Start();
         }
@@ -356,6 +363,33 @@ public class Chat : MonoBehaviour
     //----------------------------AUXILIARIES FUNCTIONS-------------------------------------------------------
 
     //Meta language
+
+
+    public  string Enum_Objects(List<string> objects, int Number_of_Objects, string input){
+        
+        
+
+        for(int i = 0; i < Number_of_Objects; i++)
+        {
+            input += objects[i];
+        }
+
+        return input;
+        }
+
+    public string Define_Models(int Number_of_Objects,string input)
+    {
+
+
+
+        for (int ii = 0; ii < Number_of_Objects; ii++)
+        {
+            input += "Model_" + ii.ToString();
+        }
+
+        return input;
+    }
+
 
     public static bool ContainsAny(string s, List<string> substrings)
     {
