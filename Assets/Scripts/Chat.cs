@@ -276,6 +276,7 @@ public class Chat : MonoBehaviour
                 list_Directions_aux.Remove(list_Directions_aux[i+1]);
             }
 
+
             else
             {
                 list_Directions_aux[i] = " ";
@@ -417,41 +418,57 @@ public class Chat : MonoBehaviour
     //----------------------------AUXILIARIES FUNCTIONS-------------------------------------------------------
 
 
-    public float Random_PositionZ(List<string> list,int i)
+    public float Random_PositionZ(List<string> list, int i)
     {
         float randomCoordinate = 0;
+        Debug.Log(list[i]);
 
-        //Switch for positioning
+        if (list[i] == "Right" || list[i] == "right")
+        {
+            randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        } 
 
-      
+        else if (list[i] == "Left" || list[i] == "left")
+        {
+            randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        }
 
-            Debug.Log(list[i]);
+        else if (list[i] == "Center" || list[i] == "center")
+        {
+            randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        }
 
-            if (list[i] == "Right" || list[i] == "right")
-            {
-                randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
-
-
-            }
-
-
-
-            else
-            {
-
-                randomCoordinate = 1;
-                //Debug.Log("Base");
-            }
-
-
-        
-
+        else
+        {
+            randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        }
         return randomCoordinate;
     }
 
-    public float Random_PositionX()
+    public float Random_PositionX(List<string> list, int i)
     {
-        float randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        float randomCoordinate = 0;
+        Debug.Log(list[i]);
+
+        if (list[i] == "Right" || list[i] == "right")
+        {
+            randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        }
+
+        else if (list[i] == "Left" || list[i] == "left")
+        {
+            randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        }
+
+        else if (list[i] == "Center" || list[i] == "center")
+        {
+            randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        }
+
+        else
+        {
+            randomCoordinate = UnityEngine.Random.Range(-18f, 18f);
+        }
 
         return randomCoordinate;
     }
@@ -512,7 +529,7 @@ public class Chat : MonoBehaviour
 
         for (int ii = 0; ii < Number_of_Objects; ii++)
         {
-            input += " Model_" + ii.ToString() + " at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX().ToString() + " and Z position equals to " + Random_PositionZ(list,ii).ToString();
+            input += " Model_" + ii.ToString() + " at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX(list,ii).ToString() + " and Z position equals to " + Random_PositionZ(list,ii).ToString();
 
         }
 
