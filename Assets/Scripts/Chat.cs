@@ -131,13 +131,14 @@ public class Chat : MonoBehaviour
             obj.name = "Model_" + i.ToString();
             }
         }
-             
+        
+        cc++;
         //-----------------------------------------------------------------------------------------------------------------------------------
 
 
-        cc++;
+       
 
-            // model = new Model("gpt-3.5-turbo");
+         
          sceneName = SceneManager.GetActiveScene().name;
 
         //-----------------------INVISIBLE STRINGS HANDLER-----------------------
