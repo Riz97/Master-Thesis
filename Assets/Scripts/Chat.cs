@@ -63,9 +63,11 @@ public class Chat : MonoBehaviour
 
     List<string> Car_Strings = new List<string>() {"Cars" , "Machines"  , "Starting Grid" };
 
-    List<string> Car_Models = new List<string>() { "Red", "Blue", "Green" , "White", "Silver" , "Sport" , "Formula","Suv" };
+    List<string> Car_Models = new List<string>() { "Cops", "Sedan", "Sport" , "Suv", "Taxi" , "Sport" };
 
-    List<string> Nature_Strings = new List<string>() {"Nature"  , "Garden" , "Forest"};
+    List<string> Nature_Strings = new List<string>() {"Nature"};
+
+    List<string> Forest_Strings = new List<string>() { "Forest" };
 
     List<string> Nature_Models = new List<string>() { "Oak", "Bush", "Mushroom", "Wood", "Stone" , "Pine", "Flower"};
 
@@ -397,7 +399,7 @@ public class Chat : MonoBehaviour
 
 
             input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Pine' , " +
-                "Flower' 'Mushroom' 'Oak' 'Wood' 'Bush' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   in the unity hierarchy MANDATORY" +
+                "Flower' 'Mushroom' 'Oak' 'Wood'  , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Pine) at Y position equals to -0.47, at X position -3.52 and Z position 7.48, 'Model_1' (Flower) at Y position equals to -0.47, at X position -4.17 and Z position 7.25 'Model_2' (Mushroom) at Y position equals to -0.47, at X position -2.70 and Z position 7.41 " +
                      "'Model_3' (Mushroom) at Y position equals to -0.47, at X position  -2.31 and Z position 7.68  'Model_4' (Oak) at Y position equals to -0.47, at X position 1.11 and Z position 7.74 " +      
                     " and add just one collider per gameobject, find the gameobject named Plane and change its" +
@@ -414,9 +416,15 @@ public class Chat : MonoBehaviour
 
         {
 
-            input = "the first thing to do must be  gameobject called and  destroy them and  substitute them  with the gameobject called Model_0 , Model_1 and Model_2 respectively , remember that they are  positioned inside the folder named Nature inside Resources " +
-                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Model_1 at X 0 and Model_2 at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
-                    " material with the material called Material inside the Nature folder which is inside the folder Resources, using a method called Start, after every operation remember that the name of the new objects in the unity hierarchy must be Model_1 Model_2 Model_3";
+            createModels(5);
+
+
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Cars' inside the folder  'Resources' called 'Sport' , " +
+                "Cops' 'Suv' 'Taxi' 'Sedan', You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   in the unity hierarchy MANDATORY" +
+                    " 'Model_0' (Sport) at Y position equals to -0.47, at X position -3.74 and Z position 17.69, 'Model_1' (Cops) at Y position equals to -0.47, at X position -0.59 and Z position 22.06 'Model_2' (Suv) at Y position equals to -0.47, at X position 2.52 and Z position 17.69 " +
+                     "'Model_3' (Taxi) at Y position equals to -0.47, at X position  -7.33 and Z position 21.52  'Model_4' (Sedan) at Y position equals to -0.47, at X position 6.53 and Z position 21.18 " +
+                    " and add just one collider per gameobject, find the gameobject named Plane and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Cars' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
             Start();
         }
 
