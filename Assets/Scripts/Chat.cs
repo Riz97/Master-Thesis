@@ -444,10 +444,16 @@ public class Chat : MonoBehaviour
 
         else if (ContainsAny(input, Industrial_Strings))
         {
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
-                " 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_0' 'Model_1' and 'Model_2' in the unity hierarchy MANDATORY" +
-                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Bed at X 0 and Chair at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
-                    " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
+
+            createModels(6);
+
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Industrial' inside the folder  'Resources' called 'Tubes' , " +
+                "Plank' 'Garbage' 'Pallet' 'Pallet' 'Car' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  in the unity hierarchy MANDATORY" +
+                    " 'Model_0' (Tubes) at Y position equals to -0.47, at X position -4.56 and Z position 7.55, 'Model_1' (Plank) at Y position equals to -0.47, at X position -1.81 and Z position 11.90 'Model_2' (Garbage) at Y position equals to -0.47, at X position -1.90 and Z position 11.61 " +
+                     "'Model_3' (Pallet) at Y position equals to -0.47, at X position  2.90 and Z position 9.70  'Model_4' (Pallet) at Y position equals to -0.47, at X position 4.11 and Z position 9.28 'Model_5' (Car) at Y position equals to -0.47, at X position 6.66 " +
+                     "and Z position 8.86 " +
+                    " and add just one collider per gameobject, find the gameobject named Plane and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'City' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
 
             Start();
 
