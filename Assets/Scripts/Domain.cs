@@ -134,6 +134,20 @@ public class Domain : MonoBehaviour
                 // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
                 // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
                 proxy.SafeCall(sourceCode);
+
+            if(Chat.input_aux == "Office" || Chat.input_aux == "office" ||
+                Chat.input_aux == "Apartment" || Chat.input_aux == "apartment")
+            {
+                
+                Chat.Bases = true;
+
+            }
+
+            else
+            {
+                Chat.Custom = true;
+            }
+           
             
         } 
 

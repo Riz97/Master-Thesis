@@ -30,10 +30,10 @@ public class Chat : MonoBehaviour
   public static string result;
 
     private string input ;
-    private string input_aux;
+  public static string input_aux;
 
-    private bool Bases = false;
-    private bool Custom = false;
+    public static bool Bases = false;
+    public static bool Custom = false;
     private bool check = false;
 
 
@@ -267,6 +267,7 @@ public class Chat : MonoBehaviour
     {
 
         input = InputField.text.ToString();
+        input_aux = InputField.text.ToString();
 
         List<string> words_Furniture = isIn(input, Furniture_Models);
         List<string> words_Nature = isIn(input, Nature_Models);
@@ -326,12 +327,20 @@ public class Chat : MonoBehaviour
 
         if (ContainsAny(input, Furniture_Strings))
         {
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
-                " 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_0' 'Model_1' and 'Model_2' in the unity hierarchy MANDATORY" +
-                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Bed at X 0 and Chair at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
-                    " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
+            createModels(5);
+
+
+
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Desk' , " +
+                "Chair' 'Table' 'Chair' 'Chair'  , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4  in the unity hierarchy MANDATORY" +
+                    " 'Model_0' (Desk) at Y position equals to -0.47, at X position 0.08 and Z position 7.13 , 'Model_1' (Chair) at Y position equals to -0.47, at X position 0.13 and Z position 9.25 'Model_2' (Table) at Y position equals to -0.47, at X position -2.64 and Z position 4.62 " +
+                     "'Model_3' (Chair) at Y position equals to -0.47, at X position  -2.76 and Z position 6.28  'Model_4' (Chair) at Y position equals to -0.47, at X position -4.37 and Z position 4.81 and Y rotation equals -97.34"+
+                     
+                    " and add just one collider per gameobject, find the gameobject named Plane and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Furniture' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
 
             Start();
+         
 
         }
 
@@ -348,13 +357,13 @@ public class Chat : MonoBehaviour
             input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Bed' , " +
                 "Drawer' 'Desk' 'Chair' 'Drawer' 'Shower' 'Sink' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Bed) at Y position equals to -0.47, at X position -0.64 and Z position 9.99 , 'Model_1' (Drawer) at Y position equals to -0.47, at X position -3.30 and Z position 12.38 'Model_2' (Desk) at Y position equals to -0.47, at X position -4.35 and Z position 6.35 and Y rotation equals to 87.809" +
-                     "'Model_3' (Chair) at Y position equals to -0.47, at X position - -3.31 and Z position 6.09 and Y rotation equals 97.00 'Model_4' (Drawer) at Y position equals to -0.47, at X position 1.42 and Z position 12.1 'Model_5' (Shower) at Y position equals to -0.47, at X position 4.69 " +
+                     "'Model_3' (Chair) at Y position equals to -0.47, at X position  -3.31 and Z position 6.09 and Y rotation equals 97.00 'Model_4' (Drawer) at Y position equals to -0.47, at X position 1.42 and Z position 12.1 'Model_5' (Shower) at Y position equals to -0.47, at X position 4.69 " +
                      "and Z position 10.72 and 'Model_6' (Sink) at Y position equals to -0.47, at X position 6.34 and Z position 10.02" +
                     " and add just one collider per gameobject, find the gameobject named Plane and change its" +
                     " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Furniture' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
            
             Start();
-            Bases = true;
+            
         }
 
         // ------ FOREST -----------
@@ -362,10 +371,18 @@ public class Chat : MonoBehaviour
         else if (ContainsAny(input, Nature_Strings))
         {
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Tree' , " +
-                "'Mushroom' and 'Stone' , You MUST RENAME THEM AS 'Model_0' 'Model_1' and 'Model_2' in the unity hierarchy MANDATORY" +
-                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Tree at X 0 and Mushroom at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
-                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Nature' folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
+            createModels(6);
+
+
+
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Oak' , " +
+                "Pine' 'Pine' 'Mushroom' 'Oak' 'Stone' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  in the unity hierarchy MANDATORY" +
+                    " 'Model_0' (Oak) at Y position equals to -0.47, at X position -4.25 and Z position 10.48, 'Model_1' (Pine) at Y position equals to -0.47, at X position -1.48 and Z position 7.49 'Model_2' (Pine) at Y position equals to -0.47, at X position -0.77 and Z position 9.61 " +
+                     "'Model_3' (Mushroom) at Y position equals to -0.47, at X position  -2.31 and Z position 7.68  'Model_4' (Oak) at Y position equals to -0.47, at X position 1.11 and Z position 7.74 'Model_5' (Stone) at Y position equals to -0.47, at X position -2.98 " +
+                     "and Z position 13.72 " +
+                    " and add just one collider per gameobject, find the gameobject named Plane and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Nature' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
+
             Start();
 
         }
@@ -375,11 +392,19 @@ public class Chat : MonoBehaviour
         else if (ContainsAny(input, Nature_Strings))
         {
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Tree' , " +
-                "'Mushroom' and 'Stone' , You MUST RENAME THEM AS 'Model_0' 'Model_1' and 'Model_2' in the unity hierarchy MANDATORY" +
-                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Tree at X 0 and Mushroom at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
-                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Nature' folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
+            createModels(5);
+
+
+
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Pine' , " +
+                "Flower' 'Mushroom' 'Oak' 'Wood' 'Bush' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   in the unity hierarchy MANDATORY" +
+                    " 'Model_0' (Pine) at Y position equals to -0.47, at X position -3.52 and Z position 7.48, 'Model_1' (Flower) at Y position equals to -0.47, at X position -4.17 and Z position 7.25 'Model_2' (Mushroom) at Y position equals to -0.47, at X position -2.70 and Z position 7.41 " +
+                     "'Model_3' (Mushroom) at Y position equals to -0.47, at X position  -2.31 and Z position 7.68  'Model_4' (Oak) at Y position equals to -0.47, at X position 1.11 and Z position 7.74 " +      
+                    " and add just one collider per gameobject, find the gameobject named Plane and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Nature' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
+
             Start();
+
 
         }
 
@@ -399,12 +424,19 @@ public class Chat : MonoBehaviour
 
         else if (ContainsAny(input, City_Strings))
         {
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
-                " 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_0' 'Model_1' and 'Model_2' in the unity hierarchy MANDATORY" +
-                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Bed at X 0 and Chair at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
-                    " material with the material   called 'Material'THAT MUST BE LOADED inside the Furniture folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
+
+            createModels(7);
+
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'City' inside the folder  'Resources' called 'Bench' , " +
+               "Bin' 'Mailbox' 'Stoplight' 'Dumpster' 'Barrel' 'Barrel' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 in the unity hierarchy MANDATORY" +
+                   " 'Model_0' (Bench) at Y position equals to -0.47, at X position -3.29 and Z position 7.85 and Y rotation equals to 88.27 , 'Model_1' (Bin) at Y position equals to -0.47, at X position -3.25 and Z position 5.99 'Model_2' (Mailbox) at Y position equals to -0.47, at X position -3.28 and Z position 9.66 and Y rotation equals to -78.88" +
+                    "'Model_3' (Stoplight) at Y position equals to -0.47, at X position  1.31 and Z position 25.09 and Y rotation equals -176.29 'Model_4' (Dumpster) at Y position equals to -0.47, at X position 6.66 and Z position 8.08 and Y rotation equals -92.135 'Model_5' (Barrel) at Y position equals to -0.47, at X position 6.24 " +
+                    "and Z position 6.43 and 'Model_6' (Barrel) at Y position equals to -0.47, at X position 7.04 and Z position 6.54" +
+                   " and add just one collider per gameobject, find the gameobject named Plane and change its" +
+                   " material with the material   called 'Material'THAT MUST BE LOADED inside the 'City' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
 
             Start();
+
 
         }
 
