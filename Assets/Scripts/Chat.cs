@@ -30,19 +30,20 @@ public class Chat : MonoBehaviour
   public static string result;
 
     private string input ;
-  public static string input_aux;
+    public static string input_aux;
 
     public static bool Bases = false;
     public static bool Custom = false;
     private bool check = false;
+    string sceneName;
 
+    public GameObject Models;
 
     private const string Computing_Message = "Computing the script , just wait!!!!";
 
     public static float elapsed_time;
 
-    int n = 7;
-
+ 
 
     List<string> Mandatory_Words = new List<string>() {"Find", "Instantiate"};
 
@@ -102,9 +103,7 @@ public class Chat : MonoBehaviour
     TMP_Text Info_Text; //User Mode Text
 
     
-    string sceneName;
-
-    public GameObject Models;
+ 
 
 
 
