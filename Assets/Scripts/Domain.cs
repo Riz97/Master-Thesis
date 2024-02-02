@@ -93,13 +93,13 @@ public class Domain : MonoBehaviour
         //provide a correct script that Roslyin will compile at runtime
 
 
-        yield return new WaitForSeconds(20);
+        yield return new WaitForSeconds(30);
 
         
         if (Output_Text.text.ToString() == Wait_Message)
         {
             Debug.Log("sono qua");
-            yield return new WaitForSeconds(25);
+            yield return new WaitForSeconds(30);
         }
          
 
@@ -109,7 +109,7 @@ public class Domain : MonoBehaviour
             
 
 
-            yield return new WaitForSeconds(17);
+            yield return new WaitForSeconds(30);
 
             
 

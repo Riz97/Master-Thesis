@@ -17,6 +17,7 @@ using System.Text;
 using UnityEngine.XR;
 using UnityEngine.InputSystem.Android;
 using static System.Net.Mime.MediaTypeNames;
+using Unity.XR.Oculus.Input;
 
 
 
@@ -30,21 +31,20 @@ public class Chat : MonoBehaviour
 
     private string input ;
     private string input_aux;
-    
 
+    private bool Bases = false;
+    private bool Custom = false;
     private bool check = false;
 
-    private int cc= 0;
 
     private const string Computing_Message = "Computing the script , just wait!!!!";
 
     public static float elapsed_time;
 
-   
+    int n = 7;
 
 
-    List<string> Mandatory_Words = new List<string>() {"Find", "Find"+ "(" + "\"" + "Model_1"+ "\"" + ")",
-                                                        "Find"+ "(" + "\"" + "Plane"+ "\"" + ")"};
+    List<string> Mandatory_Words = new List<string>() {"Find", "Instantiate"};
 
     List<string> Material_Words = new List<string>() {
            "\"" + "Furniture/Material"+ "\"" , 
@@ -54,7 +54,10 @@ public class Chat : MonoBehaviour
     List<string> Directions = new List<string>() { "Right", "Left" , "Middle","right", "left" , "center"};
 
 
-    List<string> Furniture_Strings = new List<string>() {"Furniture", "Office" };
+    List<string> Furniture_Strings = new List<string>() { "Office" };
+
+    List<string> Apartment_Strings = new List<string>() { "Apartment" };
+
 
     List<string> Furniture_Models = new List<string>() {"Desk", "Chair" , "Bed" , "Table" , "Chest","Drawer","Shower", "Sink"};
 
@@ -105,10 +108,7 @@ public class Chat : MonoBehaviour
 
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
-    public static int  maxTokens = 1000;
-    public static double temperature = 0.5;
-    public static double presencePenalty = 0.1;
-    public static double frequencyPenalty = 0.1;
+ 
     public static Model model = Model.GPT3_5_Turbo;
 
     //--------------------------------------------------------------------
@@ -119,20 +119,31 @@ public class Chat : MonoBehaviour
     {
 
         
-
+        
         //-----------------------------------Creation of the requested number of objects (executed only once) -------------------------------
 
-        if(cc == 0)
-
+       if(Bases)
         {
-            for(int i = 0 ; i < Number_of_Objects; i++)
+            for(int i = 0; i < 7; i++)
             {
-            GameObject obj = Instantiate(Models,transform.position, Quaternion.identity);
-            obj.name = "Model_" + i.ToString();
+                GameObject.Destroy(GameObject.Find("Model_" + i.ToString()));
+
             }
+        Bases = false;
+        }
+
+        
+
+       else if(Custom)
+        {
+            for (int i = 0; i < Number_of_Objects; i++)
+            {
+                GameObject.Destroy(GameObject.Find("Model_" + i.ToString()));
+
+            }
+        Custom = false;
         }
         
-        cc++;
         //-----------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -177,6 +188,8 @@ public class Chat : MonoBehaviour
 
             float start_time = Time.time;
 
+            //-----------------------OpenAI API Usage----------------------------------
+
             var messages = new List<Message>
             {
                 new Message(Role.User, input)
@@ -185,7 +198,7 @@ public class Chat : MonoBehaviour
             var api = new OpenAIClient();
             var chatRequest = new ChatRequest(messages, Model.GPT3_5_Turbo);
             result = await api.ChatEndpoint.GetCompletionAsync(chatRequest);
-            
+            //-----------------------------------------------------------------------
 
         
             Debug.Log(result);
@@ -253,9 +266,6 @@ public class Chat : MonoBehaviour
 
     {
 
-
-
-
         input = InputField.text.ToString();
 
         List<string> words_Furniture = isIn(input, Furniture_Models);
@@ -269,18 +279,20 @@ public class Chat : MonoBehaviour
 
         List<string> list_Directions_aux = isIn_Direction(input,Directions,allWords);
      
+        //String list handler for the specified position
+
 
         for (int i =0; i < list_Directions_aux.Count; i++)
         {
             if (ContainsAny(list_Directions_aux[i], Directions))
             {
-                list_Directions_aux.Remove(list_Directions_aux[i+1]);
+                list_Directions_aux.Remove(list_Directions_aux[i+1]); //if in the list the model is preceded by a position, remove the object string from the list 
             }
 
 
             else
             {
-                list_Directions_aux[i] = " ";
+                list_Directions_aux[i] = " "; // otherwise no position is asked e fill the string list with an empty string
             }
 
         }
@@ -288,7 +300,6 @@ public class Chat : MonoBehaviour
         List<string> list_Directions = list_Directions_aux;
 
 
-        Debug.Log(list_Directions_aux[0].ToString());
 
 
         Text.color = new Color32(27, 255, 0, 255);
@@ -309,6 +320,10 @@ public class Chat : MonoBehaviour
         check = true;
 
         //------------------------------------------------------------------------------------ BASE CASES ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+        
+        
+        // ------ OFFICE -----------
+
         if (ContainsAny(input, Furniture_Strings))
         {
             input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
@@ -322,6 +337,27 @@ public class Chat : MonoBehaviour
 
 
 
+        // ------ APARTMENT -----------
+
+        else if (ContainsAny(input, Apartment_Strings))
+        {
+            createModels(7);
+            
+
+
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Bed' , " +
+                "Drawer' 'Desk' 'Chair' 'Drawer' 'Shower' 'Sink' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 in the unity hierarchy MANDATORY" +
+                    " 'Model_0' (Bed) at Y position equals to -0.47, at X position -0.64 and Z position 9.99 , 'Model_1' (Drawer) at Y position equals to -0.47, at X position -3.30 and Z position 12.38 'Model_2' (Desk) at Y position equals to -0.47, at X position -4.35 and Z position 6.35 and Y rotation equals to 87.809" +
+                     "'Model_3' (Chair) at Y position equals to -0.47, at X position - -3.31 and Z position 6.09 and Y rotation equals 97.00 'Model_4' (Drawer) at Y position equals to -0.47, at X position 1.42 and Z position 12.1 'Model_5' (Shower) at Y position equals to -0.47, at X position 4.69 " +
+                     "and Z position 10.72 and 'Model_6' (Sink) at Y position equals to -0.47, at X position 6.34 and Z position 10.02" +
+                    " and add just one collider per gameobject, find the gameobject named Plane and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Furniture' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
+           
+            Start();
+            Bases = true;
+        }
+
+        // ------ FOREST -----------
 
         else if (ContainsAny(input, Nature_Strings))
         {
@@ -333,6 +369,22 @@ public class Chat : MonoBehaviour
             Start();
 
         }
+
+        // ------ NATURE -----------
+
+        else if (ContainsAny(input, Nature_Strings))
+        {
+
+            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Tree' , " +
+                "'Mushroom' and 'Stone' , You MUST RENAME THEM AS 'Model_0' 'Model_1' and 'Model_2' in the unity hierarchy MANDATORY" +
+                    ",at Y position equals to -0.47, at X position -2.38 and Z position 29.46 and do the same for Tree at X 0 and Mushroom at X 3, and add just one collider per gameobject, find the gameobject named Plane and change its" +
+                    " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Nature' folder which is inside the folder Resources, using a method called Start , avoid any type of comments , you must write only code";
+            Start();
+
+        }
+
+        // ------ GRID -----------
+
         else if (ContainsAny(input, Car_Strings))
 
         {
@@ -343,7 +395,9 @@ public class Chat : MonoBehaviour
             Start();
         }
 
-        if (ContainsAny(input, City_Strings))
+        // ------ CITY -----------
+
+        else if (ContainsAny(input, City_Strings))
         {
             input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
                 " 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_0' 'Model_1' and 'Model_2' in the unity hierarchy MANDATORY" +
@@ -354,8 +408,9 @@ public class Chat : MonoBehaviour
 
         }
 
+        // ------ INDUSTRY -----------
 
-        if (ContainsAny(input, Industrial_Strings))
+        else if (ContainsAny(input, Industrial_Strings))
         {
             input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1' and 'Model_2' and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Table' ," +
                 " 'Bed' and 'Chair' , You MUST RENAME THEM AS 'Model_0' 'Model_1' and 'Model_2' in the unity hierarchy MANDATORY" +
@@ -370,51 +425,66 @@ public class Chat : MonoBehaviour
 
         else if (words_Furniture.Count() == Number_of_Objects)
         {
+           createModels(Number_of_Objects);
 
             input = Input_Request(input, Number_of_Objects, words_Furniture , "Furniture",list_Directions);
 
             Start();
+
+            Custom = true;
         }
 
 
         else if (words_Cars.Count() == Number_of_Objects)
         {
 
+            createModels(Number_of_Objects);
 
             input = Input_Request(input, Number_of_Objects, words_Cars , "Cars", list_Directions);
 
 
             Start();
+
+            Custom = true;
         }
 
         else if (words_Nature.Count() == Number_of_Objects)
         {
+            createModels(Number_of_Objects);
 
             input = Input_Request(input, Number_of_Objects, words_Nature, "Nature", list_Directions);
 
             Start();
+
+            Custom = true;
         }
 
         else if (words_City.Count() == Number_of_Objects) 
         {
+            createModels(Number_of_Objects);
+
             input = Input_Request(input, Number_of_Objects, words_City, "City",list_Directions);
 
             Start();
+
+            Custom = true;
         }
 
         else if (words_Industrial.Count() == Number_of_Objects) 
         {
+            createModels(Number_of_Objects);
             input = Input_Request(input, Number_of_Objects, words_Industrial,"Industrial", list_Directions);
 
             Start();
 
+            Custom = true;
         }
 
 
 
         // Error Handler : if the user does not ask for the correct amount of models , which is set in the hierarchy
 
-        else if (words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects ) 
+        else if ((words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects)  && (Bases = false)) 
         {
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
@@ -440,12 +510,22 @@ public class Chat : MonoBehaviour
     }
 
     //----------------------------AUXILIARIES FUNCTIONS-------------------------------------------------------
+    public void createModels(int Number)
+    {
 
+        for (int i = 0; i < Number; i++)
+        {
+            GameObject obj = Instantiate(Models, transform.position, Quaternion.identity);
+            obj.name = "Model_" + i.ToString();
 
+        }
+    }
+
+    //Defines the Y position , if it is asked for right or left or center position follows some specific numbers , otherwise the position is random
     public float Random_PositionZ(List<string> list, int i)
     {
         float randomCoordinate = 0;
-        Debug.Log(list[i]);
+       
 
         if (list[i] == "Right" || list[i] == "right")
         {
@@ -468,11 +548,12 @@ public class Chat : MonoBehaviour
         }
         return randomCoordinate;
     }
-
+    
+    //Defines the X position , if it is asked for right or left or center position follows some specific numbers , otherwise the position is random
     public float Random_PositionX(List<string> list, int i)
     {
         float randomCoordinate = 0;
-        Debug.Log(list[i]);
+        
 
         if (list[i] == "Right" || list[i] == "right")
         {
@@ -491,13 +572,13 @@ public class Chat : MonoBehaviour
 
         else
         {
-            randomCoordinate = UnityEngine.Random.Range(-2f, 30f);
+            randomCoordinate = UnityEngine.Random.Range(-18f, 16f);
         }
 
         return randomCoordinate;
     }
 
-
+    //Input Request function definition
     public string Input_Request(string input, int Number_of_Objects, List<string> list, string Material, List<string> list_Directions)
     {
         
@@ -520,7 +601,7 @@ public class Chat : MonoBehaviour
 
         return input;
     }
-
+    //It defines which object Name must be inserted in the input for CHATGPT
     public  string Enum_Objects(List<string> objects, int Number_of_Objects, string input){
         
         
@@ -533,6 +614,7 @@ public class Chat : MonoBehaviour
         return input;
         }
 
+   //It defines all the model requested 
     public string Define_Models(int Number_of_Objects,string input)
     {
 
@@ -546,6 +628,9 @@ public class Chat : MonoBehaviour
 
         return input;
     }
+
+    //Auxiliary function for building the input for CHATGPT , for each objects gives the X and Z coordinates, depending on the position requested by the user
+
     public string Define_Models_Coordinates(int Number_of_Objects, string input, List<string> list)
     {
 
@@ -562,7 +647,7 @@ public class Chat : MonoBehaviour
 
 
 
-    //Meta language
+    //----------------------------------------- META LANGUAGE ---------------------------------------------------------------------------------
 
     //If the inside the string s there is at list one string of the substrings set return true
     //Otherwise , it returns false
