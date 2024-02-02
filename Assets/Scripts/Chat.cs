@@ -564,6 +564,8 @@ public class Chat : MonoBehaviour
 
     //Meta language
 
+    //If the inside the string s there is at list one string of the substrings set return true
+    //Otherwise , it returns false
     public static bool ContainsAny(string s, List<string> substrings)
     {
         if (string.IsNullOrEmpty(s) || substrings == null)
@@ -572,6 +574,8 @@ public class Chat : MonoBehaviour
         return substrings.Any(substring => s.Contains(substring, StringComparison.CurrentCultureIgnoreCase));
     }
 
+    //If  inside the string s there are all the strings inside the list of substrings set return true
+    //Otherwise , it returns false
     public static bool ContainsAll(string s, List<string> substrings)
     {
         if (string.IsNullOrEmpty(s) || substrings == null)
@@ -608,6 +612,8 @@ public class Chat : MonoBehaviour
         
         return subSet; 
     }
+
+    //It returns a subset of string of the input that are inside the vocabulary of accepted words with the direction asked
 
     public static List<string> isIn_Direction(string s, List<string> Direction, List<string> allwords)
     {
