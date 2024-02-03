@@ -123,6 +123,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &24031616
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 24031617}
+  m_Layer: 0
+  m_Name: Reference Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &24031617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24031616}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.2902355, y: 2.088664, z: 8.640797}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &33634634
 GameObject:
   m_ObjectHideFlags: 0
@@ -803,14 +834,14 @@ MonoBehaviour:
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
   Reminders_List:
-  - Remember all the libraries inclusion
+  - Remember all the libraries inclusion, NO TITLES NO COMMENTS JUST CODE
   First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
     NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING ,  Write a C# unity script with
     libraries inclusion that '
   Number_of_Objects: 3
   Output_Text: {fileID: 33634638}
   Info_Text: {fileID: 0}
-  Models: {fileID: 0}
+  Models: {fileID: 24031616}
 --- !u!4 &331239456
 Transform:
   m_ObjectHideFlags: 0
@@ -3058,3 +3089,4 @@ SceneRoots:
   - {fileID: 1182225938}
   - {fileID: 331239456}
   - {fileID: 2006551386}
+  - {fileID: 24031617}

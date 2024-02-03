@@ -31,13 +31,14 @@ public class Chat : MonoBehaviour
 
     private string input ;
     public static string input_aux;
+    public static string input_auxx;
 
     public static bool Bases = false;
     public static bool Custom = false;
     private bool check = false;
     string sceneName;
 
-    public GameObject Models;
+   
 
     private const string Computing_Message = "Computing the script , just wait!!!!";
 
@@ -45,12 +46,14 @@ public class Chat : MonoBehaviour
 
  
 
-    List<string> Mandatory_Words = new List<string>() {"Find", "Instantiate"};
+    List<string> Mandatory_Words = new List<string>() {"Find", "Instantiate" };
 
     List<string> Material_Words = new List<string>() {
            "\"" + "Furniture/Material"+ "\"" , 
           "\"" + "Cars/Material"+ "\"" , 
-           "\"" + "Nature/Material"+ "\"" };
+           "\"" + "Nature/Material"+ "\"",
+            "\"" + "City/Material"+ "\"",
+            "\"" + "Industrial/Material"+ "\"" };
        
     List<string> Directions = new List<string>() { "Right", "Left" , "Middle","right", "left" , "center"};
 
@@ -62,7 +65,7 @@ public class Chat : MonoBehaviour
 
     List<string> Furniture_Models = new List<string>() {"Desk", "Chair" , "Bed" , "Table" , "Chest","Drawer","Shower", "Sink"};
 
-    List<string> Car_Strings = new List<string>() {"Cars" , "Machines"  , "Starting Grid" };
+    List<string> Car_Strings = new List<string>() { "Cars","Grid" };
 
     List<string> Car_Models = new List<string>() { "Cops", "Sedan", "Sport" , "Suv", "Taxi" , "Sport" };
 
@@ -104,7 +107,7 @@ public class Chat : MonoBehaviour
 
     
  
-
+     public GameObject Models;
 
 
     //-------------------- OPEN AI CLIENT INFO ------------------------
@@ -268,7 +271,7 @@ public class Chat : MonoBehaviour
     {
 
         input = InputField.text.ToString();
-        input_aux = InputField.text.ToString();
+        input_auxx = InputField.text.ToString();
 
         List<string> words_Furniture = isIn(input, Furniture_Models);
         List<string> words_Nature = isIn(input, Nature_Models);
@@ -369,7 +372,7 @@ public class Chat : MonoBehaviour
 
         // ------ FOREST -----------
 
-        else if (ContainsAny(input, Nature_Strings))
+        else if (ContainsAny(input, Forest_Strings))
         {
 
             createModels(6);
@@ -476,7 +479,7 @@ public class Chat : MonoBehaviour
 
             Start();
 
-            Custom = true;
+  
         }
 
 
@@ -490,7 +493,7 @@ public class Chat : MonoBehaviour
 
             Start();
 
-            Custom = true;
+            
         }
 
         else if (words_Nature.Count() == Number_of_Objects)
@@ -501,7 +504,7 @@ public class Chat : MonoBehaviour
 
             Start();
 
-            Custom = true;
+          
         }
 
         else if (words_City.Count() == Number_of_Objects) 
@@ -512,7 +515,8 @@ public class Chat : MonoBehaviour
 
             Start();
 
-            Custom = true;
+      
+
         }
 
         else if (words_Industrial.Count() == Number_of_Objects) 
@@ -522,7 +526,7 @@ public class Chat : MonoBehaviour
 
             Start();
 
-            Custom = true;
+            
         }
 
 

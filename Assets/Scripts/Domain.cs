@@ -137,8 +137,14 @@ public class Domain : MonoBehaviour
             
 
 
-            if(Chat.input_aux == "Office" || Chat.input_aux == "office" ||
-                Chat.input_aux == "Apartment" || Chat.input_aux == "apartment")
+            if(Chat.input_auxx == "Office" || Chat.input_auxx == "office" ||
+                Chat.input_auxx == "Apartment" || Chat.input_auxx == "apartment" ||
+                    Chat.input_auxx == "Nature" || Chat.input_auxx == "nature" ||
+                Chat.input_auxx == "Forest" || Chat.input_auxx == "forest" ||
+                Chat.input_auxx == "Grid" || Chat.input_auxx == "grid" ||
+                Chat.input_auxx == "City" || Chat.input_auxx == "city" ||
+                Chat.input_auxx == "Industry" || Chat.input_auxx == "industry")
+
             {
                 
                 Chat.Bases = true;
