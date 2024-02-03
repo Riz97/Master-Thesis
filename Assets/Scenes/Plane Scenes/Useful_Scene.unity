@@ -463,8 +463,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1334621207}
   m_HandleRect: {fileID: 1334621206}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 1
+  m_Value: 1.0000002
+  m_Size: 0.6304875
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2148,7 +2148,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TODO : Add all the information about the user mode and how to use it'
+  m_text: "User mode has two main screens.\n\nIn the one called \"Script Request\"
+    you have the possibility to ask for your own customized virtual environment.
+    There are some prebuilt environments (in the screen on the left you have a wide
+    range of different environments) or you can decide which models you want in your
+    world (check the screen on the left). \n\nYou have to remember that , in this
+    version , you can only ask for models belonging to the same macro-world.\n\nYou
+    can easily use vocals commands for your request . Press the button \"Start Recording\"
+    and say what you want , then press the button \"Stop Recording\" or you simply
+    type with the keyboard. Remember that you have the possibility to decide in which
+    part of the plane you want your models (Right , Left or Center). If you decide
+    the direction ask it before the model (eg. on the left a chair).\n\nAfter you
+    have done that , press the button \"Compute Script\" and the IA will compute
+    your custom environment.\n\nIn the last screen , you have update about the computation
+    of your request that will tell you if the environment is accetable or not. The
+    AI sometimes could make mistakes and so you have to wait a little bit for the
+    final result."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
