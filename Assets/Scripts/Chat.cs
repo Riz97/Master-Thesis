@@ -63,7 +63,7 @@ public class Chat : MonoBehaviour
     List<string> Apartment_Strings = new List<string>() { "Apartment" };
 
 
-    List<string> Furniture_Models = new List<string>() {"Desk", "Chair" , "Bed" , "Table" , "Chest","Drawer","Shower", "Sink"};
+    List<string> Furniture_Models = new List<string>() {"Desk", "Chair" , "Bed" , "Table" ,"Drawer","Shower", "Sink"};
 
     List<string> Car_Strings = new List<string>() { "Cars","Grid" };
 
