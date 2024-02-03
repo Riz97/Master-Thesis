@@ -1395,6 +1395,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4015128326712939851, guid: fd28f23af44f73f4a95e33435872ad15, type: 3}
   m_PrefabInstance: {fileID: 423636264}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &437474354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 437474355}
+  m_Layer: 0
+  m_Name: Reference Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &437474355
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437474354}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.34391236, y: -1.5140669, z: 36.228016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &469891929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,10 +2636,10 @@ MonoBehaviour:
   First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
     NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING  Write a C# unity script with
     libraries inclusion that '
-  Number_of_Objects: 0
+  Number_of_Objects: 3
   Output_Text: {fileID: 1704329019}
   Info_Text: {fileID: 0}
-  Models: {fileID: 0}
+  Models: {fileID: 437474354}
 --- !u!4 &928063440
 Transform:
   m_ObjectHideFlags: 0
@@ -6099,3 +6130,4 @@ SceneRoots:
   - {fileID: 1336330487}
   - {fileID: 310224493}
   - {fileID: 423636264}
+  - {fileID: 437474355}
