@@ -43,7 +43,7 @@ public class Chat : MonoBehaviour
     private const string Computing_Message = "Computing the script , just wait!!!!";
 
     public static float elapsed_time;
-
+    public static int tries;
  
 
     List<string> Mandatory_Words = new List<string>() {"Find", "Instantiate" };
@@ -206,7 +206,8 @@ public class Chat : MonoBehaviour
 
         
             Debug.Log(result);
-
+            
+            tries++;
 
             if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) && result[0] == 'u')
             {
