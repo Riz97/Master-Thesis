@@ -3285,6 +3285,7 @@ MonoBehaviour:
   Number_of_Objects: 3
   Output_Text: {fileID: 1704329019}
   Info_Text: {fileID: 0}
+  Number_Models_Text: {fileID: 421299960}
   Models: {fileID: 437474354}
 --- !u!4 &928063440
 Transform:

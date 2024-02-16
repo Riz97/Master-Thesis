@@ -21,7 +21,6 @@ using Unity.XR.Oculus.Input;
 
 
 
-//TODO : Aggiungere un massimo di tentativi per la ricerca dello script da parte della IA
 
 public class Chat : MonoBehaviour
 
@@ -105,6 +104,9 @@ public class Chat : MonoBehaviour
     [SerializeField]
     TMP_Text Info_Text; //User Mode Text
 
+    [SerializeField]
+    public TMP_Text Number_Models_Text;
+
     
  
      public GameObject Models;
@@ -122,6 +124,7 @@ public class Chat : MonoBehaviour
         
     {
 
+        Number_Models_Text.SetText("Number of models is : " + Number_of_Objects.ToString());
         
         
         //-----------------------------------Creation of the requested number of objects (executed only once) -------------------------------
@@ -693,6 +696,20 @@ public class Chat : MonoBehaviour
         }
 
         return input;
+    }
+
+
+    public void Add()
+    {
+
+        Number_Models_Text.SetText("Number of models is : " + Number_of_Objects.ToString() + 1);
+        Number_of_Objects++;
+    }
+
+    public void Subtract()
+    {
+        Number_Models_Text.SetText("Number of models is : " + Number_of_Objects.ToString() + -1);
+        Number_of_Objects--;
     }
 
 
