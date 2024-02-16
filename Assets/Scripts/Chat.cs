@@ -702,13 +702,13 @@ public class Chat : MonoBehaviour
     public void Add()
     {
 
-        Number_Models_Text.SetText("Number of models is : " + Number_of_Objects.ToString() + 1);
+        Number_Models_Text.SetText("Number of models is : " + (Number_of_Objects + 1).ToString());
         Number_of_Objects++;
     }
 
     public void Subtract()
     {
-        Number_Models_Text.SetText("Number of models is : " + Number_of_Objects.ToString() + -1);
+        Number_Models_Text.SetText("Number of models is : " + (Number_of_Objects -1).ToString());
         Number_of_Objects--;
     }
 
