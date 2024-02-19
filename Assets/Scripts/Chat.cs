@@ -46,7 +46,7 @@ public class Chat : MonoBehaviour
     public static int tries;
  
 
-    List<string> Mandatory_Words = new List<string>() {"Find", "Instantiate", ".name" };
+    List<string> Mandatory_Words = new List<string>() {"Find(", "Instantiate", ".name" };
 
     List<string> Material_Words = new List<string>() {
            "\"" + "Furniture/Material"+ "\"" , 
@@ -472,7 +472,7 @@ public class Chat : MonoBehaviour
 
             input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Industrial' inside the folder  'Resources' called 'Tubes' , " +
                 "Plank' 'Garbage' 'Pallet' 'Pallet' 'Car' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  in the unity hierarchy MANDATORY" +
-                    " 'Model_0' (Tubes) at Y position equals to -0.47, at X position -4.56 and Z position 7.55, 'Model_1' (Plank) at Y position equals to -0.47, at X position -1.81 and Z position 11.90 'Model_2' (Garbage) at Y position equals to -0.47, at X position -1.90 and Z position 11.61 " +
+                    " 'Model_0' (Tubes) at Y position equals to -0.47, at X position -4.56 and Z position 7.55, 'Model_1' (Plank) at Y position equals to -0.47, at X position -1.81 and Z position 11.90 'Model_2' (Garbage) at Y position equals to -0.47, at X position 1.64 and Z position 11.61 " +
                      "'Model_3' (Pallet) at Y position equals to -0.47, at X position  2.90 and Z position 9.70  'Model_4' (Pallet) at Y position equals to -0.47, at X position 4.11 and Z position 9.28 'Model_5' (Car) at Y position equals to -0.47, at X position 6.66 " +
                      "and Z position 8.86 " +
                     " and add just one collider per gameobject, find the gameobject named Plane and change its" +
