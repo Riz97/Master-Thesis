@@ -46,7 +46,7 @@ public class Chat : MonoBehaviour
     public static int tries;
  
 
-    List<string> Mandatory_Words = new List<string>() {"Find", "Instantiate" };
+    List<string> Mandatory_Words = new List<string>() {"Find", "Instantiate", ".name" };
 
     List<string> Material_Words = new List<string>() {
            "\"" + "Furniture/Material"+ "\"" , 
@@ -129,11 +129,16 @@ public class Chat : MonoBehaviour
     {
 
         Number_Models_Text.SetText("Number of models is : " + Number_of_Objects.ToString());
-        
-        
-        //-----------------------------------Creation of the requested number of objects (executed only once) -------------------------------
 
-       if(Bases)
+        //Reset of the Plane's material
+        GameObject plane = GameObject.Find("Plane");
+        plane.GetComponent<Renderer>().material = material;
+
+        //-----------------------------------Deletion of the objects of the old customized or bases scenes -------------------------------
+
+
+        //For bases scene we have a known number of models
+        if (Bases)
         {
             for(int i = 0; i < 7; i++)
             {
@@ -144,7 +149,7 @@ public class Chat : MonoBehaviour
         }
 
         
-
+       //For the customized scenes the number of models is determined by the user 
        else if(Custom)
         {
             for (int i = 0; i < Number_of_Objects; i++)
@@ -541,7 +546,7 @@ public class Chat : MonoBehaviour
 
         // Error Handler : if the user does not ask for the correct amount of models , which is set in the hierarchy
 
-        else if ((words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects)  && (Bases = false)) 
+        else if ((words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects)) 
         {
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
