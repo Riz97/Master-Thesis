@@ -20,7 +20,8 @@ using static System.Net.Mime.MediaTypeNames;
 using Unity.XR.Oculus.Input;
 
 
-
+//GameObject plane = GameObject.Find("Plane");
+//plane.GetComponent<Renderer>().material = Material;
 
 public class Chat : MonoBehaviour
 
@@ -106,6 +107,9 @@ public class Chat : MonoBehaviour
 
     [SerializeField]
     public TMP_Text Number_Models_Text;
+
+    [SerializeField]
+    public Material material;
 
     
  

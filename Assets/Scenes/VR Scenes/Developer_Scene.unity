@@ -1624,7 +1624,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 474cec7ca78b90b42a765a8e28b13c14, type: 2}
+  - {fileID: 5561349426305759274, guid: 9e1dc1c14313460d872de39e35129b39, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3178,6 +3178,7 @@ MonoBehaviour:
   Output_Text: {fileID: 1704329019}
   Info_Text: {fileID: 0}
   Number_Models_Text: {fileID: 421299960}
+  material: {fileID: 5561349426305759274, guid: 9e1dc1c14313460d872de39e35129b39, type: 3}
   Models: {fileID: 437474354}
 --- !u!4 &928063440
 Transform:

@@ -978,6 +978,7 @@ MonoBehaviour:
   Output_Text: {fileID: 387264732}
   Info_Text: {fileID: 955833111}
   Number_Models_Text: {fileID: 0}
+  material: {fileID: 5561349426305759274, guid: 9e1dc1c14313460d872de39e35129b39, type: 3}
   Models: {fileID: 456743519}
 --- !u!4 &478013928
 Transform:
@@ -1055,7 +1056,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 474cec7ca78b90b42a765a8e28b13c14, type: 2}
+  - {fileID: 5561349426305759274, guid: 9e1dc1c14313460d872de39e35129b39, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1297,7 +1298,7 @@ Transform:
   m_GameObject: {fileID: 876823181}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.664, y: -0, z: 0.26}
+  m_LocalPosition: {x: -0.664, y: 1.4, z: 0.26}
   m_LocalScale: {x: 3.900365, y: 1, z: 3.3534503}
   m_ConstrainProportionsScale: 0
   m_Children: []
