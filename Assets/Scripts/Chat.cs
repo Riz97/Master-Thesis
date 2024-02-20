@@ -542,6 +542,8 @@ public class Chat : MonoBehaviour
 
         }
 
+
+
         else if (words_Industrial.Count() == Number_of_Objects) 
         {
             createModels(Number_of_Objects);
@@ -571,8 +573,8 @@ public class Chat : MonoBehaviour
 
             if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
             {
-                Info_Text.text = ("The model you asked is not implemented yet, sorry");
-
+                Info_Text.text = ("Error : The environment you asked is not implemented yet, sorry");
+                
             }
             //------------------------------------------------------------------------------------------------------------------
         }
