@@ -2565,6 +2565,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Output_Text: {fileID: 1704329019}
   Input_Text: {fileID: 301304829}
+  Generate_Script_Button: {fileID: 1777703883}
 --- !u!4 &779432085
 Transform:
   m_ObjectHideFlags: 0
@@ -3175,6 +3176,7 @@ MonoBehaviour:
     NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING  Write a C# unity script with
     libraries inclusion that '
   Number_of_Objects: 3
+  Generate_Script_Button: {fileID: 1777703883}
   Output_Text: {fileID: 1704329019}
   Info_Text: {fileID: 0}
   Number_Models_Text: {fileID: 421299960}

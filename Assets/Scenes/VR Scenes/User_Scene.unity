@@ -1138,7 +1138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3351, y: -2.7440312}
+  m_AnchoredPosition: {x: 5.3351, y: -0.81620806}
   m_SizeDelta: {x: -10.0387, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &207989659
@@ -4915,6 +4915,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Output_Text: {fileID: 207989662}
   Input_Text: {fileID: 86916970}
+  Generate_Script_Button: {fileID: 1429030499}
 --- !u!4 &1016250990
 Transform:
   m_ObjectHideFlags: 0
@@ -7416,6 +7417,7 @@ MonoBehaviour:
     NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING  Write a C# unity script with
     libraries inclusion that '
   Number_of_Objects: 3
+  Generate_Script_Button: {fileID: 1429030499}
   Output_Text: {fileID: 207989662}
   Info_Text: {fileID: 984823615}
   Number_Models_Text: {fileID: 0}
