@@ -32,7 +32,6 @@ public class Chat : MonoBehaviour
     private string input ;
     public static string input_aux;
     public static string input_auxx;
-
     public static bool Bases = false;
     public static bool Custom = false;
     private bool check = false;
@@ -51,37 +50,29 @@ public class Chat : MonoBehaviour
 
     List<string> Material_Words = new List<string>() {
            "\"" + "Furniture/Material"+ "\"" , 
-          "\"" + "Cars/Material"+ "\"" , 
+           "\"" + "Cars/Material"+ "\"" , 
            "\"" + "Nature/Material"+ "\"",
-            "\"" + "City/Material"+ "\"",
-            "\"" + "Industrial/Material"+ "\"" };
+           "\"" + "City/Material"+ "\"",
+           "\"" + "Industrial/Material"+ "\"" };
        
     List<string> Directions = new List<string>() { "Right", "Left" , "Middle","right", "left" , "center"};
 
 
     List<string> Furniture_Strings = new List<string>() { "Office" };
-
     List<string> Apartment_Strings = new List<string>() { "Apartment" };
-
-
     List<string> Furniture_Models = new List<string>() {"Desk", "Chair" , "Bed" , "Table" ,"Drawer","Shower", "Sink"};
 
     List<string> Car_Strings = new List<string>() { "Cars","Grid" };
-
     List<string> Car_Models = new List<string>() { "Cops", "Sedan", "Sport" , "Suv", "Taxi" , "Sport" };
 
     List<string> Nature_Strings = new List<string>() {"Nature"};
-
     List<string> Forest_Strings = new List<string>() { "Forest" };
-
     List<string> Nature_Models = new List<string>() { "Oak", "Bush", "Mushroom", "Wood", "Stone" , "Pine", "Flower"};
 
     List<string> Industrial_Strings = new List<string>() {"Industry","Industrial"};
-
     List<string> Industrial_Models = new List<string>() {"Cable","Garbage","Pallet", "PalletCar" , "Plank", "Tank" , "Tube"};
 
     List<string> City_Strings = new List<string>() {"City"};
-
     List<string> City_Models = new List<string>() {"Barrel" , "Bench" , "Bin" , "Dumpster" , "Hydrant", "Mailbox" , "Stoplight"};
 
     [SerializeField]
@@ -116,7 +107,7 @@ public class Chat : MonoBehaviour
 
     
  
-     public GameObject Models;
+    public GameObject Models;
 
 
     //-------------------- OPEN AI CLIENT INFO ------------------------
@@ -149,10 +140,9 @@ public class Chat : MonoBehaviour
         if (check)
         {
 
-     
-        
-        input = First_Reminder + input;
-        input_aux = First_Reminder + input_aux;
+            input = First_Reminder + input;
+            input_aux = First_Reminder + input_aux;
+            
             for (int i = 0; i < Reminders_List.Count; i++)
             {
 
@@ -175,7 +165,7 @@ public class Chat : MonoBehaviour
         {
 
 
-            Debug.Log(input);
+        
 
 
             float start_time = Time.time;

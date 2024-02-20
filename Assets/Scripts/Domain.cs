@@ -97,14 +97,14 @@ public class Domain : MonoBehaviour
         //provide a correct script that Roslyin will compile at runtime
 
 
-        yield return new WaitForSeconds(30);
+        yield return new WaitForSeconds(20);
 
         
         if (Output_Text.text.ToString() == Wait_Message)
         {
-            Debug.Log("sono qua");
+           
             
-            yield return new WaitForSeconds(30);
+            yield return new WaitForSeconds(20);
         }
          
 
@@ -114,7 +114,7 @@ public class Domain : MonoBehaviour
             
 
 
-            yield return new WaitForSeconds(30);
+            yield return new WaitForSeconds(20);
 
             
 
@@ -144,7 +144,7 @@ public class Domain : MonoBehaviour
 
             if(Chat.input_auxx == "Office" || Chat.input_auxx == "office" ||
                 Chat.input_auxx == "Apartment" || Chat.input_auxx == "apartment" ||
-                    Chat.input_auxx == "Nature" || Chat.input_auxx == "nature" ||
+                Chat.input_auxx == "Nature" || Chat.input_auxx == "nature" ||
                 Chat.input_auxx == "Forest" || Chat.input_auxx == "forest" ||
                 Chat.input_auxx == "Grid" || Chat.input_auxx == "grid" ||
                 Chat.input_auxx == "City" || Chat.input_auxx == "city" ||
