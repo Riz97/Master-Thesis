@@ -845,11 +845,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
-  Reminders_List:
-  - Remember all the libraries inclusion, NO TITLES NO COMMENTS JUST CODE
+  Reminders_List: []
   First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
-    NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING ,  Write a C# unity script with
-    libraries inclusion that '
+    NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING and do not search the models
+    by tag,  Write a C# unity script with libraries inclusion that '
   Number_of_Objects: 3
   Output_Text: {fileID: 33634638}
   Info_Text: {fileID: 0}

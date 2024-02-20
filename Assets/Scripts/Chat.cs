@@ -348,7 +348,7 @@ public class Chat : MonoBehaviour
 
 
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Desk' , " +
+            input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Desk' , " +
                 "Chair' 'Table' 'Chair' 'Chair'  , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4  in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Desk) at Y position equals to -0.47, at X position 0.08 and Z position 7.13 , 'Model_1' (Chair) at Y position equals to -0.47, at X position 0.13 and Z position 9.25 'Model_2' (Table) at Y position equals to -0.47, at X position -2.64 and Z position 4.62 " +
                      "'Model_3' (Chair) at Y position equals to -0.47, at X position  -2.76 and Z position 6.28  'Model_4' (Chair) at Y position equals to -0.47, at X position -4.37 and Z position 4.81 and Y rotation equals -97.34"+
@@ -371,7 +371,7 @@ public class Chat : MonoBehaviour
             
 
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Bed' , " +
+            input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Bed' , " +
                 "Drawer' 'Desk' 'Chair' 'Drawer' 'Shower' 'Sink' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Bed) at Y position equals to -0.47, at X position -0.64 and Z position 9.99 , 'Model_1' (Drawer) at Y position equals to -0.47, at X position -3.30 and Z position 12.38 'Model_2' (Desk) at Y position equals to -0.47, at X position -4.35 and Z position 6.35 and Y rotation equals to 87.809" +
                      "'Model_3' (Chair) at Y position equals to -0.47, at X position  -3.31 and Z position 6.09 and Y rotation equals 97.00 'Model_4' (Drawer) at Y position equals to -0.47, at X position 1.42 and Z position 12.1 'Model_5' (Shower) at Y position equals to -0.47, at X position 4.69 " +
@@ -392,7 +392,7 @@ public class Chat : MonoBehaviour
 
 
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Oak' , " +
+            input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Oak' , " +
                 "Pine' 'Pine' 'Mushroom' 'Oak' 'Stone' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Oak) at Y position equals to -0.47, at X position -4.25 and Z position 10.48, 'Model_1' (Pine) at Y position equals to -0.47, at X position -1.48 and Z position 7.49 'Model_2' (Pine) at Y position equals to -0.47, at X position -0.77 and Z position 9.61 " +
                      "'Model_3' (Mushroom) at Y position equals to -0.47, at X position  -2.31 and Z position 7.68  'Model_4' (Oak) at Y position equals to -0.47, at X position 1.11 and Z position 7.74 'Model_5' (Stone) at Y position equals to -0.47, at X position -2.98 " +
@@ -413,10 +413,10 @@ public class Chat : MonoBehaviour
 
 
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Pine' , " +
+            input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Pine' , " +
                 "Flower' 'Mushroom' 'Oak' 'Wood'  , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Pine) at Y position equals to -0.47, at X position -3.52 and Z position 7.48, 'Model_1' (Flower) at Y position equals to -0.47, at X position -4.17 and Z position 7.25 'Model_2' (Mushroom) at Y position equals to -0.47, at X position -2.70 and Z position 7.41 " +
-                     "'Model_3' (Mushroom) at Y position equals to -0.47, at X position  -2.31 and Z position 7.68  'Model_4' (Oak) at Y position equals to -0.47, at X position 1.11 and Z position 7.74 " +      
+                     "'Model_3' (Oak) at Y position equals to -0.47, at X position  -1.7 and Z position 7.68  'Model_4' (Wood) at Y position equals to -0.47, at X position 1.11 and Z position 7.74 " +      
                     " and add just one collider per gameobject, find the gameobject named Plane and change its" +
                     " material with the material   called 'Material'THAT MUST BE LOADED inside the 'Nature' folder which is inside the folder Resources and do not destroy it, using a method called Start , avoid any type of comments , you must write only code";
 
@@ -434,7 +434,7 @@ public class Chat : MonoBehaviour
             createModels(5);
 
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Cars' inside the folder  'Resources' called 'Sport' , " +
+            input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Cars' inside the folder  'Resources' called 'Sport' , " +
                 "Cops' 'Suv' 'Taxi' 'Sedan', You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Sport) at Y position equals to -0.47, at X position -3.74 and Z position 17.69, 'Model_1' (Cops) at Y position equals to -0.47, at X position -0.59 and Z position 22.06 'Model_2' (Suv) at Y position equals to -0.47, at X position 2.52 and Z position 17.69 " +
                      "'Model_3' (Taxi) at Y position equals to -0.47, at X position  -7.33 and Z position 21.52  'Model_4' (Sedan) at Y position equals to -0.47, at X position 6.53 and Z position 21.18 " +
@@ -450,7 +450,7 @@ public class Chat : MonoBehaviour
 
             createModels(7);
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'City' inside the folder  'Resources' called 'Bench' , " +
+            input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'City' inside the folder  'Resources' called 'Bench' , " +
                "Bin' 'Mailbox' 'Stoplight' 'Dumpster' 'Barrel' 'Barrel' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 in the unity hierarchy MANDATORY" +
                    " 'Model_0' (Bench) at Y position equals to -0.47, at X position -3.29 and Z position 7.85 and Y rotation equals to 88.27 , 'Model_1' (Bin) at Y position equals to -0.47, at X position -3.25 and Z position 5.99 'Model_2' (Mailbox) at Y position equals to -0.47, at X position -3.28 and Z position 9.66 and Y rotation equals to -78.88" +
                     "'Model_3' (Stoplight) at Y position equals to -0.47, at X position  1.31 and Z position 25.09 and Y rotation equals -176.29 'Model_4' (Dumpster) at Y position equals to -0.47, at X position 6.66 and Z position 8.08 and Y rotation equals -92.135 'Model_5' (Barrel) at Y position equals to -0.47, at X position 6.24 " +
@@ -470,7 +470,7 @@ public class Chat : MonoBehaviour
 
             createModels(6);
 
-            input = " the first thing to do must be find the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Industrial' inside the folder  'Resources' called 'Tubes' , " +
+            input = " the first thing to do must be find using the Find() method the   gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Industrial' inside the folder  'Resources' called 'Tubes' , " +
                 "Plank' 'Garbage' 'Pallet' 'Pallet' 'Car' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Tubes) at Y position equals to -0.47, at X position -4.56 and Z position 7.55, 'Model_1' (Plank) at Y position equals to -0.47, at X position -1.81 and Z position 11.90 'Model_2' (Garbage) at Y position equals to -0.47, at X position 1.64 and Z position 11.61 " +
                      "'Model_3' (Pallet) at Y position equals to -0.47, at X position  2.90 and Z position 9.70  'Model_4' (Pallet) at Y position equals to -0.47, at X position 4.11 and Z position 9.28 'Model_5' (Car) at Y position equals to -0.47, at X position 6.66 " +
@@ -579,6 +579,7 @@ public class Chat : MonoBehaviour
         {
             GameObject obj = Instantiate(Models, transform.position, Quaternion.identity);
             obj.name = "Model_" + i.ToString();
+            obj.tag = "Model";
 
         }
     }
@@ -645,7 +646,7 @@ public class Chat : MonoBehaviour
     {
         
 
-        input = " the first thing to do must be find the  gameobjects  called ";
+        input = " the first thing to do must be find using the Find() method the  gameobjects  called ";
 
         input = Define_Models(Number_of_Objects, input) + " and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named " + Material +  " inside the folder  'Resources' called ";
 
@@ -654,7 +655,7 @@ public class Chat : MonoBehaviour
         input = Define_Models(Number_of_Objects, input) + " in the unity hierarchy MANDATORY";
         
 
-        input = Define_Models_Coordinates(Number_of_Objects,input,list_Directions) + " and add just one collider per gameobject, find the gameobject named Plane and change its" +
+        input = Define_Models_Coordinates(list,Number_of_Objects,input,list_Directions) + " and add just one collider per gameobject, find the gameobject named Plane and change its" +
 
         " material with the material   called 'Material'THAT MUST BE LOADED inside the " +  Material + " folder which is inside the folder Resources," +
 
@@ -693,14 +694,14 @@ public class Chat : MonoBehaviour
 
     //Auxiliary function for building the input for CHATGPT , for each objects gives the X and Z coordinates, depending on the position requested by the user
 
-    public string Define_Models_Coordinates(int Number_of_Objects, string input, List<string> list)
+    public string Define_Models_Coordinates(List<string> objects, int Number_of_Objects, string input, List<string> list)
     {
 
 
 
         for (int ii = 0; ii < Number_of_Objects; ii++)
         {
-            input += " Model_" + ii.ToString() + " at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX(list,ii).ToString() + " and Z position equals to " + Random_PositionZ(list,ii).ToString();
+            input += " Model_" + ii.ToString() + "is an " +  objects[ii]  + " at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX(list,ii).ToString() + " and Z position equals to " + Random_PositionZ(list,ii).ToString();
 
         }
 
@@ -712,13 +713,13 @@ public class Chat : MonoBehaviour
     {
 
         Number_Models_Text.SetText("Number of models is : " + (Number_of_Objects + 1).ToString());
-        Number_of_Objects++;
+       Number_of_Objects += 1;
     }
 
     public void Subtract()
     {
         Number_Models_Text.SetText("Number of models is : " + (Number_of_Objects -1).ToString());
-        Number_of_Objects--;
+        Number_of_Objects -= 1;
     }
 
 
