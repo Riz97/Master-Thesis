@@ -38,6 +38,7 @@ public class Chat : MonoBehaviour
     private bool check = false;
     string sceneName;
 
+    private int n;
    
 
     private const string Computing_Message = "Computing the script , just wait!!!!";
@@ -46,7 +47,7 @@ public class Chat : MonoBehaviour
     public static int tries;
  
 
-    List<string> Mandatory_Words = new List<string>() {"Find(", "Instantiate", ".name" };
+    List<string> Mandatory_Words = new List<string>() {"Find(\"M", "Instantiate", ".name" };
 
     List<string> Material_Words = new List<string>() {
            "\"" + "Furniture/Material"+ "\"" , 
@@ -134,31 +135,11 @@ public class Chat : MonoBehaviour
         GameObject plane = GameObject.Find("Plane");
         plane.GetComponent<Renderer>().material = material;
 
+     
+
         //-----------------------------------Deletion of the objects of the old customized or bases scenes -------------------------------
 
-
-        //For bases scene we have a known number of models
-        if (Bases)
-        {
-            for(int i = 0; i < 7; i++)
-            {
-                GameObject.Destroy(GameObject.Find("Model_" + i.ToString()));
-
-            }
-        Bases = false;
-        }
-
-        
-       //For the customized scenes the number of models is determined by the user 
-       else if(Custom)
-        {
-            for (int i = 0; i < Number_of_Objects; i++)
-            {
-                GameObject.Destroy(GameObject.Find("Model_" + i.ToString()));
-
-            }
-        Custom = false;
-        }
+     
         
         //-----------------------------------------------------------------------------------------------------------------------------------
 
@@ -283,6 +264,35 @@ public class Chat : MonoBehaviour
 
     {
 
+        //-----------------------------------Deletion of the objects of the old customized or bases scenes -------------------------------
+    
+        if (Bases)
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                GameObject.Destroy(GameObject.Find("Model_" + i.ToString()));
+
+            }
+            Bases = false;
+        }
+
+
+        //For the customized scenes the number of models is determined by the user 
+        if (Custom)
+        {
+           
+            for (int i = 0; i < n; i++)
+            {
+                GameObject.Destroy(GameObject.Find("Model_" + i.ToString()));
+
+            }
+            Custom = false;
+        }
+
+
+        //-----------------------------------------------------------------------------------------------------------------------------------
+        //For bases scene we have a known number of models
+      
         input = InputField.text.ToString();
         input_auxx = InputField.text.ToString();
 
@@ -346,6 +356,7 @@ public class Chat : MonoBehaviour
         {
             createModels(5);
 
+            Number_of_Objects = 5;
 
 
             input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Desk' , " +
@@ -368,7 +379,8 @@ public class Chat : MonoBehaviour
         else if (ContainsAny(input, Apartment_Strings))
         {
             createModels(7);
-            
+
+            Number_of_Objects = 7;
 
 
             input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Bed' , " +
@@ -390,6 +402,7 @@ public class Chat : MonoBehaviour
 
             createModels(6);
 
+            Number_of_Objects = 6;
 
 
             input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Oak' , " +
@@ -411,6 +424,7 @@ public class Chat : MonoBehaviour
 
             createModels(5);
 
+            Number_of_Objects = 5;
 
 
             input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Nature' inside the folder  'Resources' called 'Pine' , " +
@@ -433,6 +447,8 @@ public class Chat : MonoBehaviour
 
             createModels(5);
 
+            Number_of_Objects = 5;
+
 
             input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Cars' inside the folder  'Resources' called 'Sport' , " +
                 "Cops' 'Suv' 'Taxi' 'Sedan', You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4   in the unity hierarchy MANDATORY" +
@@ -449,6 +465,9 @@ public class Chat : MonoBehaviour
         {
 
             createModels(7);
+
+            Number_of_Objects = 7;
+
 
             input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'City' inside the folder  'Resources' called 'Bench' , " +
                "Bin' 'Mailbox' 'Stoplight' 'Dumpster' 'Barrel' 'Barrel' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5 'Model_6 in the unity hierarchy MANDATORY" +
@@ -470,6 +489,9 @@ public class Chat : MonoBehaviour
 
             createModels(6);
 
+            Number_of_Objects = 6;
+
+
             input = " the first thing to do must be find using the Find() method the   gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Industrial' inside the folder  'Resources' called 'Tubes' , " +
                 "Plank' 'Garbage' 'Pallet' 'Pallet' 'Car' , You MUST RENAME THEM AS 'Model_0' 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4 'Model_5  in the unity hierarchy MANDATORY" +
                     " 'Model_0' (Tubes) at Y position equals to -0.47, at X position -4.56 and Z position 7.55, 'Model_1' (Plank) at Y position equals to -0.47, at X position -1.81 and Z position 11.90 'Model_2' (Garbage) at Y position equals to -0.47, at X position 1.64 and Z position 11.61 " +
@@ -486,6 +508,7 @@ public class Chat : MonoBehaviour
 
         else if (words_Furniture.Count() == Number_of_Objects)
         {
+           
            createModels(Number_of_Objects);
 
             input = Input_Request(input, Number_of_Objects, words_Furniture , "Furniture",list_Directions);
@@ -511,6 +534,9 @@ public class Chat : MonoBehaviour
 
         else if (words_Nature.Count() == Number_of_Objects)
         {
+
+            Debug.Log(Number_of_Objects);
+
             createModels(Number_of_Objects);
 
             input = Input_Request(input, Number_of_Objects, words_Nature, "Nature", list_Directions);
@@ -574,12 +600,14 @@ public class Chat : MonoBehaviour
     //----------------------------AUXILIARIES FUNCTIONS-------------------------------------------------------
     public void createModels(int Number)
     {
+    
+         n = Number;
 
-        for (int i = 0; i < Number; i++)
+        for (int i = 0; i < n; i++)
         {
             GameObject obj = Instantiate(Models, transform.position, Quaternion.identity);
             obj.name = "Model_" + i.ToString();
-            obj.tag = "Model";
+            
 
         }
     }

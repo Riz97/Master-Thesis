@@ -155,6 +155,7 @@ public class Domain : MonoBehaviour
             else
             {
                 Chat.Custom = true;
+                
             }
            
             

@@ -845,7 +845,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 33634638}
   InputField: {fileID: 1921083187}
-  Reminders_List: []
+  Reminders_List:
+  - 'Avoid the method FindGameObjectByTag '
   First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
     NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING and do not search the models
     by tag,  Write a C# unity script with libraries inclusion that '
