@@ -18,10 +18,10 @@ using UnityEngine.XR;
 using UnityEngine.InputSystem.Android;
 using static System.Net.Mime.MediaTypeNames;
 using Unity.XR.Oculus.Input;
+using Button = UnityEngine.UI.Button;
+using Utilities.Extensions;
 
 
-//GameObject plane = GameObject.Find("Plane");
-//plane.GetComponent<Renderer>().material = Material;
 
 public class Chat : MonoBehaviour
 
@@ -99,6 +99,8 @@ public class Chat : MonoBehaviour
     [SerializeField]
     public int Number_of_Objects;
 
+    [SerializeField]
+    public  Button Generate_Script_Button;
 
     [SerializeField]
     TMP_Text Output_Text;
@@ -137,14 +139,7 @@ public class Chat : MonoBehaviour
 
      
 
-        //-----------------------------------Deletion of the objects of the old customized or bases scenes -------------------------------
-
-     
-        
-        //-----------------------------------------------------------------------------------------------------------------------------------
-
-
-       
+    
 
          
          sceneName = SceneManager.GetActiveScene().name;
@@ -246,9 +241,7 @@ public class Chat : MonoBehaviour
 
             }
 
-               
-
-
+              
 
             
        }
@@ -263,6 +256,7 @@ public class Chat : MonoBehaviour
     public void ReadStringInput(TMP_InputField InputField)
 
     {
+        Generate_Script_Button.interactable = false;
 
         //-----------------------------------Deletion of the objects of the old customized or bases scenes -------------------------------
     

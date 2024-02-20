@@ -14,6 +14,7 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Utilities.Extensions;
 
 /// 
 /// An example script that shows how to use the compiler service to compile and load a C# source code string and then call an instance method on a proxy object.
@@ -26,6 +27,9 @@ public class Domain : MonoBehaviour
 
     [SerializeField]
     TMP_Text Input_Text;
+
+    [SerializeField]
+    public Button Generate_Script_Button;
 
     //-------------------- SYSTEM MESSAGES----------------------------------------------------------
 
@@ -159,9 +163,9 @@ public class Domain : MonoBehaviour
             }
            
             
-        } 
+        }
 
-        
+        Generate_Script_Button.interactable = true;
 
     }
 
