@@ -249,7 +249,7 @@ public class Chat : MonoBehaviour
         Generate_Script_Button.interactable = false;
 
         //-----------------------------------Deletion of the objects of the old customized or bases scenes -------------------------------
-    
+        //For bases scene we have a known number of models
         if (Bases)
         {
             for (int i = 0; i < 7; i++)
@@ -275,7 +275,7 @@ public class Chat : MonoBehaviour
 
 
         //-----------------------------------------------------------------------------------------------------------------------------------
-        //For bases scene we have a known number of models
+    
       
         input = InputField.text.ToString();
         input_auxx = InputField.text.ToString();
@@ -565,7 +565,7 @@ public class Chat : MonoBehaviour
         else
         {
             Text.color = new Color(255, 0, 0);
-            Text.SetText("The model you asked is not implemented yet, sorry");
+            Text.SetText("Error : The environment you asked is not implemented yet, sorry");
 
             //----------------------------------User Mode Information----------------------------------------------------------------------
 

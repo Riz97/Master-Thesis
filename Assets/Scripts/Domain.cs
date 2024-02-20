@@ -133,11 +133,6 @@ public class Domain : MonoBehaviour
 
                 CreateLogFile(sourceCode, Input_Text);
 
-
-
-
-                // Call the method called 'ExampleMethod' and pass the string argument 'Safe World'
-                // Note that any exceptions thrown by the target method will handled as indicated by the 'Safe' name
                 proxy.SafeCall(sourceCode);
             
 
