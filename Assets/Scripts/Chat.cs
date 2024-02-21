@@ -572,13 +572,16 @@ public class Chat : MonoBehaviour
         //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-        // Error Handling : if the user does not ask for the correct amount of models , which is set in the hierarchy
+        // Error Handling : if the user does not ask for the correct amount of models , an error is thrown
 
         else if ((words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects)) 
         {
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
         }
+
+
+        // Otherwise the user has asked for a model or environment which is not implemented yet
 
         else
         {
