@@ -23,22 +23,25 @@ public class SpeechRecognitionTest : MonoBehaviour
 
     private void Update()
     {
+        //In case the recording reaches its maximum length , the recording will stop automatically
         if (recording && Microphone.GetPosition(null) >= clip.samples)
         {
             StopRecording();
         }
     }
 
+    //This method start the Recording a save the recording into the variable clip
     private void StartRecording()
     {
         
         text.text = "Recording...";
         startButton.interactable = false;
         stopButton.interactable = true;
-        clip = Microphone.Start(null, false, 100, 44100);
+        clip = Microphone.Start(null, false, 100, 44100);//100 seconds are recorded at 44100 Hz
         recording = true;
     }
 
+    //Method that stop the recording and encodes it in WAV format
     private void StopRecording()
     {
         var position = Microphone.GetPosition(null);
@@ -53,6 +56,8 @@ public class SpeechRecognitionTest : MonoBehaviour
 
     }
 
+    //It uses the Hugging Face API to run speech recognition on our encoded audio
+    //It will send the encoded audio to the API , displaying the response
     private void SendRecording()
     {
        
@@ -68,7 +73,8 @@ public class SpeechRecognitionTest : MonoBehaviour
             startButton.interactable = true;
         });
     }
-
+    
+    //Method for preparing the audio data for the Hugging Face API
     private byte[] EncodeAsWAV(float[] samples, int frequency, int channels)
     {
         using (var memoryStream = new MemoryStream(44 + samples.Length * 2))

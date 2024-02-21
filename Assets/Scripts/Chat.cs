@@ -127,13 +127,8 @@ public class Chat : MonoBehaviour
         //Reset of the Plane's material
         GameObject plane = GameObject.Find("Plane");
         plane.GetComponent<Renderer>().material = material;
-
-     
-
-    
-
-         
-         sceneName = SceneManager.GetActiveScene().name;
+      
+        sceneName = SceneManager.GetActiveScene().name;
 
         //-----------------------INVISIBLE STRINGS HANDLER-----------------------
 
@@ -163,12 +158,9 @@ public class Chat : MonoBehaviour
 
         if (input != null && input != input_aux)
         {
-
-
-        
-
-
-            float start_time = Time.time;
+            
+            //Time of execution Start
+            float start_time = Time.time; 
 
             //-----------------------OpenAI API Usage----------------------------------
 
@@ -185,6 +177,7 @@ public class Chat : MonoBehaviour
         
             Debug.Log(result);
             
+            //If the algorithm run again , it means that the IA was not able to provide a correct script and so the counter is increased by 1
             tries++;
 
             if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) && result[0] == 'u')
@@ -246,9 +239,11 @@ public class Chat : MonoBehaviour
     public void ReadStringInput(TMP_InputField InputField)
 
     {
-        Generate_Script_Button.interactable = false;
+        //While the algorithm is running the button for genearating a script is not interactable, It will be interactable again when the script has been executed
+        Generate_Script_Button.interactable = false; 
 
         //-----------------------------------Deletion of the objects of the old customized or bases scenes -------------------------------
+
         //For bases scene we have a known number of models
         if (Bases)
         {
@@ -286,25 +281,25 @@ public class Chat : MonoBehaviour
         List<string> words_Industrial = isIn(input, Industrial_Models);
         List<string> words_City = isIn(input, City_Models);
 
-        List<string> allWords = words_Cars.Concat(words_City).Concat(words_Industrial).Concat(words_Cars).Concat(words_Nature).Concat(words_Furniture).ToList();
+        List<string> allWords = words_Cars.Concat(words_City).Concat(words_Industrial).Concat(words_Cars).Concat(words_Nature).Concat(words_Furniture).ToList(); //Auxiliary list for the isDirection method
 
 
-        List<string> list_Directions_aux = isIn_Direction(input,Directions,allWords);
+        List<string> list_Directions_aux = isIn_Direction(input,Directions,allWords); // Example of the final List : Right Chair , Left bed , table
      
         //String list handler for the specified position
 
 
         for (int i =0; i < list_Directions_aux.Count; i++)
         {
-            if (ContainsAny(list_Directions_aux[i], Directions))
+            if (ContainsAny(list_Directions_aux[i], Directions)) 
             {
-                list_Directions_aux.Remove(list_Directions_aux[i+1]); //if in the list the model is preceded by a position, remove the object string from the list 
+                list_Directions_aux.Remove(list_Directions_aux[i+1]); //if in the list the model is preceded by a position, remove the model string from the list 
             }
 
 
             else
             {
-                list_Directions_aux[i] = " "; // otherwise no position is asked e fill the string list with an empty string
+                list_Directions_aux[i] = " "; // otherwise no position is asked and fill  list with a blank
             }
 
         }
@@ -340,7 +335,7 @@ public class Chat : MonoBehaviour
         {
             createModels(5);
 
-            Number_of_Objects = 5;
+            Number_of_Objects = 5; // In this way the global variable is set with the exact amount of objects for this environment
 
 
             input = " the first thing to do must be find using the Find() method the  gameobjects  called 'Model_0', 'Model_1', 'Model_2' 'Model_3 'Model_4  and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named 'Furniture' inside the folder  'Resources' called 'Desk' , " +
@@ -726,15 +721,16 @@ public class Chat : MonoBehaviour
     }
 
     //Auxiliary function for building the input for CHATGPT , for each objects gives the X and Z coordinates, depending on the position requested by the user
+    // list contains the direction of the request model
 
-    public string Define_Models_Coordinates(List<string> objects, int Number_of_Objects, string input, List<string> list)
+    public string Define_Models_Coordinates(List<string> objects, int Number_of_Objects, string input, List<string> list_Directions)
     {
 
 
 
         for (int ii = 0; ii < Number_of_Objects; ii++)
         {
-            input += " Model_" + ii.ToString() + "is an " +  objects[ii]  + " at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX(list,ii).ToString() + " and Z position equals to " + Random_PositionZ(list,ii).ToString();
+            input += " Model_" + ii.ToString() + "is an " +  objects[ii]  + " at  Y position equals to -0.47, at X Position equals to  " + Random_PositionX(list_Directions,ii).ToString() + " and Z position equals to " + Random_PositionZ(list_Directions,ii).ToString();
 
         }
 
@@ -812,7 +808,7 @@ public class Chat : MonoBehaviour
         return subSet; 
     }
 
-    //It returns a subset of string of the input that are inside the vocabulary of accepted words with the direction asked
+    //It returns a subset of string of the input that are inside the vocabulary of accepted words with the direction asked ( It basically add all the accepted words and all the accepted directions)
 
     public static List<string> isIn_Direction(string s, List<string> Direction, List<string> allwords)
     {
