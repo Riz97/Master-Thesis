@@ -490,6 +490,14 @@ public class Chat : MonoBehaviour
 
         //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+        //----------------------------------------------------------------- CUSTOM ENVIRONMENT -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+        // ------ FURNITURE -----------
+
+
         else if (words_Furniture.Count() == Number_of_Objects)
         {
            
@@ -503,6 +511,8 @@ public class Chat : MonoBehaviour
         }
 
 
+        // ------ CARS -----------
+
         else if (words_Cars.Count() == Number_of_Objects)
         {
 
@@ -515,6 +525,8 @@ public class Chat : MonoBehaviour
 
             
         }
+
+        // ------ NATURE -----------
 
         else if (words_Nature.Count() == Number_of_Objects)
         {
@@ -530,6 +542,8 @@ public class Chat : MonoBehaviour
           
         }
 
+        // ------ CITY ----------
+
         else if (words_City.Count() == Number_of_Objects) 
         {
             createModels(Number_of_Objects);
@@ -543,6 +557,7 @@ public class Chat : MonoBehaviour
         }
 
 
+        // ------ INDUSTRIAL -----------
 
         else if (words_Industrial.Count() == Number_of_Objects) 
         {
@@ -554,9 +569,10 @@ public class Chat : MonoBehaviour
             
         }
 
+        //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-        // Error Handler : if the user does not ask for the correct amount of models , which is set in the hierarchy
+        // Error Handling : if the user does not ask for the correct amount of models , which is set in the hierarchy
 
         else if ((words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects)) 
         {
@@ -723,6 +739,9 @@ public class Chat : MonoBehaviour
     }
 
 
+    //------------------------------------------------- Numbers Of Models Increase - Decrease --------------------------------------------------
+    
+    //Functions attached to the Plus and Minus Buttons
     public void Add()
     {
 
@@ -736,6 +755,7 @@ public class Chat : MonoBehaviour
         Number_of_Objects -= 1;
     }
 
+    //---------------------------------------------------------------------------------------------------------
 
 
     //----------------------------------------- META LANGUAGE ---------------------------------------------------------------------------------
