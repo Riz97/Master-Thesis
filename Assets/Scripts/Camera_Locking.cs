@@ -11,13 +11,28 @@ public class Camera_Locking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cameraOffset.transform.position = new Vector3(transform.position.x, y, transform.position.z);
+        
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        cameraOffset.transform.position = new Vector3(transform.position.x,y,transform.position.z);
+       
+
+        //Button A
+        if (Input.GetKeyDown(KeyCode.JoystickButton0))
+        {
+            transform.position = new Vector3(0, 0.15f, 5.5f);
+
+        }
+
+        //Button B
+        if (Input.GetKeyDown(KeyCode.JoystickButton1))
+        {
+            transform.position = new Vector3(0, 0.15f, 22.3f);
+
+        }
+
     }
 }

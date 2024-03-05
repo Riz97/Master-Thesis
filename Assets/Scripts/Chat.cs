@@ -122,6 +122,9 @@ public class Chat : MonoBehaviour
         
     {
 
+
+
+
         Number_Models_Text.SetText("Number of models is : " + Number_of_Objects.ToString());
 
         //Reset of the Plane's material
