@@ -581,8 +581,17 @@ public class Chat : MonoBehaviour
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
             Generate_Script_Button.interactable = true;
+        
+            if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
+        {
+                Info_Text.text = ("Error : The environment you asked is not implemented yet, sorry");
+                Generate_Script_Button.interactable = true;
 
+
+            }
         }
+
+        
 
 
         // Otherwise the user has asked for a model or environment which is not implemented yet
