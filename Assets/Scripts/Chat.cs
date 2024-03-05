@@ -214,12 +214,16 @@ public class Chat : MonoBehaviour
                 if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
                 {
                     Info_Text.text = ("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
+                   
+
 
                 }
 
                 //-------------------------------------------------------------------------------------
 
                 Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
+                
+
                 Start();
 
             }
@@ -573,6 +577,8 @@ public class Chat : MonoBehaviour
         {
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
+            Generate_Script_Button.interactable = true;
+
         }
 
 
@@ -582,13 +588,17 @@ public class Chat : MonoBehaviour
         {
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : The environment you asked is not implemented yet, sorry");
+            Generate_Script_Button.interactable = true;
+
 
             //----------------------------------User Mode Information----------------------------------------------------------------------
 
             if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
             {
                 Info_Text.text = ("Error : The environment you asked is not implemented yet, sorry");
-                
+                Generate_Script_Button.interactable = true;
+
+
             }
             //------------------------------------------------------------------------------------------------------------------
         }

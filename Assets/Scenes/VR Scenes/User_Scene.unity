@@ -1138,7 +1138,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3351, y: -1.1908323}
+  m_AnchoredPosition: {x: 5.3351, y: 2.5303943}
   m_SizeDelta: {x: -10.0387, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &207989659
@@ -2764,7 +2764,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338253757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0}
+  m_LocalPosition: {x: 0, y: 0, z: 95.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2773,7 +2773,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -133, y: 33}
+  m_AnchoredPosition: {x: -133, y: -49}
   m_SizeDelta: {x: 129, y: 114.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &338253759
@@ -3354,7 +3354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " <color=green>Pre-Built Environment </color>:  City\n\n<color=yellow>
+  m_text: " <color=green>Pre-Built Environment </color>:  City\n\n\n<color=yellow>
     Available Models </color>:  \n\n1) Barrel\n2) Bench\n3) Bin\n4) Dumpster\n5)
     Hydrant\n6)Mailbox\n7)Stoplight"
   m_isRightToLeft: 0
@@ -4270,6 +4270,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: '<color=green>Key-Word</color>:  Industry - Industrial
+
 
 
     <color=yellow>
