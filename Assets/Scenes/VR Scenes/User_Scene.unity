@@ -1280,7 +1280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3351, y: -2.9849336}
+  m_AnchoredPosition: {x: 5.3351, y: -2.0202436}
   m_SizeDelta: {x: -10.0387, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &207989659
@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=green>Key-Word</color>:  Industry - Industrial
+  m_text: '<color=green>Pre-Built Environment</color>:  Industry - Industrial
 
 
 
@@ -7458,7 +7458,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " <color=green>Key-Word </color>:  Nature - Forest\n\n\n<color=yellow>Available
+  m_text: " <color=green>Pre-Built Environment </color>:  Nature - Forest\n\n\n<color=yellow>Available
     Models </color> : \n\n1) Wood\n2) Rock\n3) Oak\n4) Mushroom\n5) Flower\n6)Bush\n7)Pine"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
