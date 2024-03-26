@@ -584,7 +584,7 @@ public class Chat : MonoBehaviour
         
             if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
         {
-                Info_Text.text = ("Error : The environment you asked is not implemented yet, sorry");
+                Info_Text.text = ("Error : you have to ask for the exactly amount of models requested  for this simulation");
                 Generate_Script_Button.interactable = true;
 
 

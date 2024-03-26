@@ -23,14 +23,14 @@ public class Camera_Locking : MonoBehaviour
         //Button A
         if (Input.GetKeyDown(KeyCode.JoystickButton0))
         {
-            transform.position = new Vector3(0, 0.15f, 5.5f);
+            cameraOffset.transform.position = new   Vector3(0, 0.15f, 2.5f);
 
         }
 
         //Button B
         if (Input.GetKeyDown(KeyCode.JoystickButton1))
         {
-            transform.position = new Vector3(0, 0.15f, 22.3f);
+            cameraOffset.transform.position = new  Vector3(0, 0.15f, 22.3f);
 
         }
 

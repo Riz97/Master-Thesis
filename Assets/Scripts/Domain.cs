@@ -35,6 +35,7 @@ public class Domain : MonoBehaviour
     private const string Error_Message = "The model you asked is not implemented yet, sorry";
     private const string Wait_Message = "Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)";
     private const string Computing_Message = "Computing the script , just wait!!!!";
+    private const string Error = "Error : you have to ask for the exactly amount of models requested  for this simulation";
 
     //------------------------------------------------------------------------------------------------
 
@@ -97,7 +98,7 @@ public class Domain : MonoBehaviour
         }
          
 
-        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......")
+        if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......" && Output_Text.text != Error)
         {
             sourceCode = Output_Text.text.ToString();
             
