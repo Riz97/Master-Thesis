@@ -596,7 +596,7 @@ public class Chat : MonoBehaviour
 
         // Otherwise the user has asked for a model or environment which is not implemented yet
 
-        if(!ContainsAny(input,words_City) && !ContainsAny(input, words_Furniture) && !ContainsAny(input, words_Cars) && !ContainsAny(input, words_Nature) && !ContainsAny(input, words_Industrial))
+        if(!ContainsAny(input,City_Models) && !ContainsAny(input, Furniture_Models) && !ContainsAny(input, Car_Models) && !ContainsAny(input, Nature_Models) && !ContainsAny(input, Industrial_Models) && !ContainsAny(input,Industrial_Strings) && !ContainsAny(input,Nature_Strings) && !ContainsAny(input,Forest_Strings) && !ContainsAny(input,City_Strings) && !ContainsAny(input,Furniture_Strings) && !ContainsAny(input, Apartment_Strings) && !ContainsAny(input, Car_Strings))
         {
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : The environment you asked is not implemented yet, sorry");
