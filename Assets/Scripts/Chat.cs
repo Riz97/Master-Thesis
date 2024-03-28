@@ -43,7 +43,7 @@ public class Chat : MonoBehaviour
     private const string Computing_Message = "Computing the script , just wait!!!!";
 
     public static float elapsed_time;
-    public static int tries;
+    public static int tries = 0;
  
 
     List<string> Mandatory_Words = new List<string>() {"Find(\"M", "Instantiate", ".name" };
