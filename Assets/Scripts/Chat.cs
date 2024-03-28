@@ -88,7 +88,7 @@ public class Chat : MonoBehaviour
     public string First_Reminder;
 
     [SerializeField]
-    public int Number_of_Objects;
+    public static int Number_of_Objects;
 
     [SerializeField]
     public  Button Generate_Script_Button;

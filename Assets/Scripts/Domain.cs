@@ -167,7 +167,7 @@ public class Domain : MonoBehaviour
         if (!File.Exists(path))
         {
 
-            File.WriteAllText(path, "LOG GENERATED FOR THE SESSION" + "\n" + "Model : " + Chat.model.ToString());
+            File.WriteAllText(path, "LOG GENERATED FOR THE SESSION" + "\n" + "Model - " + Chat.model.ToString() + "\nNumber of models in the scene ~ "+ Chat.Number_of_Objects);
 
         }
 
