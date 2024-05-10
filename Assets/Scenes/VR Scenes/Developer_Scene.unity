@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: " <color=green>Pre-Built Environment  </color>:  Nature - Forest\n\n\n<color=yellow>Available
+  m_text: " <color=green>Pre-Built Environment  </color>:  Nature - Forest\n\n<color=yellow>Available
     Models </color> : \n\n1) Wood\n2) Rock\n3) Oak\n4) Mushroom\n5) Flower\n6) Bush\n7)
     Pine"
   m_isRightToLeft: 0
@@ -2285,7 +2285,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: '<color=green>Pre-Built Environment</color>:  Industry - Industrial
-
 
 
     <color=yellow>
