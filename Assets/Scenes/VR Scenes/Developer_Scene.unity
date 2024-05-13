@@ -2397,16 +2397,20 @@ MonoBehaviour:
     Available Models </color>:
 
 
-    1) Red
+    1) Cable
 
-    2) Blue
+    2) Car
 
-    3) Silver
+    3) Garbage
 
-    4) White
+    4)
+    Pallet
 
-    5)
-    Green'
+    5) Plank
+
+    6) Tank
+
+    7) Tubes'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
