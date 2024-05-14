@@ -207,7 +207,7 @@ public class Chat : MonoBehaviour
 
 
             }
-            else
+            else if(input != null)
             {
 
                 Text.color = new Color32(27, 255, 0, 255);
@@ -589,6 +589,7 @@ public class Chat : MonoBehaviour
 
 
             }
+
         }
 
         
@@ -596,12 +597,13 @@ public class Chat : MonoBehaviour
 
         // Otherwise the user has asked for a model or environment which is not implemented yet
 
-        if(!ContainsAny(input,City_Models) && !ContainsAny(input, Furniture_Models) && !ContainsAny(input, Car_Models) && !ContainsAny(input, Nature_Models) && !ContainsAny(input, Industrial_Models) && !ContainsAny(input,Industrial_Strings) && !ContainsAny(input,Nature_Strings) && !ContainsAny(input,Forest_Strings) && !ContainsAny(input,City_Strings) && !ContainsAny(input,Furniture_Strings) && !ContainsAny(input, Apartment_Strings) && !ContainsAny(input, Car_Strings))
+         if(!ContainsAny(input,City_Models) && !ContainsAny(input, Furniture_Models) && !ContainsAny(input, Car_Models) && !ContainsAny(input, Nature_Models) && !ContainsAny(input, Industrial_Models) && !ContainsAny(input,Industrial_Strings) && !ContainsAny(input,Nature_Strings) && !ContainsAny(input,Forest_Strings) && !ContainsAny(input,City_Strings) && !ContainsAny(input,Furniture_Strings) && !ContainsAny(input, Apartment_Strings) && !ContainsAny(input, Car_Strings))
         {
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : The environment you asked is not implemented yet, sorry");
             Generate_Script_Button.interactable = true;
 
+          
 
             //----------------------------------User Mode Information----------------------------------------------------------------------
 
@@ -610,8 +612,9 @@ public class Chat : MonoBehaviour
                 Info_Text.text = ("Error : The environment you asked is not implemented yet, sorry");
                 Generate_Script_Button.interactable = true;
 
-
+                input = null;
             }
+            input = null; 
             //------------------------------------------------------------------------------------------------------------------
         }
 
