@@ -31,7 +31,7 @@ public class Chat : MonoBehaviour
 
     private string input ;
     public static string input_aux;
-    public static string input_auxx;
+
     public static bool Bases = false;
     public static bool Custom = false;
     private bool check = false;
@@ -280,7 +280,7 @@ public class Chat : MonoBehaviour
     
       
         input = InputField.text.ToString();
-        input_auxx = InputField.text.ToString();
+       
 
         List<string> words_Furniture = isIn(input, Furniture_Models);
         List<string> words_Nature = isIn(input, Nature_Models);
@@ -833,7 +833,8 @@ public class Chat : MonoBehaviour
         return subSet; 
     }
 
-    //It returns a subset of string of the input that are inside the vocabulary of accepted words with the direction asked ( It basically add all the accepted words and all the accepted directions)
+    //It returns a subset of string of the input that are inside the vocabulary of accepted words with the direction asked
+    //( It basically add all the accepted words and all the accepted directions)
 
     public static List<string> isIn_Direction(string s, List<string> Direction, List<string> allwords)
     {
