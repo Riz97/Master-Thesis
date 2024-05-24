@@ -279,7 +279,7 @@ public class Chat : MonoBehaviour
         //-----------------------------------------------------------------------------------------------------------------------------------
     
       
-        input = InputField.text.ToString();
+        input = InputField.text.ToString().ToLower();
         input_auxx = InputField.text.ToString();
 
 
