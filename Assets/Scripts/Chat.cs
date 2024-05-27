@@ -113,7 +113,11 @@ public class Chat : MonoBehaviour
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
  
-    public static Model model = Model.GPT3_5_Turbo;
+    public static Model model = Model.GPT3_5_Turbo_16K;
+    //public static Model model = Model.GPT3_5_Turbo;
+    //public static Model model = Model.GPT4;
+
+
 
     //--------------------------------------------------------------------
 
