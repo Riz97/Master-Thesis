@@ -90,12 +90,18 @@ public class Domain : MonoBehaviour
         yield return new WaitForSeconds(20);
 
         
-        if (Output_Text.text.ToString() == Wait_Message)
+        if (Output_Text.text.ToString() == Wait_Message && Chat.Number_of_Objects < 10)
         {
            
-            yield return new WaitForSeconds(40);
+            yield return new WaitForSeconds(25);
         }
-         
+
+        if (Output_Text.text.ToString() == Wait_Message && Chat.Number_of_Objects > 10)
+        {
+
+            yield return new WaitForSeconds(60);
+        }
+
 
         if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......" && Output_Text.text != Error)
         {

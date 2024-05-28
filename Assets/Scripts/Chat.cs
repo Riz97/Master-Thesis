@@ -590,13 +590,16 @@ public class Chat : MonoBehaviour
 
         // Error Handling : if the user does not ask for the correct number of models , an error is thrown
 
+      
+
         else if ((words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects)) 
         {
+            Debug.Log("qa");
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
             Generate_Script_Button.interactable = true;
             input = null; // in this way the execution is blocked
-
+            
             if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
         {
                 Info_Text.text = ("Error : you have to ask for the exactly amount of models requested  for this simulation");
@@ -604,10 +607,8 @@ public class Chat : MonoBehaviour
                 input = null; // in this way the execution is blocked
 
             }
-
+return;
         }
-
-        
 
 
         // Otherwise the user has asked for a model or environment which is not implemented yet
