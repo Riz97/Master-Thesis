@@ -139,27 +139,12 @@ public class Chat : MonoBehaviour
 
         //-----------------------INVISIBLE STRINGS HANDLER-----------------------
 
-        if (check)
-        {
 
-            input = First_Reminder + input;
-            input_aux = First_Reminder + input_aux;
-            
-            for (int i = 0; i < Reminders_List.Count; i++)
-            {
-
-                input = input + "," + Reminders_List[i];
-
-                input_aux = input_aux + "," + Reminders_List[i];
-                
-            }
-            check = false;
-        }
         //--------------------------------------------------------------------------
 
 
 
-
+       // Debug.Log(input);
       
 
 
@@ -177,7 +162,7 @@ public class Chat : MonoBehaviour
             };
 
             var api = new OpenAIClient();
-            var chatRequest = new ChatRequest(messages, Model.GPT3_5_Turbo);
+            var chatRequest = new ChatRequest(messages, model);
             result = await api.ChatEndpoint.GetCompletionAsync(chatRequest);
             //-----------------------------------------------------------------------
 
@@ -235,7 +220,10 @@ public class Chat : MonoBehaviour
 
             }
 
-              
+            else
+            {
+                return;
+            }
 
             
        }
@@ -284,6 +272,7 @@ public class Chat : MonoBehaviour
     
       
         input = InputField.text.ToString().ToLower();
+        Debug.Log(input);
         input_auxx = InputField.text.ToString();
 
 
@@ -504,12 +493,14 @@ public class Chat : MonoBehaviour
         // ------ FURNITURE -----------
 
 
-        else if (words_Furniture.Count() == Number_of_Objects)
+        else if (words_Furniture.Count() == Number_of_Objects && words_Furniture.Count()!=0)
         {
            
            createModels(Number_of_Objects);
 
             input = Input_Request(input, Number_of_Objects, words_Furniture , "Furniture",list_Directions);
+
+            Debug.Log("qua");
 
             Start();
 
@@ -519,12 +510,14 @@ public class Chat : MonoBehaviour
 
         // ------ CARS -----------
 
-        else if (words_Cars.Count() == Number_of_Objects)
+        else if (words_Cars.Count() == Number_of_Objects && words_Cars.Count() != 0)
         {
 
             createModels(Number_of_Objects);
 
             input = Input_Request(input, Number_of_Objects, words_Cars , "Cars", list_Directions);
+
+            Debug.Log("qui");
 
 
             Start();
@@ -534,7 +527,7 @@ public class Chat : MonoBehaviour
 
         // ------ NATURE -----------
 
-        else if (words_Nature.Count() == Number_of_Objects)
+        else if (words_Nature.Count() == Number_of_Objects && words_Nature.Count() != 0)
         {
 
             Debug.Log(Number_of_Objects);
@@ -550,11 +543,14 @@ public class Chat : MonoBehaviour
 
         // ------ CITY ----------
 
-        else if (words_City.Count() == Number_of_Objects) 
+        else if (words_City.Count() == Number_of_Objects && words_City.Count() != 0 ) 
         {
             createModels(Number_of_Objects);
 
             input = Input_Request(input, Number_of_Objects, words_City, "City",list_Directions);
+
+
+            
 
             Start();
 
@@ -565,7 +561,7 @@ public class Chat : MonoBehaviour
 
         // ------ INDUSTRIAL -----------
 
-        else if (words_Industrial.Count() == Number_of_Objects) 
+        else if (words_Industrial.Count() == Number_of_Objects && words_Industrial.Count() != 0) 
         {
             createModels(Number_of_Objects);
             input = Input_Request(input, Number_of_Objects, words_Industrial,"Industrial", list_Directions);
@@ -578,7 +574,7 @@ public class Chat : MonoBehaviour
         //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-        // Error Handling : if the user does not ask for the correct amount of models , an error is thrown
+        // Error Handling : if the user does not ask for the correct number of models , an error is thrown
 
         else if ((words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects)) 
         {
