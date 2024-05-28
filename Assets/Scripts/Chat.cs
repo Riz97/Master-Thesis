@@ -138,14 +138,29 @@ public class Chat : MonoBehaviour
         sceneName = SceneManager.GetActiveScene().name;
 
         //-----------------------INVISIBLE STRINGS HANDLER-----------------------
+        if (check)
+        {
 
+            input = First_Reminder + input;
+            input_aux = First_Reminder + input_aux;
+
+            for (int i = 0; i < Reminders_List.Count; i++)
+            {
+
+                input = input + "," + Reminders_List[i];
+
+                input_aux = input_aux + "," + Reminders_List[i];
+
+            }
+            check = false;
+        }
 
         //--------------------------------------------------------------------------
 
 
 
-       // Debug.Log(input);
-      
+        // Debug.Log(input);
+
 
 
         if (input != null && input != input_aux)
@@ -205,7 +220,7 @@ public class Chat : MonoBehaviour
 
                 if (sceneName == "VR_User_Scene" || sceneName == "User_Scene")
                 {
-                    Info_Text.text = ("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
+                    Info_Text.text = ("Sorry, the AI was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
                    
 
 
@@ -272,7 +287,6 @@ public class Chat : MonoBehaviour
     
       
         input = InputField.text.ToString().ToLower();
-        Debug.Log(input);
         input_auxx = InputField.text.ToString();
 
 
