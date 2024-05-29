@@ -1413,7 +1413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3351, y: -2.082803}
+  m_AnchoredPosition: {x: 5.3351, y: -2.2371075}
   m_SizeDelta: {x: -10.0387, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &207989659
@@ -7695,10 +7695,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Text: {fileID: 207989662}
   InputField: {fileID: 266598569}
-  Reminders_List: []
-  First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
-    NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING  Write a C# unity script with
-    libraries inclusion that '
+  Reminders_List:
+  - Renaming must be done before instantiate
+  First_Reminder: 'DO NOT USE AUXILIARY FUNCTIONS,IT IS MANDATORY TO WRITE ONLY C#
+    CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING 
+    Write a C# unity script with libraries inclusion that  IT IS MANDATORY TO WRITE
+    ONLY C# CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT THE BEGINNING OR
+    AT THE ENDING  Write a C# unity script with libraries inclusion that '
   Generate_Script_Button: {fileID: 1429030499}
   Output_Text: {fileID: 207989662}
   Info_Text: {fileID: 984823615}
