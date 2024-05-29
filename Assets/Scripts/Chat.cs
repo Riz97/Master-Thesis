@@ -20,6 +20,8 @@ using static System.Net.Mime.MediaTypeNames;
 using Unity.XR.Oculus.Input;
 using Button = UnityEngine.UI.Button;
 using Utilities.Extensions;
+using NUnit.Framework;
+using UnityEngine.Windows;
 
 
 
@@ -196,7 +198,7 @@ public class Chat : MonoBehaviour
             //If the algorithm run again , it means that the IA was not able to provide a correct script and so the counter is increased by 1
             tries++;
 
-            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) &&firstNonWhiteSpaceChar == 'u' && ContainsAny(result,All) && CheckContainsTwoStrings(result,All) && CheckIfWordContainedTwice(result,"Vector3"))
+            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) &&firstNonWhiteSpaceChar == 'u' && ContainsAny(result,All) && CheckContainsTwoStrings(result,All) && CheckIfWordContainedTwice(result,"Vector3",Number_of_Objects))
             {
              
                 
@@ -721,29 +723,27 @@ public class Chat : MonoBehaviour
 
     //Input Request function definition
     public string Input_Request(string input, int Number_of_Objects, List<string> list, string Material, List<string> list_Directions)
+
     {
-        
 
-        input = " the first thing to do must be find using the Find() method the  gameobjects  called ";
+        input = "the first thing to do must be find using the Find() method the gameobjects  called ";
 
-        input = Define_Models(Number_of_Objects, input) + " and  destroy them and YOU MUST  substitute them  with the gameobjects THAT YOU MUST   load  from the folder named " + Material +  " inside the folder  'Resources' called ";
+        input = Define_Models(Number_of_Objects, input) + "and  destroy them and YOU  MUST   substitute them , by using the same pattern of code for all the gameobjects,   with the gameobjects THAT YOU MUST   load  from the       11 folder named " + Material + " inside the folder  'Resources' called ";
 
         input = Enum_Objects(list, Number_of_Objects, input) + "You MUST RENAME THEM AS ";
 
-        input = Define_Models(Number_of_Objects, input) + " in the unity hierarchy MANDATORY";
-        
-
-        input = Define_Models_Coordinates(list,Number_of_Objects,input,list_Directions) + " and add just one collider per gameobject, find the gameobject named Plane and change its" +
-
-        " material with the material   called 'Material'THAT MUST BE LOADED inside the folder called " +  Material + "  which is inside the folder Resources," +
-
-        " using a method called Start , avoid any type of comments , you must write only code";
+        input = Define_Models(Number_of_Objects, input) + " in the unity hierarchy  MANDATORY at the e but only after you positioned them";
 
 
-        return input;
-    }
-    //It defines which object Name must be inserted in the input for CHATGPT
-    public  string Enum_Objects(List<string> objects, int Number_of_Objects, string input){
+        input = Define_Models_Coordinates(list, Number_of_Objects, input, list_Directions) + " , rename them  " +  Enum_Objects(list, Number_of_Objects, input) + "   add just one collider per gameobject, find the gameobject named Plane   and change its" + "material with the material   called 'Material'THAT MUST BE 23 LOADED inside the" +  Material + " folder which is inside the folder  Resources," +
+        "using a method called Start , avoid any type of comments , you must write only  code";
+
+
+       return input;
+  }
+
+//It defines which object Name must be inserted in the input for CHATGPT
+public string Enum_Objects(List<string> objects, int Number_of_Objects, string input){
         
         
 
@@ -909,13 +909,26 @@ public class Chat : MonoBehaviour
     }
 
 
-    static bool CheckIfWordContainedTwice(string inputString, string wordToCheck)
+    static bool CheckIfWordContainedTwice(string inputString, string word, int Number_of_obj)
     {
-        int firstOccurrence = inputString.IndexOf(wordToCheck);
-        int secondOccurrence = inputString.IndexOf(wordToCheck, firstOccurrence + 1);
+        int count = 0;
 
-        return firstOccurrence != -1 && secondOccurrence != -1;
+        for (int i = 0; i < inputString.Length - word.Length + 1; i++)
+        {
+            if (inputString.Substring(i, word.Length) == word)
+            {
+                count++;
+            }
+        }
+
+        if(count == Number_of_obj || count > Number_of_Objects)
+        {
+            return true;
+        }
+
+        return false;
     }
 
     //---------------------------------------------------------------------------------------------------------
 }
+
