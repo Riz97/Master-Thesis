@@ -46,7 +46,7 @@ public class Chat : MonoBehaviour
     public static int tries = 0;
  
 
-    List<string> Mandatory_Words = new List<string>() {"Find(\"M", "Instantiate", ".name" };
+    List<string> Mandatory_Words = new List<string>() {"Find(\"M", "Instantiate", ".name",  };
 
     List<string> Material_Words = new List<string>() {
            "\"" + "Furniture/Material"+ "\"" , 
@@ -74,6 +74,8 @@ public class Chat : MonoBehaviour
 
     List<string> City_Strings = new List<string>() {"City"};
     List<string> City_Models = new List<string>() {"Barrel" , "Bench" , "Bin" , "Dumpster" , "Hydrant", "Mailbox" , "Stoplight"};
+
+    List<string> All = new List<string>() { "Barrel\"", "Bench\"", "Bin\"", "Dumpster\"", "Hydrant\"", "Mailbox\"", "Stoplight\"", "Cable\"", "Garbage\"", "Pallet\"", "PalletCar\"", "Plank\"", "Tank\"", "Tube\"", "Oak\"", "Bush\"", "Mushroom\"", "Wood\"", "Stone\"", "Pine\"", "Flower\"", "Cops\"", "Sedan\"", "Sport\"", "Suv\"", "Taxi\"", "Sport\"", "Desk\"", "Chair\"", "Bed\"", "Table\"", "Drawer\"", "Shower\"", "Sink\"" };
 
     [SerializeField]
     public TMP_Text Text;
@@ -123,9 +125,9 @@ public class Chat : MonoBehaviour
 
     // Update is called once per frame
     async void Start()
-        
-    {
 
+    {
+        
 
 
 
@@ -165,10 +167,12 @@ public class Chat : MonoBehaviour
 
         if (input != null && input != input_aux)
         {
-            
-            //Time of execution Start
-            float start_time = Time.time; 
 
+           
+
+            //Time of execution Start
+            float start_time = Time.time;
+            string result_aux, result_auxx;
             //-----------------------OpenAI API Usage----------------------------------
 
             var messages = new List<Message>
@@ -178,16 +182,19 @@ public class Chat : MonoBehaviour
 
             var api = new OpenAIClient();
             var chatRequest = new ChatRequest(messages, model);
-            result = await api.ChatEndpoint.GetCompletionAsync(chatRequest);
+            result_aux = await api.ChatEndpoint.GetCompletionAsync(chatRequest);
+            result_auxx = result_aux.Replace("`", "");
+            result = result_auxx.Replace("C#","");
+            char firstNonWhiteSpaceChar = result.FirstOrDefault(c => !Char.IsWhiteSpace(c));
             //-----------------------------------------------------------------------
 
-        
+
             Debug.Log(result);
-            
+       
             //If the algorithm run again , it means that the IA was not able to provide a correct script and so the counter is increased by 1
             tries++;
 
-            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) && result[0] == 'u')
+            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) &&firstNonWhiteSpaceChar == 'u' && ContainsAny(result,All))
             {
              
                 
@@ -228,7 +235,7 @@ public class Chat : MonoBehaviour
 
                 //-------------------------------------------------------------------------------------
 
-                Text.SetText("Sorry, the IA was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
+                Text.SetText("Sorry, the AI was not able to generate a correct script. Wait! The IA is trying to generate another one :)");
                 
 
                 Start();
@@ -607,7 +614,7 @@ public class Chat : MonoBehaviour
                 input = null; // in this way the execution is blocked
 
             }
-return;
+            return;
         }
 
 
@@ -726,7 +733,7 @@ return;
 
         input = Define_Models_Coordinates(list,Number_of_Objects,input,list_Directions) + " and add just one collider per gameobject, find the gameobject named Plane and change its" +
 
-        " material with the material   called 'Material'THAT MUST BE LOADED inside the " +  Material + " folder which is inside the folder Resources," +
+        " material with the material   called 'Material'THAT MUST BE LOADED inside the folder called " +  Material + "  which is inside the folder Resources," +
 
         " using a method called Start , avoid any type of comments , you must write only code";
 

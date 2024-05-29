@@ -495,7 +495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GENERATE SCRIPT
+  m_text: CREATE THE ENVIRONMENT
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1246,7 +1246,6 @@ MonoBehaviour:
   First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
     NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING  Write a C# unity script with
     libraries inclusion that '
-  Number_of_Objects: 3
   Generate_Script_Button: {fileID: 1542641696}
   Output_Text: {fileID: 387264732}
   Info_Text: {fileID: 955833111}
