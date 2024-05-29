@@ -1243,9 +1243,10 @@ MonoBehaviour:
   InputField: {fileID: 1705133087}
   Reminders_List:
   - Remember all the libraries inclusion
-  First_Reminder: 'IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
-    NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING  Write a C# unity script with
-    libraries inclusion that '
+  - Renaming must be done before Instantiate
+  First_Reminder: 'DO NOT USE AUXILIARY FUNCTIONS,IT IS MANDATORY TO WRITE ONLY C#
+    CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING 
+    Write a C# unity script with libraries inclusion that '
   Generate_Script_Button: {fileID: 1542641696}
   Output_Text: {fileID: 387264732}
   Info_Text: {fileID: 955833111}

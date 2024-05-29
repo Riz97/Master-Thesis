@@ -77,6 +77,8 @@ public class Chat : MonoBehaviour
 
     List<string> All = new List<string>() { "Barrel\"", "Bench\"", "Bin\"", "Dumpster\"", "Hydrant\"", "Mailbox\"", "Stoplight\"", "Cable\"", "Garbage\"", "Pallet\"", "PalletCar\"", "Plank\"", "Tank\"", "Tube\"", "Oak\"", "Bush\"", "Mushroom\"", "Wood\"", "Stone\"", "Pine\"", "Flower\"", "Cops\"", "Sedan\"", "Sport\"", "Suv\"", "Taxi\"", "Sport\"", "Desk\"", "Chair\"", "Bed\"", "Table\"", "Drawer\"", "Shower\"", "Sink\"" };
 
+    List<string> Vectors = new List<string>() { "Vector3","Vector3" };
+
     [SerializeField]
     public TMP_Text Text;
 
@@ -115,8 +117,8 @@ public class Chat : MonoBehaviour
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
  
-    public static Model model = Model.GPT3_5_Turbo_16K;
-    //public static Model model = Model.GPT3_5_Turbo;
+    //public static Model model = Model.GPT3_5_Turbo_16K;
+    public static Model model = Model.GPT3_5_Turbo;
     //public static Model model = Model.GPT4;
 
 
@@ -194,7 +196,7 @@ public class Chat : MonoBehaviour
             //If the algorithm run again , it means that the IA was not able to provide a correct script and so the counter is increased by 1
             tries++;
 
-            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) &&firstNonWhiteSpaceChar == 'u' && ContainsAny(result,All))
+            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) &&firstNonWhiteSpaceChar == 'u' && ContainsAny(result,All) && CheckContainsTwoStrings(result,All) && CheckIfWordContainedTwice(result,"Vector3"))
             {
              
                 
@@ -887,7 +889,33 @@ public class Chat : MonoBehaviour
         return subSet;
     }
 
+    bool CheckContainsTwoStrings(string input, List<string> list)
+    {
+        int count = 0;
 
+        foreach (string word in list)
+        {
+            if (input.Contains(word))
+            {
+                count++;
+                if (count >= 2)
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
+
+
+    static bool CheckIfWordContainedTwice(string inputString, string wordToCheck)
+    {
+        int firstOccurrence = inputString.IndexOf(wordToCheck);
+        int secondOccurrence = inputString.IndexOf(wordToCheck, firstOccurrence + 1);
+
+        return firstOccurrence != -1 && secondOccurrence != -1;
+    }
 
     //---------------------------------------------------------------------------------------------------------
 }

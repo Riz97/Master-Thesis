@@ -847,11 +847,14 @@ MonoBehaviour:
   InputField: {fileID: 1921083187}
   Reminders_List:
   - 'Avoid the method FindGameObjectByTag '
-  - 'no comments, The first line must be code only not  human language '
-  First_Reminder: 'Remember the code you are going to create must be executed without
-    touching it, IT IS MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE
-    NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING and do not search the models
-    by tag,  Write a C# unity script with libraries inclusion that '
+  - Renaming must be done before the Instantiate
+  First_Reminder: 'DO NOT USE AUXILIARY FUNCTIONS,IT IS MANDATORY TO WRITE ONLY C#
+    CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING 
+    Write a C# unity script with libraries inclusion that Remember the code you are
+    going to create must be executed without touching it, IT IS MANDATORY TO WRITE
+    ONLY C# CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT THE BEGINNING OR
+    AT THE ENDING and do not search the models by tag,  Write a C# unity script with
+    libraries inclusion that '
   Generate_Script_Button: {fileID: 55758270}
   Output_Text: {fileID: 33634638}
   Info_Text: {fileID: 0}
