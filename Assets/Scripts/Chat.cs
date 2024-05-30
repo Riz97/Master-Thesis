@@ -81,7 +81,6 @@ public class Chat : MonoBehaviour
 
     List<string> All = new List<string>() { "Barrel\"", "Bench\"", "Bin\"", "Dumpster\"", "Hydrant\"", "Mailbox\"", "Stoplight\"", "Cable\"", "Garbage\"", "Pallet\"", "PalletCar\"", "Plank\"", "Tank\"", "Tube\"", "Oak\"", "Bush\"", "Mushroom\"", "Wood\"", "Stone\"", "Pine\"", "Flower\"", "Cops\"", "Sedan\"", "Sport\"", "Suv\"", "Taxi\"", "Sport\"", "Desk\"", "Chair\"", "Bed\"", "Table\"", "Drawer\"", "Shower\"", "Sink\"" };
 
-    List<string> Vectors = new List<string>() { "Vector3","Vector3" };
 
     [SerializeField]
     public TMP_Text Text;
@@ -121,8 +120,8 @@ public class Chat : MonoBehaviour
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
  
-    //public static Model model = Model.GPT3_5_Turbo_16K;
-    public static Model model = Model.GPT3_5_Turbo;
+    public static Model model = Model.GPT3_5_Turbo_16K;
+    //public static Model model = Model.GPT3_5_Turbo;
     //public static Model model = Model.GPT4;
 
 
