@@ -34,6 +34,8 @@ public class Chat : MonoBehaviour
     private string input ;
     public static string input_aux;
     public static string input_auxx;
+    public static string input_auxx3;
+
     public static bool Bases = false;
     public static bool Custom = false;
     private bool check = false;
@@ -48,7 +50,7 @@ public class Chat : MonoBehaviour
     public static int tries = 0;
  
 
-    List<string> Mandatory_Words = new List<string>() {"Find(\"M", "Instantiate", ".name",  };
+    List<string> Mandatory_Words = new List<string>() {"Find(", "Instantiate", ".name",  };
 
     List<string> Material_Words = new List<string>() {
            "\"" + "Furniture/Material"+ "\"" , 
@@ -119,8 +121,8 @@ public class Chat : MonoBehaviour
     //-------------------- OPEN AI CLIENT INFO ------------------------
 
  
-    //public static Model model = Model.GPT3_5_Turbo_16K;
-    public static Model model = Model.GPT3_5_Turbo;
+    public static Model model = Model.GPT3_5_Turbo_16K;
+    //public static Model model = Model.GPT3_5_Turbo;
     //public static Model model = Model.GPT4;
 
 
@@ -172,11 +174,11 @@ public class Chat : MonoBehaviour
         if (input != null && input != input_aux)
         {
 
-           
+
 
             //Time of execution Start
             float start_time = Time.time;
-            string result_aux, result_auxx;
+            string result_aux, result_auxx, result_auxxx;
             //-----------------------OpenAI API Usage----------------------------------
 
             var messages = new List<Message>
@@ -188,17 +190,17 @@ public class Chat : MonoBehaviour
             var chatRequest = new ChatRequest(messages, model);
             result_aux = await api.ChatEndpoint.GetCompletionAsync(chatRequest);
             result_auxx = result_aux.Replace("`", "");
-            result = result_auxx.Replace("C#","");
+            result = result_auxx.Replace("C#", "");
             char firstNonWhiteSpaceChar = result.FirstOrDefault(c => !Char.IsWhiteSpace(c));
             //-----------------------------------------------------------------------
 
 
             Debug.Log(result);
-       
+
             //If the algorithm run again , it means that the IA was not able to provide a correct script and so the counter is increased by 1
             tries++;
 
-            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) &&firstNonWhiteSpaceChar == 'u' && ContainsAny(result,All) && CheckContainsTwoStrings(result,All) && CheckIfWordContainedTwice(result,"Vector3",Number_of_Objects))
+            if (ContainsAll(result, Mandatory_Words) && ContainsAny(result, Material_Words) && (firstNonWhiteSpaceChar == 'u')  && ContainsAny(result,All) && CheckContainsTwoStrings(result,All) && CheckIfWordContainedTwice(result,"Vector3",Number_of_Objects))
             {
              
                 
@@ -926,7 +928,13 @@ public string Enum_Objects(List<string> objects, int Number_of_Objects, string i
             return true;
         }
 
+        if(count < Number_of_Objects)
+        {
+            return false;
+        }
+
         return false;
+      
     }
 
     //---------------------------------------------------------------------------------------------------------

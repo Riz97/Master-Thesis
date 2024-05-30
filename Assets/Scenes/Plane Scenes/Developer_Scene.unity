@@ -848,13 +848,15 @@ MonoBehaviour:
   Reminders_List:
   - 'Avoid the method FindGameObjectByTag '
   - Renaming must be done before the Instantiate
-  First_Reminder: 'DO NOT USE AUXILIARY FUNCTIONS,IT IS MANDATORY TO WRITE ONLY C#
-    CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT THE BEGINNING OR AT THE ENDING 
-    Write a C# unity script with libraries inclusion that Remember the code you are
-    going to create must be executed without touching it, IT IS MANDATORY TO WRITE
-    ONLY C# CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT THE BEGINNING OR
-    AT THE ENDING and do not search the models by tag,  Write a C# unity script with
-    libraries inclusion that '
+  - Do not say anthing about the result , I WANT ONLY CODE , ONLY C# CODE
+  First_Reminder: 'DO NOT WRITE "Here''s the Unity script" or sentences like that
+    at the beginning of the output. DO NOT USE AUXILIARY FUNCTIONS,IT IS MANDATORY
+    TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT THE BEGINNING
+    OR AT THE ENDING  Write a C# unity script with libraries inclusion that Remember
+    the code you are going to create must be executed without touching it, IT IS
+    MANDATORY TO WRITE ONLY C# CODE NOT ANY OTHER COMMENT PLEASE NO APOSTROPHES AT
+    THE BEGINNING OR AT THE ENDING and do not search the models by tag,  Write a
+    C# unity script with libraries inclusion that '
   Generate_Script_Button: {fileID: 55758270}
   Output_Text: {fileID: 33634638}
   Info_Text: {fileID: 0}
