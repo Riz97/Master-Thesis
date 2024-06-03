@@ -91,14 +91,14 @@ public class Domain : MonoBehaviour
 
         if ((Output_Text.text.ToString() == Wait_Message || Output_Text.text.ToString() == Computing_Message) && Chat.Number_of_Objects > 10)
         {
-            Debug.Log("qua errore");
-            yield return new WaitForSeconds(210);
+      
+            yield return new WaitForSeconds(180);
         }
 
         else if ((Output_Text.text.ToString() == Wait_Message || Output_Text.text.ToString() == Computing_Message) && Chat.Number_of_Objects <= 10)
         {
-            Debug.Log("Ecoomi");
-            yield return new WaitForSeconds(150);
+      
+            yield return new WaitForSeconds(90);
         }
 
         if (Output_Text.text.ToString() != Welcome_Message && Output_Text.text.ToString() != Error_Message && Output_Text.text.ToString() != Wait_Message && Output_Text.text != "Executing......" && Output_Text.text != Error && Output_Text.text != Computing_Message)
@@ -108,7 +108,7 @@ public class Domain : MonoBehaviour
 
             yield return new WaitForSeconds(20);
 
-            Debug.Log("Eseguo");
+       
 
             // Create domain
             domain = ScriptDomain.CreateDomain("Example Domain");
@@ -149,7 +149,7 @@ public class Domain : MonoBehaviour
                 Chat.Custom = true;
 
             }
-//Script executed , the button now interactable
+        //Script executed , the button now interactable
         Generate_Script_Button.interactable = true;
 
         }

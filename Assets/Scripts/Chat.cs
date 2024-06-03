@@ -526,7 +526,6 @@ public class Chat : MonoBehaviour
 
             input = Input_Request(input, Number_of_Objects, words_Furniture , "Furniture",list_Directions);
 
-            Debug.Log("qua");
 
             Start();
 
@@ -543,7 +542,7 @@ public class Chat : MonoBehaviour
 
             input = Input_Request(input, Number_of_Objects, words_Cars , "Cars", list_Directions);
 
-            Debug.Log("qui");
+     
 
 
             Start();
@@ -556,7 +555,7 @@ public class Chat : MonoBehaviour
         else if (words_Nature.Count() == Number_of_Objects && words_Nature.Count() != 0)
         {
 
-            Debug.Log(Number_of_Objects);
+            
 
             createModels(Number_of_Objects);
 
@@ -606,7 +605,6 @@ public class Chat : MonoBehaviour
 
         else if ((words_City.Count() != Number_of_Objects || words_Cars.Count() != Number_of_Objects || words_Industrial.Count() != Number_of_Objects  || words_Nature.Count() != Number_of_Objects  || words_Furniture.Count() != Number_of_Objects)) 
         {
-            Debug.Log("qa");
             Text.color = new Color(255, 0, 0);
             Text.SetText("Error : you have to ask for the exactly amount of models requested  for this simulation");
             Generate_Script_Button.interactable = true;
