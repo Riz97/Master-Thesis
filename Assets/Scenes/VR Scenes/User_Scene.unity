@@ -1413,7 +1413,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 5.3351, y: -2.2371075}
+  m_AnchoredPosition: {x: 5.3351, y: -2.5620584}
   m_SizeDelta: {x: -10.0387, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &207989659
@@ -4131,7 +4131,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: " <color=green>Pre-Built Environment </color>:  City\n\n\n<color=yellow>
     Available Models </color>:  \n\n1) Barrel\n2) Bench\n3) Bin\n4) Dumpster\n5)
-    Hydrant\n6)Mailbox\n7)Stoplight"
+    Hydrant\n6) Mailbox\n7) Stoplight"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4634,7 +4634,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: " <color=green>Pre-Built Environment </color> : Office - Apartment\n\n
     <color=yellow>Available Models </color>\n\n1) Bed\n2) Chair\n3) Table\n4) Drawer\n5)
-    Desk\n6)Shower\n7)Sink"
+    Desk\n6) Shower\n7) Sink"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8099,7 +8099,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: " <color=green>Pre-Built Environment </color>:  Nature - Forest\n\n<color=yellow>Available
-    Models </color> : \n\n1) Wood\n2) Rock\n3) Oak\n4) Mushroom\n5) Flower\n6)Bush\n7)Pine"
+    Models </color> : \n\n1) Wood\n2) Stone\n3) Oak\n4) Mushroom\n5) Flower\n6) Bush\n7)
+    Pine"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
