@@ -74,12 +74,12 @@ public class Chat : MonoBehaviour
     List<string> Nature_Models = new List<string>() { "Oak", "Bush", "Mushroom", "Wood", "Stone" , "Pine", "Flower"};
 
     List<string> Industrial_Strings = new List<string>() {"Industry","Industrial"};
-    List<string> Industrial_Models = new List<string>() {"Cable","Garbage","Pallet", "PalletCar" , "Plank", "Tank" , "Tube"};
+    List<string> Industrial_Models = new List<string>() {"Cable","Garbage","Pallet", "Car" , "Plank", "Tank" , "Tubes"};
 
     List<string> City_Strings = new List<string>() {"City"};
     List<string> City_Models = new List<string>() {"Barrel" , "Bench" , "Bin" , "Dumpster" , "Hydrant", "Mailbox" , "Stoplight"};
 
-    List<string> All = new List<string>() { "Barrel\"", "Bench\"", "Bin\"", "Dumpster\"", "Hydrant\"", "Mailbox\"", "Stoplight\"", "Cable\"", "Garbage\"", "Pallet\"", "PalletCar\"", "Plank\"", "Tank\"", "Tube\"", "Oak\"", "Bush\"", "Mushroom\"", "Wood\"", "Stone\"", "Pine\"", "Flower\"", "Cops\"", "Sedan\"", "Sport\"", "Suv\"", "Taxi\"", "Sport\"", "Desk\"", "Chair\"", "Bed\"", "Table\"", "Drawer\"", "Shower\"", "Sink\"" };
+    List<string> All = new List<string>() { "Barrel\"", "Bench\"", "Bin\"", "Dumpster\"", "Hydrant\"", "Mailbox\"", "Stoplight\"", "Cable\"", "Garbage\"", "Pallet\"", "Car\"", "Plank\"", "Tank\"", "Tubes\"", "Oak\"", "Bush\"", "Mushroom\"", "Wood\"", "Stone\"", "Pine\"", "Flower\"", "Cops\"", "Sedan\"", "Sport\"", "Suv\"", "Taxi\"", "Sport\"", "Desk\"", "Chair\"", "Bed\"", "Table\"", "Drawer\"", "Shower\"", "Sink\"" };
 
 
     [SerializeField]
